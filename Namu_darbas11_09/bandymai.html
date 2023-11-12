@@ -47,14 +47,16 @@
         .left {
             background-color: rgb(237, 237, 237);
             width: 50%;
-            height: 100%;
-
+            height: 819px;
         }
 
         .right {
             background-color: rgb(220, 219, 220);
             width: 50%;
             height: 100%;
+        }
+        .getintouch {
+            margin: 40px 20px 40px 40px;
         }
         @media screen and (max-width: 768px) {
             .contact-inner {
@@ -63,6 +65,7 @@
             .left,
             .right {
                 width: 100%;
+                height: 912px;
             }
         }
         label {
@@ -72,6 +75,7 @@
         input {
             width: 100%;
             border: 1px solid rgb(202, 202, 202);
+            
         }
 
         /* Filtracija pagal atributą */
@@ -87,14 +91,26 @@
         .flex {
             display: flex;
         }
-
+map {
+    width: 638px;
+    height: 819px;
+    flex-shrink: 0;
+    margin: 51px 92px 42px 710px;
+}
     </style>
 </head>
 <body>
     <div class="contact">
         <div class="contact-inner">
             <div class="left">
-                <form>
+                <div class="getintouch" style="width": 545px; left: 98px; top: 61px; position: top-left;>
+                    <span style="color: black; font-size: 46px; font-family: Montserrat; font-weight: 600; line-height: 24px; letter-spacing: 0.46px; word-wrap: break-word">Get in </span>
+                    <span style="color: #6DE1C2; font-size: 46px; font-family: Montserrat; font-weight: 600; line-height: 24px; letter-spacing: 0.46px; word-wrap: break-word">touch</span>
+                    <span style="color: black; font-size: 46px; font-family: Montserrat; font-weight: 600; line-height: 24px; letter-spacing: 0.46px; word-wrap: break-word"> </span>
+                </div>
+                <!-- čia border turi būti <p> ir margins-->
+                <p style="color: black; font-size: 14px; font-family: Montserrat;">Enim tempor eget pharetra facilisis sed maecenas adipiscing. Eu leo molestie vel, ornare non id blandit netus.</p>
+                <form style="margin: 0px 20px 0px 20px">
                     <label></label>
                     <input type="text" placeholder="Contact Name" required>
                     <label></label>
@@ -105,10 +121,8 @@
                     <input type="text" placeholder="Postcode" required>
                     <label></label>
                     <input type=text placeholder="Contact Phone" required>
-                    
                     <label></label>
                     <input type="text" placeholder="Let's talk about Your idea" required>
-
                     <label>attach file</label>
                     <input type="file">
                     <h3></h3>
@@ -116,17 +130,14 @@
                         <input type="checkbox" id="newsletter">
                         <label for="newsletter">I want to protect my data by signing on NDA</label>
                     </div>
-                    <button>SUBMIT</button>
-                    <div style="width: 545px; left: 98px; top: 61px; position: absolute">
-                        <span style="color: black; font-size: 46px; font-family: Montserrat; font-weight: 600; line-height: 24px; letter-spacing: 0.46px; word-wrap: break-word">Get in </span>
-                        <span style="color: #6DE1C2; font-size: 46px; font-family: Montserrat; font-weight: 600; line-height: 24px; letter-spacing: 0.46px; word-wrap: break-word">touch</span>
-                        <span style="color: black; font-size: 46px; font-family: Montserrat; font-weight: 600; line-height: 24px; letter-spacing: 0.46px; word-wrap: break-word"> </span></div>
-
+                    <!-- submit box button mėlynas -->
+                    <button style="color: #6DE1C2 ;">SUBMIT</button>
             </div>
-            <div class="right">
-                <img src="Slice 3 (1) 1.png">
-            </div>
+        <div img="map">
+            <img src="Slice 3 (1) 1.png" >
         </div>
+        </div>
+        <!-- truksta ikons left bottom ir map headquarters-->
     </div>
     
     </form>
