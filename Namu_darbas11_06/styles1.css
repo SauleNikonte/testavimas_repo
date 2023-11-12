@@ -1,11 +1,12 @@
-#invoice {
+.invoice {
     font-size: 30px;
     color: gray;
 }
 body {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    width: 800px;
     text-align: left;
     margin: 10%;
+    font-family: Roboto;
 }
 table {
     width: 100%;
@@ -30,12 +31,20 @@ img {
     vertical-align: center;
     
 }
+
 .ins {
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid rgb(156, 156, 156);
     font-weight: bold;
 }
 #text {
+    text-align: left;
+}
+.date {
+    font-weight: bolder;
     text-align: center;
+}
+.bill {
+
 }
 #monitor {
     border-collapse: collapse;
@@ -45,14 +54,15 @@ img {
     border: 1px solid rgb(105, 198, 241);
 }
 #monitor th {
-    background-color: blue;
+    background-color: rgb(61, 120, 216);
     color: white;
 }
-#monitor tr:nth-child(even) {
-    background-color: #a7a292;
+#monitor tr:nth-child(odd) {
+    background-color: rgb(243, 243, 243);
   }
 #subtotal {
         border: 1px solid rgb(105, 198, 241);
-        background-color: rgb(125, 125, 235);
-        color: white;
+        background-color: rgb(207, 226, 241);
+        color: rgb(1, 1, 1);
+        font-weight: bold;
       }

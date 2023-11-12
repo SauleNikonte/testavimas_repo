@@ -5,21 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Invoice</title>
     <link href="styles1.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
     
     <table>
         <tr>
-            <td id="invoice"> INVOICE </td>
+            <td class="invoice"> INVOICE </td>
             <td></td>
             <td></td>
             <td> <img src="https://png.pngtree.com/png-clipart/20210311/original/pngtree-brush-circle-creative-brush-effect-png-image_6020152.jpg"> </td>
         </tr>
         <tr>
-            <td>COMPANY NAME</td>
+            <td>Your Company Name</td>
             <td></td>
             <td></td>
-            <td class="ins" id="text"> 2023-06-16</td>
+            <td class="date"> 2023-06-16<hr></td>
         </tr>
         <tr>
             <td>123 Street Address</td>
@@ -31,7 +32,7 @@
             <td>City, State, Zip/Post Code</td>
             <td></td>
             <td></td>
-            <td class="ins" id="text"> 20230616</td>
+            <td class="date"> 20230616<hr></td>
         </tr>
         <tr>
             <td>Phone number</td>
@@ -45,36 +46,38 @@
             <td></td>
             <td></td>
         </tr>
-        <tr>
-            <td class="ins" id="text">BILL TO</td>
-            <td></td>
-            <td></td>
-            <td class="ins" id="text"> SHIPP TO</td>
-        </tr>
-        <tr>
-            <td>Contact Name</td>
-            <td></td>
-            <td></td>
-            <td>Name / Dep</td>
-        </tr>
-        <tr>
-            <td>Clients Company Name</td>
-            <td></td>
-            <td></td>
-            <td>Clients Company Name</td>
-        </tr>
-        <tr>
-            <td>Address</td>
-            <td></td>
-            <td></td>
-            <td>Address</td>
-        </tr>
-        <tr>
-            <td>Phone number</td>
-            <td></td>
-            <td></td>
-            <td>Phone number</td>
-        </tr>
+        <table class="bill">
+            <tr>
+                <td class="ins" id="text">BILL TO</td>
+                <td></td>
+                <td></td>
+                <td class="ins" id="text"> SHIPP TO</td>
+            </tr>
+            <tr>
+                <td>Contact Name</td>
+                <td></td>
+                <td></td>
+                <td>Name / Dep</td>
+            </tr>
+            <tr>
+                <td>Clients Company Name</td>
+                <td></td>
+                <td></td>
+                <td>Clients Company Name</td>
+            </tr>
+            <tr>
+                <td>Address</td>
+                <td></td>
+                <td></td>
+                <td>Address</td>
+            </tr>
+            <tr>
+                <td>Phone number</td>
+                <td></td>
+                <td></td>
+                <td>Phone number</td>
+            </tr>
+        </table>
         <table id="monitor">
             <tr id="monitor tr">
               <th id="monitor th">DESCRIPTION</th>
@@ -119,7 +122,7 @@
               <td>0.00</td>
             </tr>
           </table>
-          <table>
+          <table class="subtolal">
           <tr>
             <td></td>
             <td></td>
@@ -132,10 +135,10 @@
             <td>DISCOUNT</td>
             <td class="ins" id="text">0.00</td>
         </tr>
-        <tr>
+        <tr class="subtotal">
             <td></td>
             <td></td>
-            <td>Balance Due</td>
+            <td style="font-weight: bold;">Balance Due</td>
             <td id="subtotal">€1,009.00</td>
         </tr>
     </table>
