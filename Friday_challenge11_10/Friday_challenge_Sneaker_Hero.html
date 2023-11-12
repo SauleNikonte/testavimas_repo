@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width= device-width, initial-scale=1.0">
+    <title>Sneaker Hero Selection</title>
+    <style>
+        .cover {
+            display: flex;
+            width: 1920px;
+            height: 1080px;
+            padding: 130px 240px;
+            justify-content: center;
+            align-items: center;
+            background: #C174C3;
+         }
+         .sneaker_hero_section {
+            width: 1440px;
+            height: 820px;
+            flex-shrink: 0;
+            background: #FFF;
+            box-shadow: 0px 4px 24px 0px rgba(0, 0, 0, 0.30);
+         }
+         .header {
+            display: inline-flex;
+            padding: 24px 180px;
+            align-items: center;
+            gap: 149px;
+         }
+         .hero_section {
+            width: 1440px;
+            height: 820px;
+            flex-shrink: 0;
+         }
+         .bg {
+            width: 1440px;
+            height: 820px;
+            flex-shrink: 0;
+            background: var(--shade-background, #F9F9F9);
+         }
+         .shoes_block {
+            width: 813.582px;
+            height: 653.461px;
+            flex-shrink: 0;
+         }
+         .nykenair {
+            font-family: Sofia Pro;
+            font-size: 150px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 119.6px; /* 79.733% */
+            letter-spacing: -8.25px;
+            text-transform: uppercase;
+            opacity: 0.1;
+         }
+         .shoe_shadow {
+            width: 610.974px;
+            height: 11.634px;
+            transform: rotate(-1.437deg);
+            flex-shrink: 0;
+            border-radius: 610.974px;
+            opacity: 0.35;
+            background: linear-gradient(90deg, #111 1.55%, rgba(17, 17, 17, 0.00) 118.57%);
+            filter: blur(2px);
+         }
+         .mask_group {
+            width: 707.48px;
+            height: 463.132px;
+            transform: rotate(-17.395deg);
+            flex-shrink: 0;
+         }
+         .mask {
+            width: 707.48px;
+            height: 463.132px;
+            transform: rotate(-17.395deg);
+            flex-shrink: 0;
+            fill: var(--primary-dark, #111);
+            stroke-width: 1px;
+            stroke: #000;
+         }
+         .nike {
+            width: 623.008px;
+            height: 400.674px;
+            transform: rotate(-17.395deg);
+            flex-shrink: 0;
+            background: url('Nike.png'), lightgray -75.646px -253.085px / 121.311% 188.627% no-repeat;
+         }
+         .arrow {
+            width: 1280px;
+            height: 22px;
+            flex-shrink: 0;
+        }
+            .right {
+                width: 22px;
+                height: 42px;
+                transform: rotate(90deg);
+                flex-shrink: 0;
+
+                fill: var(--icon-drak, #111);
+            }
+            .left {
+                width: 22px;
+                height: 42px;
+                transform: rotate(90deg);
+                flex-shrink: 0;
+
+                fill: var(--neutral-medium, #999);
+            }
+         .left_text {
+            width: 365px;
+            height: 308px;
+            flex-shrink: 0;
+         }
+         .CTA {
+            display: inline-flex;
+            padding: 12px 32px;
+            /* justify-content: center; */
+            /* align-items: center; */
+            gap: 8px;
+
+            border-radius: 4px;
+            border: 1px solid var(--primary-dark, #111);
+         }
+         .good_shoes {
+            color: var(--neutral-dark, #111);
+            font-family: Sofia Pro;
+            font-size: 56px;
+            font-style: normal;
+            font-weight: 900;
+            line-height: 64px; /* 114.286% */
+            letter-spacing: -2.24px;
+            text-transform: uppercase;
+         }
+         .sneaker_collection {
+            color: var(--neutral-dark, #111);
+            text-align: center;
+
+            /* Link/L2 - 17/Medium */
+            font-family: Jost;
+            font-size: 17px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 24px; /* 141.176% */
+         }
+         .pagiantion {
+            width: 85px;
+            height: 20px;
+            flex-shrink: 0;
+         }
+      
+    </style>
+</head>
+<body>
+    <div class="cover">
+        <div class="sneaker_hero_section">
+            <div class="hero_section"></div>
+                <div class="bg"></div>
+                <div class="shoes_block">
+                    <div class="nykenair">NYKEN AIR</div>
+                    <div class="shoe_shadow"></div>
+                    <div class="mask_group">
+                        <div class="mask"></div>
+                        <div class="nike"></div>
+                    </div>
+                </div>
+                <div class="arrow">
+                    <div clas="right"><svg xmlns="http://www.w3.org/2000/svg" width="42" height="22" viewBox="0 0 42 22" fill="none">
+                        <path d="M0 11C0 11.5067 0.383797 11.9167 0.857166 11.9167L39.0747 11.9167L31.1091 20.4352C30.9417 20.6143 30.858 20.8488 30.858 21.0833C30.858 21.3179 30.9417 21.5524 31.1091 21.7314C31.4439 22.0895 31.9863 22.0895 32.3212 21.7314L41.7493 11.6489C41.8286 11.5642 41.8915 11.4628 41.9351 11.3502C42.0217 11.1262 42.0216 10.8738 41.935 10.6498C41.8915 10.5372 41.8286 10.4358 41.7493 10.3511L32.3212 0.268558C31.9863 -0.0895194 31.4439 -0.0895194 31.1091 0.268558C30.7743 0.626635 30.7743 1.20671 31.1091 1.56478L39.0747 10.0833L0.857166 10.0833C0.383797 10.0833 0 10.4933 0 11Z" fill="#111111"/>
+                      </svg></div>
+                    <div class="left"><svg xmlns="http://www.w3.org/2000/svg" width="42" height="22" viewBox="0 0 42 22" fill="none">
+                        <path d="M42 11C42 10.4933 41.6162 10.0833 41.1429 10.0833L2.92634 10.0833L10.8917 1.56478C11.2266 1.2067 11.2266 0.626623 10.8917 0.268555C10.5569 -0.0895136 10.0145 -0.0895228 9.67969 0.268555L0.251846 10.3511C0.172485 10.4358 0.109653 10.5372 0.0661278 10.6498C0.0228081 10.7618 0 10.8807 0 11C0 11.1193 0.0227585 11.2382 0.0660782 11.3502C0.109653 11.4627 0.172493 11.5642 0.251854 11.6489L9.6797 21.7314C10.0145 22.0895 10.5569 22.0895 10.8917 21.7314C11.2266 21.3734 11.2266 20.7933 10.8917 20.4352L2.92634 11.9167L41.1429 11.9167C41.6162 11.9167 42 11.5067 42 11Z" fill="#999999"/>
+                      </svg></div>
+                </div>
+                <div class="left_text">
+                    <div class="CTA">
+                        <div class="button">Shop Now</div>
+                    </div>
+                    <div class="good_shoes">Good shoes take you good places</div>
+                    <div class="sneaker_collection">Sneaker Collection</div>
+                </div>
+                <div class="pagiantion"><svg xmlns="http://www.w3.org/2000/svg" width="85" height="20" viewBox="0 0 85 20" fill="none">
+                    <circle cx="10" cy="10" r="9.5" stroke="#111111"/>
+                    <circle cx="10" cy="10" r="3" fill="#111111"/>
+                    <circle cx="46" cy="10" r="3" fill="#111111"/>
+                    <circle cx="82" cy="10" r="3" fill="#111111"/>
+                  </svg></div>
+            <div class="header">
+                <div class="logo">Sneaker<p>.</p></div>
+                <div class="menu"></div>
+                <div class="icons"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
