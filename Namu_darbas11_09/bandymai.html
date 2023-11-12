@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact form</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: url(Design_Contact\ Us.png)no-repeat center center / cover;
+        }
+        .contact {
+            position: relative;
+            background-color: white;
+            max-width: 1440px;
+            width: 100%;
+            margin: 100px auto;
+            border-radius: 40px;
+            padding: 30px 50px;
+            overflow: hidden;
+
+            /* aukstis laikina savybe*/
+            height: 912px;
+        }
+        .contact::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: #6DE1C2;
+            height: 100%;
+            width: 419px ;
+            border-top-right-radius: 40px;
+            border-bottom-right-radius: 40px;
+        }
+        .contact-inner {
+            height:550px ;
+            display: flex;
+            position: relative;
+            z-index: 1;
+
+        }
+        .left {
+            background-color: rgb(237, 237, 237);
+            width: 50%;
+            height: 100%;
+
+        }
+
+        .right {
+            background-color: rgb(220, 219, 220);
+            width: 50%;
+            height: 100%;
+        }
+        @media screen and (max-width: 768px) {
+            .contact-inner {
+                flex-direction: column;
+            }
+            .left,
+            .right {
+                width: 100%;
+            }
+        }
+        label {
+            display: block;
+        }
+        
+        input {
+            width: 100%;
+            border: 1px solid rgb(202, 202, 202);
+        }
+
+        /* Filtracija pagal atributą */
+        input[type="radio"],
+        input[type="checkbox"] {
+            width: auto;
+        }
+
+        select {
+            width: 100%;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="contact">
+        <div class="contact-inner">
+            <div class="left">
+                <form>
+                    <label></label>
+                    <input type="text" placeholder="Contact Name" required>
+                    <label></label>
+                    <input type="text" placeholder="Street" required>
+                    <label></label>
+                    <input type=text placeholder="City" required>
+                    <label></label>
+                    <input type="text" placeholder="Postcode" required>
+                    <label></label>
+                    <input type=text placeholder="Contact Phone" required>
+                    
+                    <label></label>
+                    <input type="text" placeholder="Let's talk about Your idea" required>
+
+                    <label>attach file</label>
+                    <input type="file">
+                    <h3></h3>
+                    <div class="flex">
+                        <input type="checkbox" id="newsletter">
+                        <label for="newsletter">I want to protect my data by signing on NDA</label>
+                    </div>
+                    <button>SUBMIT</button>
+                    <div style="width: 545px; left: 98px; top: 61px; position: absolute">
+                        <span style="color: black; font-size: 46px; font-family: Montserrat; font-weight: 600; line-height: 24px; letter-spacing: 0.46px; word-wrap: break-word">Get in </span>
+                        <span style="color: #6DE1C2; font-size: 46px; font-family: Montserrat; font-weight: 600; line-height: 24px; letter-spacing: 0.46px; word-wrap: break-word">touch</span>
+                        <span style="color: black; font-size: 46px; font-family: Montserrat; font-weight: 600; line-height: 24px; letter-spacing: 0.46px; word-wrap: break-word"> </span></div>
+
+            </div>
+            <div class="right">
+                <img src="Slice 3 (1) 1.png">
+            </div>
+        </div>
+    </div>
+    
+    </form>
+
+</body>
+</html>
