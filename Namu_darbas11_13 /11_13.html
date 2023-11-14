@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forgot Password</title>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <style>
          *{
             box-sizing: border-box;
@@ -12,7 +12,7 @@
         body {
             width: 100%;
             background: white, center center;
-            font-family: "Open Sans" ;
+            font-family: 'Open Sans' ;
             font-size: 12px;
             margin: 0;
         }
@@ -23,20 +23,16 @@
             width: 100%;
             margin: 0;
             padding: 0;
-            overflow: hidden;
-
-            /* aukstis laikina savybe*/
-            height: 100%;
+          /*  overflow: hidden; */
         }
-        .inner {
+        .grid-container-element {
             height:100% ;
-            display: flex;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             position: relative;
-            z-index: 1;
-
         }
         .left {
-            display: flex;
+            display: flex;  
             width: 500px;
             padding: 0;
             justify-content: center;
@@ -56,16 +52,15 @@
         .box {
             width: 340px;
             height: 231px;
+            position: center;
             display: flex;
             flex-direction: column;
             align-items: left;
             gap: 10px;
-            padding:0 0 0 100px
         }
         .h1 {
             color: #1F2937;
             text-align: center;
-            font-family: "Open Sans" ;
             font-size: 14px;
             font-style: normal;
             font-weight: 700;
@@ -74,15 +69,13 @@
         .p {
             color: #6B7280;
             text-align: center;
-            font-family: "Open Sans";
             font-size: 16px;
             font-style: normal;
             font-weight: 400;
-            line-height: 24px; /* 150% */
         }
-        .box .file-upload {
-            width: 256px;
-            height: 104px;
+        .file-upload {
+            width: 310px;
+            height: 48px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -91,31 +84,36 @@
             gap: 15px;
             margin-top: 10px;
         }
+        .upload-icon {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
         .submit-button {
             width: 340px;
             height: 48px;
             display: flex;
             align-items: flex-start;
-            gap: 0 12px;
             align-self: stretch;
         }
-
         .box2 {
             display: flex;
+            align-items: center;
             position: relative;
             z-index: 1;
-
-
+            gap: 0 12px; /* bet tada ir gale pasidaro gap, jei dedu 0 0 0 12px tai nieko */
         }
         .box2 .icon {
+            width: 48px;
+            height: 48px;
             display: flex;
-            padding: 12px;
             justify-content: center;
             align-items: center;
             border-radius: 6px;
             background: #F3F4F6;
-            gap: 0 12px 0 0
-
+             /* gap: 0 12px 0 0; */ 
         }
         .box2 .button {
             width: 256px;
@@ -130,7 +128,6 @@
         .under-button-caption {
             color: #6B7280;
             text-align: center;
-            font-family: "Open Sans";
             font-size: 12px;
             font-style: normal;
             font-weight: 600;
@@ -138,21 +135,18 @@
         }
         .under-button-caption .span {
             color: #6D58BA;
-            font-family: "Open Sans";
             font-size: 12px;
             font-style: normal;
             font-weight: 600;
             line-height: 26px; /* 185.714% */
         }
-
-
     </style>
 </head>
 <body>
     <div class="login">
-        <div class="inner">
-            <div class="left"><img src="left.png"></img></div>
-            <div class="right">
+        <div class="grid-container-element">
+            <div class="grid-child-element left"><img src="left.png"></img></div>
+            <div class="grid-child-element right">
                 <div class="box">
                     <h1>Forgot Password</h1>
                     <p class="desktop">Enter Username, Email or Phone Number</p>
