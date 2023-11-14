@@ -4,14 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact form</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        *{
+        * {
             box-sizing: border-box;
         }
-
         body {
             margin: 0;
-            background: url(Design_Contact\ Us.png)no-repeat center center / cover;
+            background: url(Design_Contact\ Us.png) no-repeat center center;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            padding:0 15px;
         }
         .contact {
             position: relative;
@@ -20,11 +25,8 @@
             width: 100%;
             margin: 100px auto;
             border-radius: 40px;
-            padding: 30px 50px;
+            padding: 50px 95px 40px;
             overflow: hidden;
-
-            /* aukstis laikina savybe*/
-            height: 912px;
         }
         .contact::after {
             content: "";
@@ -34,113 +36,271 @@
             background-color: #6DE1C2;
             height: 100%;
             width: 419px ;
-            border-top-right-radius: 40px;
-            border-bottom-right-radius: 40px;
         }
-        .contact-inner {
-            height:550px ;
+        .contact h1 {
+            color: black ;
+            font-family: 'Monserrat', sans-serif;
+            font-size: 46px;
+            margin: 0 ;
+        }
+       .contact h1 span {
+            color: #6DE1C2;
+        }
+        .contact p.desktop {
+            line-height: 24px;
+            margin: 10px 0 20px;
+        }
+        .contact p.mobile {
+            display:none;
+        }
+        .contact .contact-inner {
             display: flex;
             position: relative;
             z-index: 1;
-
         }
-        .left {
-            background-color: rgb(237, 237, 237);
-            width: 50%;
-            height: 819px;
+        .contact .left {
+            width: 49%;
+            padding-right: 65px ;
         }
-
-        .right {
-            background-color: rgb(220, 219, 220);
-            width: 50%;
-            height: 100%;
+        .contact .right {
+            width: 51%;
         }
-        .getintouch {
-            margin: 40px 20px 40px 40px;
+        /* cia tasko skirtumas, bet vistiek nera gerai. su tasku didesnis bet be atirtaukimo */
+        .contact .right iframe {
+            width: 100%;
+            height: 100% ;
         }
-        @media screen and (max-width: 768px) {
-            .contact-inner {
-                flex-direction: column;
-            }
-            .left,
-            .right {
-                width: 100%;
-                height: 912px;
-            }
+        /* jei pakeičiu pagal pavyzdį tai išsivaikšto viskas
+        .contact input[type="text"]
+        .contact input[type="tel"]
+        .contact input[type="email"] */ 
+        .contact input {
+            width: 100%;
+            border: none;
+            border-bottom: 1px solid #737B7D;
+            padding: 15px 15px;
+            font-size: 16px;
+            margin-bottom: 12px;
         }
-        label {
+        .contact .input-group {
+            display: flex;
+            gap: 20px;
+        }
+        .contact .file-upload {
+            height: 104px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px dashed #8E8E8E;
+            color:#8E8E8E;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        .contact .file-upload-caption {
+            color: #8E8E8E;
+            font-size: 13px;
+            line-height: 160%;
+            margin-top: 7px;
+        }
+        .contact .agreement {
+            display: flex;
+            align-items: left;
+            color: #383C3E;
+            margin: 25px 0 20px;
+        }
+        #agree {
+            width: 19px;
+        }
+        .contact .agreement input{
+        margin-left: 0;
+        }
+        .contact .button {
+            width: 100%;
+            background: #0982FE;
+            color: white;
+            text-align: center;
+            padding: 19px 0;
+            font-weight: bold;
+            text-transform: uppercase;
+            border: none;
+            border-radius: 10px;
+        }
+        .contact-details {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .contact-details .box {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        .contact-details .box img {
             display: block;
         }
-        
-        input {
-            width: 100%;
-            border: 1px solid rgb(202, 202, 202);
-            
+        .contact-details .value a,
+        .contact-details .value {
+            color: #DD5471;
+        }
+        .width-30 {
+            width: 30%;
+        }
+        .width-70{
+            width: 70%
+        }
+        @media screen and (max-width: 1440px) {
+            .contact {
+                padding: 30px;
+            }
+
+            .contact .contact-details {
+                flex-direction: column;
+            }
         }
 
-        /* Filtracija pagal atributą */
-        input[type="radio"],
-        input[type="checkbox"] {
-            width: auto;
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 0;
+            }
+            .contact {
+                margin: 0;
+                border-radius: 0;
+                padding: 15px 15px 0;
+            }
+
+            .contact::after {
+                width: 6px;
+            }
+
+            .contact h1 {
+                font-size: 32px;
+                text-align: center;
+            }
+
+            .contact-inner {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .contact .left,
+            .contact .right {
+                width: 100%;
+                padding: 0;
+            }
+
+            .contact .right iframe {
+                height: 415px;
+            }
+
+            .contact .submit-button,
+            .contact .agreement,
+            .contact .contact-details {
+                padding: 0 33px;
+            }
+
+            .contact p.mobile {
+                display: block;
+                font-size: 24px;
+                text-align: center;
+                margin: 15px 0 0;
+            }
+
+            .contact p.desktop {
+                display: none;
+            }
         }
 
-        select {
-            width: 100%;
-        }
 
-        .flex {
-            display: flex;
-        }
-map {
-    width: 638px;
-    height: 819px;
-    flex-shrink: 0;
-    margin: 51px 92px 42px 710px;
-}
+
     </style>
 </head>
 <body>
     <div class="contact">
         <div class="contact-inner">
             <div class="left">
-                <div class="getintouch" style="width": 545px; left: 98px; top: 61px; position: top-left;>
-                    <span style="color: black; font-size: 46px; font-family: Montserrat; font-weight: 600; line-height: 24px; letter-spacing: 0.46px; word-wrap: break-word">Get in </span>
-                    <span style="color: #6DE1C2; font-size: 46px; font-family: Montserrat; font-weight: 600; line-height: 24px; letter-spacing: 0.46px; word-wrap: break-word">touch</span>
-                    <span style="color: black; font-size: 46px; font-family: Montserrat; font-weight: 600; line-height: 24px; letter-spacing: 0.46px; word-wrap: break-word"> </span>
-                </div>
-                <!-- čia border turi būti <p> ir margins-->
-                <p style="color: black; font-size: 14px; font-family: Montserrat;">Enim tempor eget pharetra facilisis sed maecenas adipiscing. Eu leo molestie vel, ornare non id blandit netus.</p>
-                <form style="margin: 0px 20px 0px 20px">
-                    <label></label>
-                    <input type="text" placeholder="Contact Name" required>
-                    <label></label>
-                    <input type="text" placeholder="Street" required>
-                    <label></label>
-                    <input type=text placeholder="City" required>
-                    <label></label>
-                    <input type="text" placeholder="Postcode" required>
-                    <label></label>
-                    <input type=text placeholder="Contact Phone" required>
-                    <label></label>
-                    <input type="text" placeholder="Let's talk about Your idea" required>
-                    <label>attach file</label>
-                    <input type="file">
-                    <h3></h3>
-                    <div class="flex">
-                        <input type="checkbox" id="newsletter">
-                        <label for="newsletter">I want to protect my data by signing on NDA</label>
+                <h1> Get in <span>touch</span></h1>
+                <p class="desktop">Enim tempor eget pharetra facilisis sed maecenas adipiscing. Eu leo molestie vel, ornare non id blandit netus.</p>
+                <p class="mobile">Lorem ipsum dolor sit amet consectetur.</p>
+                <form>
+                    <div class="input">
+                        <input type="text" placeholder="Contact Name">
                     </div>
-                    <!-- submit box button mėlynas -->
-                    <button style="color: #6DE1C2 ;">SUBMIT</button>
-            </div>
-        <div img="map">
-            <img src="Slice 3 (1) 1.png" >
-        </div>
-        </div>
-        <!-- truksta ikons left bottom ir map headquarters-->
-    </div>
-    
-    </form>
+                    <div class="input">
+                        <input type="text" placeholder="Street">
+                    </div>
+                    <div class="input-group">
+                        <div class="input width-70">
+                            <input type="text" placeholder="City">
+                        </div>
+                        <div class="input width-30">
+                            <input type="text" placeholder="Postcode">
+                        </div>
+                    </div>
+                    <div class="input">
+                        <input type="tel" placeholder="Contact Phone">
+                    </div>
+                    <div class="input">
+                        <input type="email" placeholder="E-mail">
+                    </div>
+                    <div class="input">
+                        <input type="text" placeholder="Let's talk about Your idea" >
+                    </div>
 
+                    <div class="file-upload">
+                        <span class="upload-icon">
+                            <img src="icons/upload.svg"/>
+                        </span>
+                        <span>Upload Additional File </span>
+                    </div>
+                    <div class="file-upload-caption">Attach file. File size of your documents should not exceed 10MB</div>
+                    <div class="agreement">
+                        <input id="agree" type="checkbox">
+                        <label for="agree">I want to protect my data by signing on NDA</label>
+                    </div>
+                    <button class="button">SUBMIT</button>
+                </form>
+                <div class="contact-details">
+                    <div class="box">
+                        <div class="icon">
+                            <img src="icons/Frame 831.svg"/>
+                        </div>
+                        <div class="text">
+                            <div class="label">
+                                <strong>Phone</strong>
+                            </div>
+                            <div class="value">111 111 111</div>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="icon">
+                            <img src="icons/Frame 833.svg"/>
+                        </div>
+                        <div class="text">
+                            <div class="label">
+                                <strong>E-MAIL</strong>
+                            </div>
+                            <div class="value">info@company.com</div>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="icon">
+                            <img src="icons/Frame 833.svg"/>
+                        </div>
+                        <div class="text">
+                            <div class="label">
+                                <strong>HELPDESK</strong>
+                            </div>
+                            <div class="value">
+                                <a href="#">http://helpdesk.com</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d144529.2181590071!2d25.113889!3d55.527683!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46e7e93037844cfb%3A0x5b6c24c0751e57e6!2zQW55a8WhxI1pYWksIEFueWvFocSNaWFpIERpc3RyaWN0IE11bmljaXBhbGl0eQ!5e0!3m2!1sen!2slt!4v1699967571035!5m2!1sen!2slt" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
