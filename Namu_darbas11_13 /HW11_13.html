@@ -153,39 +153,31 @@
     }
 
     /* responsiveness*/
-    @media screen and (max-width: 1366pxx) {
 
+    @media screen and (max-width: 1366px) {
         .contact .contact-details {
+            display: flex;
             flex-direction: column;
             }
         }
-
-    @media screen and (max-width: 765px) {
-        body {
-            display: column;
-        }
+    @media screen and (max-width: 768px) {
     .login {
         display: flex;
-        max-width: 1366px;
-        width: 100%;
-        height: 768px;
+        flex-direction: column;
+        width: 768;
         margin:0; 
         
     }
     /*kaire*/
     .left {
-        width: 40%;
-        margin: 0;
+        width: 768px;
+        margin-bottom: 30px;
     }
     .background {
         background-image: url(icons/top.png);
-       
         background-repeat: no-repeat;
-        width: 100%;
+        width: 768px;
         height: 129px;
-        position: relative;
-        text-align: center;
-        color: white;
         margin: 0;
     }
     .logtext {
@@ -193,10 +185,11 @@
     }
     /* desine*/
     .right {
-        width: 60%;
+        width:768px;
         display: flex;
+        flex-direction: column;
         align-items: center;
-        flex: 0 0 0;
+        margin-left: -20%;
         }
     .box {
         width: 100%;
@@ -211,7 +204,7 @@
     .txt {
         width: 100%;
         height: 49px ;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
     }
     .password {
         color: #1F2937;
@@ -219,7 +212,7 @@
         font-style: bold;
         font-weight: 700;
         line-height: normal;
-        margin-bottom: -4%;
+        margin-bottom: 10px;
     }
     .desktop {
         color: #6B7280;
@@ -227,18 +220,8 @@
         font-weight: 400;
         line-height: 24px;
     }
-    .file-upload {
-        width: 310px;
-        height: 48px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border: 1px dashed #8E8E8E;
-        color: #8E8E8E;
-        gap: 15px;
-        margin-top: 10px;
-    }
-    }    
+   
+    }   
     </style>
 </head>
 <body>
