@@ -6,116 +6,25 @@
     <title>Forgot Password</title>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <style>
-         *{
+        *{
             box-sizing: border-box;
         }
         body {
-            width: 100%;
-            background: white, center center;
+            background: white;
             font-family: 'Open Sans' ;
-            font-size: 12px;
+            font-size: 14px;
             margin: 0;
         }
         .login {
             position: relative;
-            background-color: white;
-            max-width: 1440px;
+            max-width: 1366px;
             width: 100%;
-            display: block;
-            margin: 0;
-            padding: 0;
-          /*  overflow: hidden; */
-        }
-        .grid-container-element {
-            height:100% ;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            position: relative;
-        }
-        .left {
-            display: flex;  
-            width: 500px;
-            padding: 0;
-            justify-content: center;
-            align-items: center;
-            flex-shrink: 0;
-            align-self: stretch;
-        }
-        .right {
-            width: 863px;
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex: 0 0 0;
-            align-self: stretch;
-        }
-        .box {
-            width: 340px;
-            height: 231px;
-            position: center;
-            display: flex;
-            flex-direction: column;
-            align-items: left;
-            gap: 10px;
-        }
-        .h1 {
-            color: #1F2937;
-            text-align: center;
-            font-size: 14px;
-            font-style: normal;
-            font-weight: 700;
-            line-height: normal;
-        }
-        .p {
-            color: #6B7280;
-            text-align: center;
-            font-size: 16px;
-            font-style: normal;
-            font-weight: 400;
-        }
-        .file-upload {
-            width: 310px;
-            height: 48px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border: 1px dashed #8E8E8E;
-            color: #8E8E8E;
-            gap: 15px;
-            margin-top: 10px;
-        }
-        .upload-icon {
-            width: 24px;
-            height: 24px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .submit-button {
-            width: 340px;
-            height: 48px;
-            display: flex;
-            align-items: flex-start;
-            align-self: stretch;
-        }
-        .box2 {
             display: flex;
             align-items: center;
-            position: relative;
-            z-index: 1;
-            gap: 0 12px; /* bet tada ir gale pasidaro gap, jei dedu 0 0 0 12px tai nieko */
         }
-        .box2 .icon {
-            width: 48px;
-            height: 48px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 6px;
-            background: #F3F4F6;
-             /* gap: 0 12px 0 0; */ 
-        }
+        
+
+        
         .box2 .button {
             width: 256px;
             height: 48px;
@@ -146,21 +55,27 @@
 <body>
     <div class="login">
         <div class="grid-container-element">
-            <div class="grid-child-element left"><img src="left.png"></img></div>
+            <div class="grid-child-element left">
+                <div class="image"><img src="icons and pictures/19f74bd464326c89ba412ff16fe9e63e.jpeg"/>
+                <div clas="logo"></div><img src="icons and pictures/pixelonium-logo.svg"/></div>
+                <p>We are an experience maker , we help you to have a better experience in visual communication</p>
+                </div>
             <div class="grid-child-element right">
                 <div class="box">
-                    <h1>Forgot Password</h1>
-                    <p class="desktop">Enter Username, Email or Phone Number</p>
-                    <div class="file-upload">
-                        <div class="upload-icon">
-                            <img src="at-symbol.svg"/>
-                        </div>
+                    <div class="text">
+                        <h1>Forgot Password</h1>
+                        <p class="desktop">Enter Username, Email or Phone Number</p>
+                    </div>
+                    <div class="enter-username">
+                        <span class="upload-icon">
+                            <img src="icons and pictures/at-symbol.svg"/>
+                        </span>
                         <span>Username, Email or Phone Number</span>
                     </div>
                     <div class="submit-button">
                         <div class="box2">
                             <div class="icon">
-                                <img src="Arrow left.svg">
+                                <img src="icons and pictures/Arrow left.svg">
                             </div>
                             <div class="text">
                                 <div class="button">
