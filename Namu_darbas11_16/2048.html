@@ -11,56 +11,74 @@
     }
     h1 {
         color: #776e65;
+    }
+    .empty {
+        background-color: #cdc1b4;
+    }
+    .two {
+        background-color: #eee4da;
 
     }
-    .col-3{
-        border-color: #bbada0;
+    .four {
+        background-color: #eee1c9;
+
     }
+    .eight {
+        background-color: #f3b37a;
+    }
+    .thirtytwo {
+
+    }
+    
+   .cell{
+    width: 100px;
+    height: 100px;
+   }
 </style>
 </head>
 
 <body>
     <header class="">
-        <div class="container d-flex justify-content-between">
-                <h1 class="col-9 display-1 ">2048</h1>
-                <box class="col-1 text-center mt-3" style="width: 120px; height:80px;  background-color:#bbada0; color: #ffffff">
+        <div class="container d-flex justify-content-between mt-5">
+                <h1 class="col-8 display-1 me"><strong>2048</strong></h1>
+                <box class="col-1 text-center mt-3" style="width: 135px; height:80px; background-color:#bbada0; color: #ffffff">
                     <p>SCORE</p>
                     <h3>2628</h3>
                 </box>
-                <box class="col-1 text-center mt-3"  style="width: 120px; height:80px; background-color:#bbada0; color: #ffffff">
+                <box class="col-1 text-center mt-3 ms-2"  style="width: 135px; height:80px; background-color:#bbada0; color: #ffffff">
                     <p>BEST</p>
                     <h3>8712</h3>
                 </box>
             </div>
             <div class="container d-flex justify-content-center pt-4">
-                <p class="col-10">Join the tiles, get to <span>2048!<br><u>How to play -></u></span></p>
-                <box class="col-1 text-center fs-4 fw-semibold pt-2" style="width: 180px; height:60px; background-color:#8f7a66; color: #f9f4e9">NEW GAME</box>
+                <p class="col-10 ">Join the tiles, get to <strong>2048!<br><u>How to play -></u></strong></p>
+                <box class="col-1 text-center fs-4 fw-semibold pt-2" style="width: 180px; height:50px; background-color:#8f7a66; color: #f9f4e9">NEW GAME</box>
             </div>
-        <div class="container style=" style= "background-color: #cdc1b4;" >
-            <table class="col-8" >
-                <div class="row">
-                    <div class="col-3 border border-5">0</div>
-                    <div class="col-3 ">4</div>
-                    <div class="col-3 ">8</div>
-                    <div class="col-3 ">4</div>
+        <div class="container mt-5" style="background-color: #bbada0;" >
+            <table class="col-6 " >
+                <div class="row p-2">
+                    <div class="cell empty col-3 ">0</div>
+                    <div class="cell four col-3 ">4</div>
+                    <div class="cell eight col-3 ">8</div>
+                    <div class="cell four col-3 ">4</div>
                 </div>
-                <div class="row">
-                    <div class="col-3 ">0</div>
-                    <div class="col-3 ">2</div>
-                    <div class="col-3 ">32</div>
-                    <div class="col-3 ">8</div>
+                <div class="row p-2">
+                    <div class="cell empty col-3 ">0</div>
+                    <div class="cell two col-3 ">2</div>
+                    <div class="cell thirtytwo col-3 ">32</div>
+                    <div class="cell eight 8 col-3 ">8</div>
                 </div>
-                <div class="row">
-                    <div class="col-3 ">0</div>
-                    <div class="col-3 ">0</div>
-                    <div class="col-3 ">0</div>
-                    <div class="col-3 ">128</div>
+                <div class="row p-2">
+                    <div class="cell empty col-3 ">0</div>
+                    <div class="cell empty col-3 ">0</div>
+                    <div class="cell empty col-3 ">0</div>
+                    <div class="cell 128 col-3 ">128</div>
                 </div>
-                <div class="row">
-                    <div class="col-3 ">0</div>
-                    <div class="col-3 ">0</div>
-                    <div class="col-3 ">2</div>
-                    <div class="col-3 ">256</div>
+                <div class="row p-2">
+                    <div class="cell empty col-3 ">0</div>
+                    <div class="cell empty col-3 ">0</div>
+                    <div class="cell two col-3 ">2</div>
+                    <div class="cell 256 col-3 ">256</div>
                 </div>
             </table>
         </div>
