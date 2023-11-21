@@ -1,18 +1,18 @@
  @font-face {
     font-family: "CircularSTD";
-    src: url('./fonts/circularstd-book-webfont.woff') format('woff');
+    src: url(./fonts/circularstd-book-webfont.woff) format('woff');
     font-weight: 300;
 }
 
 @font-face {
     font-family: "CircularSTD";
-    src: url('./fonts/circularstd-bold-webfont.woff') format('woff');
+    src: url(./fonts/circularstd-bold-webfont.woff) format('woff');
     font-weight: 600;
 }
 
 @font-face {
     font-family: "CircularSTD";
-    src: url('./fonts/circularstd-black-webfont.woff') format('woff');
+    src: url(./fonts/circularstd-black-webfont.woff) format('woff');
     font-weight: 800;
 }
 
@@ -35,6 +35,7 @@ header {
 
 nav.navbar {
     font-size: 14px;
+    display: none;
 }
 
 nav.navbar a {
@@ -115,12 +116,45 @@ nav.navbar li.active a {
     gap: .5rem;
 }
 
-.btn-outline-primary::before {
+.btn-outline-primary::after {
     content: "";
     background: url(./icons/play-circle.5\ 1.svg) no-repeat center center;
     width: 24px;
     height: 24px;
     display: block;
 }
+.hamburger {
+    border: none;
+    width: 48px;
+    height: 49px;
+    background: url(./icons/burger.svg) no-repeat center center;
+}
 
+@media screen and (min-width: 992px ) {
+    nav.navbar {
+        display:block;
+    }
+}
+@media screen and (max-width: 992px ){
+    nav.navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: white;
+        padding: 1rem;
+        z-index: 1000;
+        height: 100vh;
+        width: 280px;
+
+    }
+    nav.navbar::after {
+        content: "";
+        position: fixed;
+        top: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.3);
+        width: calc(100vw - 280px);
+        height: 100vh;
+    }
+}
 
