@@ -5,116 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Travlog Landing Page</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
-    <style>
-          @font-face {
-            font-family: "CircularSTD";
-            src: url('assets/fonts/circularstd-book-webfont.woff') format('woff');
-            font-weight: 300;
-        }
-
-        @font-face {
-            font-family: "CircularSTD";
-            src: url('assets/fonts/circularstd-bold-webfont.woff') format('woff');
-            font-weight: 600;
-        }
-
-        @font-face {
-            font-family: "CircularSTD";
-            src: url('assets/fonts/circularstd-black-webfont.woff') format('woff');
-            font-weight: 800;
-        }
-
-        :root {
-            --bs-border-radius: 1.5rem;
-        }
-        body {
-            font-family: "CircularSTD";
-        }
-        header {
-            padding: 2.25rem 0;
-        }
-        nav.navbar {
-            font-size: 14px;
-        }
-        nav.navbar a {
-            color: #19182588;
-            text-decoration: none;
-            font-weight: 600;
-        }
-        nav.navbar li.active a {
-            color: #222831;
-        }
-        .btn {
-            --bs-btn-padding-y: .9rem;
-            --bs-btn-padding-x: 2rem;
-            font-weight: 600;
-        }
-        .btn-primary {
-            --bs-btn-bg: #5D50C6;
-            --bs-btn-hover-bg: #5245b0;
-            border: none;
-            font-weight: 600;
-            font-size: 14px;
-            color: #EEEEEE;
-        }
-        .btn-shadow {
-            box-shadow: 0 15px 15px 0 #00000012;
-            --bs-btn-color: #F85E9F;
-            font-size: 14px;
-            display: inline-flex;
-            gap: 10px;
-            align-items: center;
-        }
-        .btn-shadow::after {
-            content: "";
-            background: url('assets/icons/1.svg');
-            width: 24px;
-            height: 24px;
-            display: block;
-        }
-        .btn-outline-secondary{
-            display: inline-flex;
-            font-size: 13px;
-            font-weight: 600;
-            border-color: #4b50554a;
-
-        }
-        .home h2 {
-            font-size: 69px;
-            font-weight: 600;
-            line-height: 120%;
-        }
-        .home h2 span {
-            color: #F85E9F;
-        }
-        .home p {
-            font-family: Inter;
-            font-size: 17px;
-            color: #19182580;
-        }
-
-
-    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="assets/style.css" rel="stylesheet">
 </head>
 <body>
     <header>
         <header>
-            <div class="container d-flex justify-content-between align-items-center">
+            <div class="container-lg d-flex justify-content-between align-items-center flex-row-reverse flex-md-row">
                 <div class="logo">
-                    <img src="assets/logos/Frame 1.svg" alt="Travlog" />
+                    <img src="assets/logos/Frame 1.svg" alt="Travlog"/>
                 </div>
+                <input type="checkbox" id="nav-toggler" name="nav-toggler" class="d-none"/>
                 <nav class="navbar navbar-expand">
-                    <ul class="navbar-nav gap-5">
+                    <label class="close-offcanvas fs-1 possition absolute top-0 d-lg-none" for="nav-toggler" style="right:1rem">
+                        <i class="bi bi-x"></i>
+                    </label>
+                    <ul class="navbar-nav flex-column flex-lg-row  gap-lg-5 gap-4">
                         <li class="active"><a href="#">Home</a></li>
-                        <li class="active"><a href="#">Discover</a></li>
-                        <li class="active"><a href="#">Special Deals</a></li>
-                        <li class="active"><a href="#">Contact</a></li>
+                        <li ><a href="#">Discover</a></li>
+                        <li ><a href="#">Special Deals</a></li>
+                        <li ><a href="#">Contact</a></li>
                     </ul>
                 </nav>
-                <ul class="navbar-nav flex-row">
+                <ul class="navbar-nav flex-row d-none d-md-flex">
                     <li><a href="#" class="btn btn-empty">Log in</a></li>
                     <li><a href="#" class="btn btn-primary">Sign Up</a></li>
                 </ul>
@@ -127,19 +40,30 @@
                 <div class="row">
                     <div class="col-4 pt-5">
                         <div class="link">
-                            <a href="#" class="btn btn-shadow ">Explore the world!<img src="assets/icons/work 1.svg" alt="Work"/></a>
+                            <a href="#" class="btn btn-shadow ">Explore the world!</a>
                         </div>
                         <h2 class="mt-5">Travel <span>top destination</span> of the world</h2>
                         <p class="mt-5">We always make our customer happy by providing as many choices as possible </p>
                         <div class="buttons mt-5">
                             <a href="#" class="btn btn-primary">Get Started</a>
-                            <a href="#" class="btn btn-outline-secondary "><img src="assets/icons/play-circle.5 1.svg" alt="Work"/> Watch Demo</a>
+                            <a href="#" class="btn btn-outline-primary "> Watch Demo</a>
                         </div>
                     </div>
                     <div class="col-8">
                         <img src="assets/pics/Home.png" alt="Home" />
                     </div>
                 </div>
+            </div>
+        </section>
+        <section class="logos">
+            <div class="container">
+                <ul class="logos gap-5">
+                    <li class="tripadvisor"><img src="assets/logos/Group.svg" alt="Tripadvisor" /></li>
+                    <li class="active"><img src="assets/logos/Group 2.svg" alt="Expedia" /></li>
+                    <li class="active"><img src="assets/logos/Group3.svg" alt="Booking" /></li>
+                    <li class="active"><img src="assets/logos/Group 9235.png" alt="Airbnb" /></li>
+                    <li class="active"><img src="assets/logos/Group 4.svg" alt="Orbitz" /></li>
+                </ul>
             </div>
         </section>
     </main>
