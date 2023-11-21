@@ -136,22 +136,33 @@ nav.navbar li.active a {
     nav.navbar {
         position: fixed;
         top: 0;
-        left: 0;
+        left: -280px;
+        font-size: 18px;
         background: white;
         padding: 1rem;
         z-index: 1000;
         height: 100vh;
         width: 280px;
+        border-right: 1px solid rgb(170, 170, 170);
+        transition: left .5s ease-in-out;
 
     }
     nav.navbar::after {
         content: "";
         position: fixed;
         top: 0;
-        right: 0;
+        left: -100vw;
         background-color: rgba(0, 0, 0, 0.3);
         width: calc(100vw - 280px);
         height: 100vh;
+        transition: left .5s ease-in-out;
+    }
+    input[name="nav-toggler"]:checked + nav {
+        display: block ;
+        left: 0;
+    }
+    input[name="nav-toggler"]:checked + nav::after {
+        left: 280px;
     }
 }
 
