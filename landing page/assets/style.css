@@ -154,13 +154,47 @@ section.home .decoration::before {
     font-size: 23px;
     font-weight: bold;
     letter-spacing: 5px;
-
 }
 .section-heading h2 {
     font-size: 44px;
     font-weight: bold;
-    letter-spacing: 5px;
+    line-height: 120%;
     margin: 1rem 0 0 ;
+}
+.service{
+    height: 100%;
+    transition: all .5s ease-in-out;
+    border: 1px solid rgb(25, 24, 27)
+}
+.service:hover {
+    box-shadow:0 0 25px 0 rgb(0, 0, 0.1);
+    border: none;
+}
+.service h3 {
+    font-weight: 600px;
+    font-size: 28px;
+
+}
+.service p {
+    color:#19182584;
+    font-family: 'Inter' ;
+    font-size: 18px ;
+
+}
+.destination h3{
+font-size: 23px;
+font-weight: bold;
+}
+.destination .price {
+
+}
+.destination .location {
+
+}
+.destination.rating {
+
+}
+.destination.rating::after {
 
 }
 
@@ -212,7 +246,7 @@ section.home .decoration::before {
 }
 @media screen and (min-width: 1400px) {
     .p-custom {
-        padding-left: 98px;
+        padding-left: 144px;
     }
     
 }
