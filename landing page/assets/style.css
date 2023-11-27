@@ -167,7 +167,7 @@ section.home .decoration::before {
     border: 1px solid rgb(25, 24, 27, .1)
 }
 .service:hover {
-    box-shadow:0 0 25px 0 rgba(0, 0, 0.1);
+    box-shadow:0 0 25px 0px rgba(0, 0, 0.1);
     border-color: white;
 }
 .service h3 {
@@ -181,7 +181,7 @@ section.home .decoration::before {
 }
 .destination {
     background-color: white;
-    box-shadow: 0 0 25px 0 rgba(0, 0, 0, .1);
+    box-shadow: 0 0 25px 0px rgba(0, 0, 0, .1);
 }
 
 .destination h3{ 
@@ -201,7 +201,7 @@ section.home .decoration::before {
     margin-top: .5rem;
 
 }
-.destination.rating {
+.destination .rating {
     color: #FF5722;
     font-size: 23px;
     font-weight: bold;
@@ -211,9 +211,9 @@ section.home .decoration::before {
     gap: 8px;
 
 }
-.destination.rating::after {
+.destination .rating::after {
     content: "";
-    background: url( /assets/icons/star\ 2.svg) no-repeat center center;
+    background: url( /assets/icons/star\ orange.svg) no-repeat center center;
     width: 24px;
     height: 24px;
     display: block;
@@ -243,10 +243,10 @@ section.home .decoration::before {
     border-color: #5D50C6;
 }
  .arrows a:hover svg {
-    fill: white
+    fill: white;
  }
  .travel p{
-    color: rgba (25, 24, 37, 0.50);
+    color: rgba(25, 24, 37, 0.50);
     font-family: 'Inter';
     font-size: 18px;
     margin: 1.5rem 0 4rem;
@@ -256,8 +256,15 @@ section.home .decoration::before {
     text-align: center;
     border-radius: 25px;
     padding: 2rem 0;
-
  }
+
+ .feature h3{
+    color: #FF5722;
+    font-size: 35px;
+    font-weight: bold;
+    margin: 0 0 .7rem;
+ }
+
  .feature span{
     color:#191825;
     font-family: 'Inter';
@@ -269,15 +276,94 @@ section.home .decoration::before {
     position: relative;
  }
  .travel .image::before {
-content: "";
-background-color: #facd49;
-display: block;
-height: 550px;
-width: 1000%;
-position: absolute;
-top: 129px;
-left: -1000%;
+    content: "";
+    background-color: #facd49;
+    display: block;
+    height: 550px;
+    width: 1000%;
+    position: absolute;
+    top: 129px;
+    left: -1000%;
  }
+ --------
+
+ .keyrow {
+  width: 549px;
+
+ }
+ .key h3 {
+    font-family: 'CircularSTD';
+    font-weight: bold;
+    font-size: 23px;
+ }
+ .key p{
+    color:#1918257f;
+    font-family: 'Inter';
+    font-size: 18px;
+ }
+.newsletter .container-lg {
+    background-color: #face491c;
+    width: 1184px;
+    height: 608px;
+}
+.newsletter h2{
+    font-size: 55px;
+    font-weight: bold;
+    color: #191825 ;
+}
+.email {
+    font-size: 23px;
+}
+-----------------
+ footer {
+    padding-bottom: 2rem;
+ }
+ footer p {
+    color: rgba(25, 24, 37, .5);
+    font-size: 23px;
+    margin: 2rem 0 3rem;
+ }
+ footer .social ul {
+    display: flex;
+    gap: 2rem;
+ }
+footer .social a{
+    background-color: #5D50C6;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+footer .social a svg{
+fill: white;
+}
+footer .social ul > li:nth-child(1) a svg {
+    transform: scale(.8);
+}
+footer .footer-links li,
+footer .footer-links a {
+    font-size: 18px;
+    font-family: 'Inter';
+    color: #191825c7;
+    text-decoration: none;
+
+}
+footer .footer-links li {
+    padding: .8rem 0;
+}
+footer .footer-links a:hover {
+    text-decoration: underline;
+}
+footer h3 {
+    font-weight: bold;
+    font-size: 23px;
+}
+
+-----------------
+
+
 
 @media screen and (min-width: 992px ) {
     nav.navbar {
@@ -327,15 +413,24 @@ left: -1000%;
 }
 @media screen and (min-width: 1400px) {
     .p-custom {
-        padding-left: 144px;
+        padding-left: 100px;
+    }
+    .container-lg {
+        max-width: 1184px;
     }
     
 }
-@media screen and (min-width: 1200px) {
+@media screen and (max-width: 1200px) {
     .section-heading h2 {
         font-size: 40px;
     }
-    
+    .travel .image {
+        height: 697px;
+        background-size: cover;
+    }
+    .travel .image::before {
+        display: none;
+    }
 } 
 @media screen and (min-width: 768px) {
     .section-heading h2 {
@@ -343,6 +438,14 @@ left: -1000%;
     }
     .section-heading h3 {
         font-size: 16px;
+    }
+    .travel .image {
+        height: 100%;
+    }
+    .newsletter h2{
+        font-size: 55px;
+        font-weight: bold;
+        color: #191825 ;
     }
     
 } 
