@@ -285,11 +285,23 @@ section.home .decoration::before {
     top: 129px;
     left: -1000%;
  }
+ section.travel .decor{
+    position: relative;
+ }
+ section.travel .decor::before {
+    content: "";
+    background: url(/assets/icons/Frame\ 50.svg) no-repeat center center;
+    width: 277px;
+    height: 353px;
+    display: block;
+    position: absolute;
+    bottom: 80px;
+    right: -120px;
+}
  --------
 
  .keyrow {
   width: 549px;
-
  }
  .key h3 {
     font-family: 'CircularSTD';
@@ -303,8 +315,7 @@ section.home .decoration::before {
  }
 .newsletter .container-lg {
     background-color: #face491c;
-    width: 1184px;
-    height: 608px;
+    width: 100%;
 }
 .newsletter h2{
     font-size: 55px;
