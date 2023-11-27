@@ -313,12 +313,8 @@ section.home .decoration::before {
     font-family: 'Inter';
     font-size: 18px;
  }
-.newsletter .container-lg {
-    background-color: #face491c;
-    width: 100%;
-}
 
- section.testimonials .deco { 
+section.testimonials .deco { 
     position: relative;
 }
 section.testimonials .deco::before { 
@@ -330,7 +326,7 @@ section.testimonials .deco::before {
     display: block;
     position: absolute;  
     bottom: 0;
-    left: -70px;
+    left: 0px;
 }
  .testimonials-heading h3 {
     text-transform: uppercase;
@@ -395,6 +391,12 @@ section.testimonials .deco::before {
     margin-top: -3px;
     
 }
+.newsletter .container-lg {
+    background-color: #face491c;
+    width: 100%;
+    height: 608px;
+   
+}
 section.newsletter .triangle { 
     position: relative;
 }
@@ -405,7 +407,7 @@ section.newsletter .triangle::before {
     height: 176px;
     display: block;
     position: absolute;  
-    bottom: 80px;
+    bottom: 200px;
     left: -150px;
 }
 
@@ -434,12 +436,11 @@ section.newsletter .triangle::before {
         font-size: 23px;
     }
 .newsletter .btn-primary {
-    height: 96px;
+    height: 90px;
     width: 235px;
     --bs-btn-bg: #5D50C6;
     --bs-btn-hover-bg: #5245b0;
     border: none;
-    font-weight: bold;
     font-size: 23px;
     color: #EEEEEE;
     display: inline-flex;
