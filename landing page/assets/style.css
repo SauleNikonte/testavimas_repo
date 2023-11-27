@@ -195,7 +195,7 @@ section.home .decoration::before {
 
 }
 .destination .location {
-    color: rgba (25,24,37,0.75);
+    color: rgba(25,24,37,0.75);
     font-family: 'Inter';
     font-size: 18px;
     margin-top: .5rem;
@@ -298,8 +298,8 @@ section.home .decoration::before {
     bottom: 80px;
     right: -120px;
 }
- --------
 
+ --------
  .keyrow {
   width: 549px;
  }
@@ -317,7 +317,79 @@ section.home .decoration::before {
     background-color: #face491c;
     width: 100%;
 }
-.newsletter h2{
+
+.testimonials .deco {
+    background: url(/assets/pics/backback.png) no-repeat center center;
+    height: 100%;
+    position: relative;
+ }
+ .testimonials .deco::before {
+    content: "";
+    display: block;
+    opacity: 10%;
+    height: 550px;
+    width: 100%;
+    position: relative;
+ }
+ .marksmith span {
+    color: #FF5722;
+    font-size: 23px;
+    font-weight: bold;
+    margin: 0 0 .7rem;
+ }
+ .marksmith p {
+    color:#191825;
+    font-family: 'Inter';
+    font-size: 18px;
+    font-weight: bold;
+ }
+ .testimonials .star {
+    color: #facd49;
+    font-size: 23px;
+    font-weight: bold;
+    margin-top: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+}
+.testimonials .star::after {
+    content: "";
+    background: url( /assets/icons/star\ 2.svg) no-repeat center center;
+    width: 24px;
+    height: 24px;
+    display: block;
+    margin-top: -3px;
+}
+
+.testimonials .dots {
+    color: #facd49;
+    font-size: 23px;
+    font-weight: bold;
+    margin-top: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+   
+}
+.testimonials .dots::after {
+    content: "";
+    background: url( /assets/icons/dots.svg) no-repeat center center;
+    width: 120px;
+    height: 24px;
+    display: block;
+    margin-top: -3px;
+    
+}
+.newsletter-heading h3 {
+    text-transform: uppercase;
+    color: var(--primary-color);
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 5px;
+}
+.newsletter-heading h2{
+    font-family: 'CircularSTD';
     font-size: 55px;
     font-weight: bold;
     color: #191825 ;
@@ -325,6 +397,10 @@ section.home .decoration::before {
 .email {
     font-size: 23px;
 }
+
+
+
+
 -----------------
  footer {
     padding-bottom: 2rem;
@@ -421,6 +497,9 @@ footer h3 {
     section.home .decoration::before {
         display: none;
 }
+section.travel .decor::before {
+    display: none;
+    }
 }
 @media screen and (min-width: 1400px) {
     .p-custom {
