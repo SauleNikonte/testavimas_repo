@@ -318,19 +318,20 @@ section.home .decoration::before {
     width: 100%;
 }
 
-.testimonials .deco {
+ section.testimonials .deco { 
+    position: relative;
+}
+section.testimonials .deco::before { 
+    content: "" ;
     background: url(/assets/pics/backback.png) no-repeat center center;
-    height: 100%;
-    position: relative;
- }
- .testimonials .deco::before {
-    content: "";
-    display: block;
-    opacity: 5%;
-    height: 550px;
+    opacity: 10%;
     width: 100%;
-    position: relative;
- }
+    height: 100%;
+    display: block;
+    position: absolute;  
+    bottom: 0;
+    left: -70px;
+}
  .testimonials-heading h3 {
     text-transform: uppercase;
     color: var(--primary-color);
@@ -360,7 +361,6 @@ section.home .decoration::before {
  .testimonials .star {
     color: #facd49;
     font-size: 23px;
-    font-weight: bold;
     margin-top: 1.5rem;
     display: flex;
     align-items: center;
@@ -395,6 +395,20 @@ section.home .decoration::before {
     margin-top: -3px;
     
 }
+section.newsletter .triangle { 
+    position: relative;
+}
+section.newsletter .triangle::before { 
+    content: "" ;
+    background: url(/assets/icons/Graphic_Elements.svg) no-repeat center center;
+    width: 183px;
+    height: 176px;
+    display: block;
+    position: absolute;  
+    bottom: 80px;
+    left: -150px;
+}
+
 .newsletter-heading h3 {
     text-transform: uppercase;
     color: var(--primary-color);
