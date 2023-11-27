@@ -295,8 +295,8 @@ section.home .decoration::before {
     height: 353px;
     display: block;
     position: absolute;
-    bottom: 80px;
-    right: -120px;
+    bottom: 90px;
+    right: -140px;
 }
 
  --------
@@ -326,11 +326,25 @@ section.home .decoration::before {
  .testimonials .deco::before {
     content: "";
     display: block;
-    opacity: 10%;
+    opacity: 5%;
     height: 550px;
     width: 100%;
     position: relative;
  }
+ .testimonials-heading h3 {
+    text-transform: uppercase;
+    color: var(--primary-color);
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 5px;
+}
+.testimonials-heading h2 {
+    font-size: 44px;
+    font-weight: bold;
+    line-height: 120%;
+    margin: 1rem 0 0 ;
+}
+
  .marksmith span {
     color: #FF5722;
     font-size: 23px;
@@ -394,11 +408,30 @@ section.home .decoration::before {
     font-weight: bold;
     color: #191825 ;
 }
-.email {
+
+.newsletter .file-upload {
+        height: 96px;
+        width: 757px;
+        background-color: #ffffff;
+        border: 1px solid rgb(25, 24, 27,.1)25;
+        color:#191825;
+        gap: 15px;
+        margin-top: 10px;
+        font-size: 23px;
+    }
+.newsletter .btn-primary {
+    height: 96px;
+    width: 235px;
+    --bs-btn-bg: #5D50C6;
+    --bs-btn-hover-bg: #5245b0;
+    border: none;
+    font-weight: bold;
     font-size: 23px;
+    color: #EEEEEE;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
-
-
 
 
 -----------------
@@ -489,6 +522,9 @@ footer h3 {
     input[name="nav-toggler"]:checked + nav::after {
         left: 280px;
     }
+    section.travel .decor::before {
+        display: none;
+        }
 }
 @media screen and (max-width: 768px) {
     section.home h2 {
@@ -497,9 +533,7 @@ footer h3 {
     section.home .decoration::before {
         display: none;
 }
-section.travel .decor::before {
-    display: none;
-    }
+
 }
 @media screen and (min-width: 1400px) {
     .p-custom {
