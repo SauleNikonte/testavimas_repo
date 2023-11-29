@@ -426,14 +426,14 @@ section.newsletter .triangle::before {
 }
 
 .newsletter .file-upload {
-        height: 96px;
-        width: 757px;
-        background-color: #ffffff;
-        border: 1px solid rgb(25, 24, 27,.1)25;
-        color:#191825;
-        gap: 15px;
-        margin-top: 10px;
-        font-size: 23px;
+    height: 96px;
+    width: 757px;
+    background-color: #ffffff;
+    border: 1px solid rgb(25, 24, 27,.1)25;
+    color:#191825;
+    gap: 15px;
+    margin-top: 10px;
+    font-size: 23px;
     }
 .newsletter .btn-primary {
     height: 90px;
@@ -447,11 +447,25 @@ section.newsletter .triangle::before {
     align-items: center;
     justify-content: center;
 }
+section.newsletter .swirls { 
+    position: relative;
+}
+section.newsletter .swirls::before { 
+    content: "" ;
+    background: url(/assets/pics/OBJECTS.png) no-repeat center center;
+    width: 332px;
+    height: 350px;
+    display: block;
+    position: absolute;  
+    bottom: -340px;
+    right: -830px;
+}
 
 
 -----------------
  footer {
     padding-bottom: 2rem;
+    
  }
  footer p {
     color: rgba(25, 24, 37, .5);
@@ -540,6 +554,7 @@ footer h3 {
     section.travel .decor::before {
         display: none;
         }
+    
 }
 @media screen and (max-width: 768px) {
     section.home h2 {
@@ -547,7 +562,8 @@ footer h3 {
     }
     section.home .decoration::before {
         display: none;
-}
+    }
+   
 
 }
 @media screen and (min-width: 1400px) {
