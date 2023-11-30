@@ -1,17 +1,17 @@
-let vardass = "Philip Anthony";
-let pavarde = "Hopkins";
+let vardass = "Hopkins";
+let pavarde = "Philip Anthony";
 //console.log(vardass.length);
 //console.log(pavarde.length);
 //console.log(vardass.length > pavarde.length);
 if(vardass.length > pavarde.length){
     console.log (pavarde)
-}
+} else {console.log (vardass)}
 
-let vardas = "Saule";
-let pavardee = "Nikonte";
-let gimimo_metai = 1987;
-let siu_metu_metai = 2023;
-let amzius = siu_metu_metai - gimimo_metai;
+let vardas = "Saule",
+pavardee = "Nikonte",
+gimimo_metai = 1987,
+siu_metu_metai = 2023,
+amzius = siu_metu_metai - gimimo_metai;
 console.log(`Aš esu ${vardas} ${pavardee}. Man yra ${amzius} metai.`);
 
 let name = "Saule";
