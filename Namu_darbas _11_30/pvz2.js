@@ -18,6 +18,20 @@ function login() {
     { console.log ("prisijungimo duomenys neteisingi")}
 
 }
-/* /[0-9]/ - tikrina ar stringe yra skaiciu
-regex.test(text) - Tikrina ar tekstas atitinka regex validacija
-/[a-z]/.test(text) - tikrina ar tekste egzistuoja mazosios raide */
+
+let tekstas = "Kazys";
+if (/[0-9]/.test(tekstas)) {
+	console.log("Tekste yra skaičių");
+} else {
+	console.log("Tekste nėra skaičių");
+}
+if (/[A-Z]/.test(tekstas)) {
+	console.log("Tekste yra didžiosios raidės");
+} else {
+	console.log("Tekste nėra didžiųjų raidžių");
+}
+if (/[a-z]/.test(tekstas)) {
+	console.log("Tekste yra mažosios raidės");
+} else {
+	console.log("Tekste nėra mažųjų raidžių");
+}
