@@ -25,8 +25,6 @@ let trumpinys = aktoriaus_vardas.slice(-3) + aktoriaus_pavarde.slice(-3);
 console.log(trumpinys);
 //arba aktoriaus_vardas[4 5 6] + aktoriaus_pavarde[4 5 6]
 
-
-
  let data = new Date (' 2023-11-28 ');
  let menuo = data.getMonth();
  console.log(menuo);

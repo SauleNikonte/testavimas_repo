@@ -1,7 +1,8 @@
 function rand(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-//6
+//6 Sukurti kintamąjį su stringu: “Once upon a time in hollywood”. Jame visas “o” (didžiąsias ir mažąsias) pakeisti žvaigždutėm “*”.  Rezultatą atspausdinti.
+
 /*let tekstas = 'Once upon a time in Hollywood';
 tekstas = tekstas.replace(/o/gi, "*")
 console.log (tekstas);*/
@@ -11,7 +12,8 @@ let zvaigzde = '*';
 naujas2 = naujas.replaceAll('o', zvaigzde);
 console.log (naujas2);
 
-//7
+//7 Sukurkite keturis kintamuosius kuriems sugeneruokite atsitiktines reikšmes nuo 0 iki 2. Suskaičiuokite kiek yra nulių, vienetų ir dvejetų. 
+
 let a = rand(0,2), b = rand(0,2), c = rand(0,2), d = rand(0,2);
 console.log(a, b, c, d);
 
@@ -43,7 +45,8 @@ if(d < 1){
 else{
     console.log (1);}
 
-//8
+//8 Pasinaudokite atsitiktinio skaičiaus generavimo funkcija. Sukurkite du kintamuosius ir naudodamiesi funkcija jiems priskirkite atsitiktines reikšmes nuo 0 iki 4. Didesnę reikšmę padalinkite iš mažesnės. Atspausdinkite rezultatą jį suapvalinę iki 2 skaičių po kablelio.
+
 let x = Math.random() * 4; 
 console.log(x);
 let y = Math.random() * 4;
@@ -58,7 +61,8 @@ if (x > y) {
 }
 console.log("Result: " + result.toFixed(2));
 
-//9
+//9 Naudokite funkciją ir sukurkite tris kintamuosius kuriems priskirkite atsitiktines reikšmes nuo 0 iki 25. Raskite ir atspausdinkite vidurinę reikšmę.
+
 let pirmas = rand(0,25), antras = rand(0,25), trecias = rand(0,25);
 console.log(pirmas, antras, trecias);
 
@@ -78,7 +82,8 @@ else {
     console.log(trecias)
 }
 
-//10 
+//10  Parašyti kodą, kuris generuotų atsitiktinį stringą iš lotyniškų mažųjų raidžių. Stringo ilgis: 3 simboliai.
+
 let raide = rand(97,120);
 console.log(String.fromCharCode(raide))
 let raide1 = rand(97,120);
@@ -104,3 +109,40 @@ for (let i = 0; i < 3; i++) {
   trysraides += raide;
 }
 console.log(trysraides);
+
+// 7 ir 10 pagal dėstytojo pvz.
+
+let kint1 = rand(0, 2), kint2 = rand(0, 2), kint3 = rand( 0, 2), kint4 = rand( 0, 2);
+
+let count0 = 0, count1 = 0, count2 = 0;
+
+console.log(kint1, kint2, kint3, kint4);
+
+if (kint1 === 0) count0++;
+else if (kint1 === 1) count1++;
+else count2++;
+
+if (kint2 === 0) count0++;
+else if (kint2 === 1) count1++;
+else count2++;
+
+if (kint3 === 0) count0++;
+else if (kint3 === 1) count1++;
+else count2++;
+
+if (kint4 === 0) count0++;
+else if (kint4 === 1) count1++;
+else count2++;
+
+console.log (`skaičių 0 - ${count0}\t 1 - ${count1}\t 2 - ${count2}`)
+
+//10. ??
+
+console.log( 
+    String.fromCharCode(rand(97, 122)) + 
+    String.fromCharCode(rand(97, 122)) + 
+    String.fromCharCode(rand(97, 122)) );
+
+function rand(min, max) {
+    return Math.floor(Math.random() * (max - min +1)) + min;
+}
