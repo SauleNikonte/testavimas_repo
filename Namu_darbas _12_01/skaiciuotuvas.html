@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skaiciuotuvas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+.body {
+    font-family: 'Poppins';
+    font-size: 25px;
+}
+.skaiciuotuvas {
+    background-color: burlywood;border-radius: 10px;
+    width: 600px;
+    height: 50px;
+    padding: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+#num1 {
+    border: none;
+    border-radius: 10px;
+    height: 50px;
+    text-align : center;
+    font-family: 'Poppins';
+    font-size: 18px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#num2 {
+    border: none;
+    border-radius: 10px;
+    height: 50px;
+    text-align : center;
+    font-family: 'Poppins';
+    font-size: 18px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#operation {
+    border: none;
+    border-radius: 10px;
+    height: 50px;
+    text-align : center;
+    font-family: 'Poppins';
+    font-size: 18px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+button { 
+    border: none;
+    border-radius: 10px;
+    height: 50px;
+    text-align : center;
+    font-family: 'Poppins';
+    font-size: 18px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.rezultatas {
+    background-color: antiquewhite;
+    width: 700px;
+    height: 50px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 10px;
+    height: 50px;
+    text-align : center;
+    font-family: 'Poppins';
+    font-size: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+</style>
+</head>
+   <form class="skaiciuotuvas">
+        <input type="number" id="num1" placeholder="Įveskite skaičių" required/>
+        <select name="operation" id="operation">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+            <option value="**">x &#696;</option>
+        </select>
+        <input type="number" id="num2" placeholder="Įveskite skaičių" required/>
+        <button onclick="calculate()">Apskaičiuoti</button>
+    </form>
+    <div class="rezultatas">
+        <p id="rez">Rezultatas</p>
+   </div>
+    
+    <script src="skaiciuotuvas.js"></script>
+</body>
+</html>
