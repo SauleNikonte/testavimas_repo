@@ -74,7 +74,7 @@ button {
   }
 </style>
 </head>
-   <form class="skaiciuotuvas">
+   <div class="skaiciuotuvas">
         <input type="number" id="num1" placeholder="Įveskite skaičių" required/>
         <select name="operation" id="operation">
             <option value="+">+</option>
@@ -85,9 +85,9 @@ button {
         </select>
         <input type="number" id="num2" placeholder="Įveskite skaičių" required/>
         <button onclick="calculate()">Apskaičiuoti</button>
-    </form>
+    </div>
     <div class="rezultatas">
-        <p id="rez">Rezultatas</p>
+        <p id="rez"></p>
    </div>
     
     <script src="skaiciuotuvas.js"></script>

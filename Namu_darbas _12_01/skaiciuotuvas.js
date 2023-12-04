@@ -1,11 +1,10 @@
 function calculate() {
       let num1 = parseFloat(document.querySelector("#num1").value);
       let num2 = parseFloat(document.querySelector("#num2").value);
-      
-      let operation = document.querySelector("#operation").value;
       let rez = document.querySelector("#rez");
-  
-      console.log(num1, num2, operation);
+
+      let operation = document.querySelector("#operation").value;
+      
   if(isNaN(num1) || isNaN(num2))
   {
   rez.innerText = "Operacija negalima, trūksta skaičiaus";
