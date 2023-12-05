@@ -42,23 +42,28 @@ console.log(kint1, kint2, kint3);
 let count = new Array(3).fill(0);
 
 //ka cia irasyti?
-if (kint[0] > 0) count[0]++;
-else if (kint[0] < 0) count[1]++;
-else count[2]++;
+if (kint1 > 0) ;
+else if (kint1 < 0) ;
+else kint1 ;
 
-if (kint[1] > 0) count[0]++;
-else if (kint[1] < 0) count[1]++;
-else count[2]++;
+if (kint2 > 0);
+else if (kint2 < 0) ;
+else kint2 ;
 
-if (kint[2] > 0) count[0]++;
-else if (kint[2] < 0) count[1]++;
-else count[2]++;
+if(kint3 > 0);
+else if (kint3 < 0) ;
+else kint3 ;
 
-let minus = `<green>${count[0]}<green>`, nulis = `<red>${count[2]}<red>`, plius = `<blue>${count[1]}<blue>`;
+/*let minus = `<green>${count[0]}<green>`, nulis = `<red>${count[2]}<red>`, plius = `<blue>${count[1]}<blue>`;
 
 document.write(count[0], count[1], count[2])
 
 console.log(`Skaičių 0 - ${count[0]}\t 1 - ${count[1]}\t 2 - ${count[2]}`);
+*/
+//3
+
+
+
 
 /*pvz
 let n = 100;
