@@ -54,11 +54,7 @@ if(kint3 > 0);
 else if (kint3 < 0) ;
 else kint3 ;
 
-/*let minus = `<green>${count[0]}<green>`, nulis = `<red>${count[2]}<red>`, plius = `<blue>${count[1]}<blue>`;
-
-document.write(count[0], count[1], count[2])
-
-console.log(`Skaičių 0 - ${count[0]}\t 1 - ${count[1]}\t 2 - ${count[2]}`);
+/*let minus = `<green>${kint1]}<green>`, nulis = `<red>${kint2}<red>`, plius = `<blue>${kint3}<blue>`;
 */
 //3
 
