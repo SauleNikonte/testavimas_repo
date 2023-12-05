@@ -1,0 +1,17 @@
+.block{
+    inline-size: 500px;
+    overflow-wrap: break-word;
+}
+
+red {
+    color: red;
+}
+black {
+    color:black;
+}
+green {
+    color:green;
+}
+blue {
+    color:blue
+}
