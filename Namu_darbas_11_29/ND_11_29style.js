@@ -146,3 +146,29 @@ console.log(
 function rand(min, max) {
     return Math.floor(Math.random() * (max - min +1)) + min;
 }
+//11
+
+let text = "The planet {{planet}} is the third planet from the {{star}}. {{planet}} is the only astronomical object known to harbor life. According to radiometric dating and other sources of evidence, {{planet}} formed over {{age}} ago. {{planet}}'s gravity interacts with other objects in space, especially the {{star}} and the {{satellite}}, {{planet}}'s only natural satellite.";
+
+let planet = "earth";
+let star = "Sun";
+let age = "4.54 billion years";
+let satellite = "moon";
+
+text = text.replace(/{{planet}}/g, planet);
+text = text.replace(/{{star}}/g, star);
+text = text.replace(/{{age}}/g, age);
+text = text.replace(/{{satellite}}/g, satellite);
+
+console.log(text);
+
+//12
+function rand() {
+    return Math.random();
+  }
+  function random(min, max) {
+    let number = min + rand() * (max - min);
+    return Number(number.toFixed(2));
+  }
+  console.log(random(0, 20));
+  
