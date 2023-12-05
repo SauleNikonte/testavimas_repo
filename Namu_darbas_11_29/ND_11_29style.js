@@ -171,4 +171,3 @@ function rand() {
     return Number(number.toFixed(2));
   }
   console.log(random(0, 20));
-  

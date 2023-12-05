@@ -8,7 +8,7 @@ function categoryOneCalculation(skaicius) {
     return rez;
 }
 
-unction categoryTwoCalculation(skaicius) {
+function categoryTwoCalculation(skaicius) {
     let rez = skaicius ** 2;
     return rez;
 }
