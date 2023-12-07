@@ -4,7 +4,6 @@ function rand(min, max) {
 let kint = [rand(-10, 10), rand(-10, 10), rand(-10, 10)];
 let count = new Array(3).fill(0);
 
-//ka cia irasyti?
 if (kint[0] > 0) count[0]++;
 else if (kint[0] < 0) count[1]++;
 else count[2]++;

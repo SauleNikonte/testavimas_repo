@@ -32,32 +32,76 @@ document.write(row)
 let numb = rand(0, 6);
 document.querySelector("#rez").innerText = `Atsakymas: ${numb}`;
 
-//2
-let kint1 = rand(-10, 10),
-	kint2 = rand(-10, 10),
-	kint3 = rand(-10, 10);
+//2 Naudokite funkcija rand(). Atspausdinkite 3 skaičius nuo -10 iki 10. Skaičiai mažesni už 0 turi būti žali, 0 - raudonas, didesni už 0 mėlyni.
 
-console.log(kint1, kint2, kint3);
+let number = "";
 
-let count = new Array(3).fill(0);
+for (i = 0; i < 3; i++) {
+ number = Math.floor(Math.random() * 21) - 10;
+ if (number < 0) document.write(`<green>${number}<green>`)
+ if (number === 0) document.write(`<red>${number}<red>`)
+ if (number > 0) document.write(`<blue>${number}<blue>`)
+}
 
-//ka cia irasyti?
-if (kint1 > 0) ;
-else if (kint1 < 0) ;
-else kint1 ;
+//3 Sukurkite kintamąjį su stringu: “An American in Paris”. Jame ištrinti visas balses. Rezultatą atspausdinti. Kodą pakartoti su stringais: “Breakfast at Tiffany's”, “2001: A Space Odyssey” ir “It's a Wonderful Life”.
 
-if (kint2 > 0);
-else if (kint2 < 0) ;
-else kint2 ;
+let text = [
+    `An American in Paris”,
+    “Breakfast at Tiffany's”,
+    “2001: A Space Odyssey”,
+    “It's a Wonderful Life.`,
+];
 
-if(kint3 > 0);
-else if (kint3 < 0) ;
-else kint3 ;
+    for (let i = 0; i < text.length; i++) {
+        let tekstas = text[i].replace(/[aeiouy]/gi, "");
+        document.write(tekstas);
+    }
 
-/*let minus = `<green>${kint1]}<green>`, nulis = `<red>${kint2}<red>`, plius = `<blue>${kint3}<blue>`;
-*/
-//3
+//4 Sugeneruokite 300 atsitiktinių skaičių nuo 0 iki 300, atspausdinkite juos atskirtus tarpais ir suskaičiuokite kiek tarp jų yra didesnių už 150.  Skaičiai didesni nei 275 turi būti raudonos spalvos.
+let numbers = [];
+let biggerThan150 = 0;
+for (let i = 0; i < 300; i++) {
+    //numbers.push(rand(0, 300));
+    let randomNumber = rand (0, 300);
+    if(randomNumber > 150) biggerThan150++;
 
+if (randomNumber > 275) 
+document.write(`<red>${randomNumber}</red> `);
+else {
+
+document.write(`<black>${randomNumber}</black> `);
+}
+}
+console.log(`Didesniu sk nei 150 yra: ${biggerThan150}`);
+
+ //5 Vienoje eilutėje atspausdinkite visus skaičius nuo 1 iki 3000, kurie dalijasi iš 77 be liekanos. Skaičius atskirkite kableliais. Po paskutinio skaičiaus kablelio neturi būti. Jeigu reikia, panaudokite css, kad visi rezultatai matytųsi ekrane.
+//nesigauna! ir prisitaiko  stilius / spalva.
+let rezultatas = "";
+for (let i = 0; i <= 3000; i++){
+    if ((i + 1) % 77 === 0){
+        rezultatas += i;
+        
+        document.write(rezultatas);
+    }
+}
+
+ //6 Duotas vardų masyvas, kuriame visi vardai prasideda mažąja raide. Reikia sukurti algoritmą, kuris visus vardus konvertuoja į iš didžiosios raidės prasidedančius vardus:
+let namesArray = [
+	'alice', 'bob', 'charlie', 'david', 'emily',
+	'frank', 'grace', 'harry', 'isabella', 'jack',
+	'kate', 'liam', 'molly', 'nathan', 'olivia',
+	'peter', 'quinn', 'rachel', 'steve', 'tina'
+];
+
+for ( let i = 0; i < namesArray.length; i++){
+let letter = namesArray[i].charAt(0).toUpperCase() + namesArray[i].slice(1);
+if (i == namesArray.length -1) {
+    document.write(letter)
+}
+else { document.write(letter + ", ");
+
+}
+}
 
 
 

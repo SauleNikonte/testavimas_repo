@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: 'Poppins';
+        }
+        .question {
+            font-weight: bold;
+        }
+        .answer {
+            margin-left: 20px;
+        }
+        .correct {
+            color: green;
+        }
+        .wrong {
+            color: red;
+        }
+        /*#result {
+            display: none;
+            font-size: 20px;
+        } */
+        #finish {
+            height: 40px;
+            width: 80px;
+            margin-top: 20px;
+            background-color: red;
+            border-radius: 10px;
+            border: none;
+            color: white;
+            margin-left: 40px;
+        }
+    </style>
+</head>
+<body>
+    <h1>VIKTORINA</h1>
+    <div id="viktorina">
+        <div class="question">What is the capital of France?</div>
+        <div class="answer"><input type="radio" name="q1" value="A">  Berlin</div>
+        <div class="answer"><input type="radio" name="q1" value="B">  London</div>
+        <div class="answer"><input type="radio" name="q1" value="C">  Paris</div>
+        <div class="correct">Correct: Paris</div>
+        <div class="wrong">Your answer: </div>
+        <hr>
+        <div class="question">How many continents are there on Earth?</div>
+        <div class="answer"><input type="radio" name="q2" value="A">  5</div>
+        <div class="answer"><input type="radio" name="q2" value="B">  7</div>
+        <div class="answer"><input type="radio" name="q2" value="C">  6</div>
+        <div class="correct">Correct:  7</div>
+        <div class=" wrong">Your answer: </div>
+        <hr>
+        <div class="question">Which planet is known as the Red Planet?</div>
+        <div class="answer"><input type="radio" name="q3" value="A">  Mars</div>
+        <div class="answer"><input type="radio" name="q3" value="B">  Jupiter</div>
+        <div class="answer"><input type="radio" name="q3" value="C">  Saturn</div>
+        <div class="correct">Correct:  Mars</div>
+        <div class="wrong">Your answer: </div>
+        <hr>
+        <div class="question">What gas do plants breathe in that humans and animals breathe out?</div>
+        <div class="answer"><input type="radio" name="q4" value="A">  Oxygen</div>
+        <div class="answer"><input type="radio" name="q4" value="B">  Carbon Dioxide</div>
+        <div class="answer"><input type="radio" name="q4" value="C">  Nitrogen</div>
+        <div class="correct">Correct:  Carbon Dioxide</div>
+        <div class="wrong">Your answer: </div>
+        <hr>
+        <div class="question">5. What is the largest mammal in the world?</div>
+        <div class="answer"><input type="radio" name="q5" value="A">  Elephant</div>
+        <div class="answer"><input type="radio" name="q5" value="B">  Blue whale</div>
+        <div class="answer"><input type="radio" name="q5" value="C">  Giraffe</div>
+        <div class="correct">Correct:  Blue whale</div>
+        <div class="wrong">Your answer: </div>
+        <hr>
+        <button onclick="finish()" id="finish">Finnish</button>
+    </div>
+    <div id="result">Your result <span id="score"></span> from 5.</div>
+    <script src="ND_viktorina.js"></script>
+</body>
+</html>

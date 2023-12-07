@@ -1,0 +1,33 @@
+body {
+    background-color: darkcyan;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.container {
+    width: 350px;
+    height: 200px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 8px;
+}
+input {
+    border: none;
+    outline: none;
+    border-bottom: 1px solid orange;
+    padding: 10px 5px;
+    font-size: 1,6rem;
+}
+.btn {
+    padding: 8px, 5px;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    color:white;
+    background-color: blueviolet;
+
+}
