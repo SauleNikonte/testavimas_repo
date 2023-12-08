@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>viktorina</title>
+    <style>
+        body {
+            font-family: 'Poppins';
+        }
+
+        .correct {
+            color: green;
+        }
+        .wrong {
+            color: red;
+        }
+        button {
+            height: 40px;
+            width: 80px;
+            margin-top: 20px;
+            background-color: red;
+            border-radius: 10px;
+            border: none;
+            color: white;
+            margin-left: 40px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Viktorina</h1>
+  <div id="quiz">
+    <h3>Question 1: What is the capital of France?</h3>
+    <input type="radio" name="q1" value="A"> A) Berlin<br>
+    <input type="radio" name="q1" value="B"> B) London<br>
+    <input type="radio" name="q1" value="C"> C) Paris<br>
+    <p id="result1" style="display: none;">Correct answer: C) Paris</p>
+    <div class="wrong" style="display: none;">Your answer: </div>
+    <hr>
+    <h3>How many continents are there on Earth?</h3>
+    <input type="radio" name="q2" value="A">  5<br>
+    <input type="radio" name="q2" value="B">  7<br>
+    <input type="radio" name="q2" value="C">  6<br>
+    <p id="result2" style="display: none;">Correct answer: 7</p>
+    <div class="wrong" style="display: none;">Your answer: </div>
+    <hr>
+    <h3>Which planet is known as the Red Planet?</h3>
+    <input type="radio" name="q3" value="A">  Mars<br>
+    <input type="radio" name="q3" value="B">  Jupiter<br>
+    <input type="radio" name="q3" value="C">  Saturn<br>
+    <p id="result3" style="display: none;">Correct answer: Mars</p>
+    <div class="wrong" style="display: none;">Your answer: </div>
+    <hr>
+    <h3>What gas do plants breathe in that humans and animals breathe out?</h3>
+    <input type="radio" name="q4" value="A">  Oxygen<br>
+    <input type="radio" name="q4" value="B">  Carbon Dioxide<br>
+    <input type="radio" name="q4" value="C">  Nitrogen<br>
+    <p id="result4" style="display: none;">Correct answer: Carbon Dioxide</p>
+    <div class="wrong" style="display: none;">Your answer: </div>
+    <hr>
+    <h3>5. What is the largest mammal in the world?</h3>
+    <input type="radio" name="q5" value="A">  Elephant<br>
+    <input type="radio" name="q5" value="B">  Blue whale<br>
+    <input type="radio" name="q5" value="C">  Giraffe<br>
+    <p id="result5" style="display: none;">Correct answer: Blue whale</p>
+    <div class="wrong" style="display: none;">Your answer: </div>
+    <hr>
+    <button onclick="getResults()">Baigti</button>
+</div>
+
+<div id="results" style="display: none;">
+  <p id="score"></p>
+  <ul id="correct-answers"></ul>
+</div>
+
+    <script src="vikce_dublis_du.js"></script>
+</body>
+</html>

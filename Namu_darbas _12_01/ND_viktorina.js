@@ -38,4 +38,3 @@ score.innerText = score;
 quiz.style.display = "none";
 
 result.style.display = "block";
-} 
