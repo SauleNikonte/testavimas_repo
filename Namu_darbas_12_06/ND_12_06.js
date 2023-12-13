@@ -25,6 +25,7 @@ for (let i = 0; i < arr.length; i++) {
 
 console.log(count);
 
+
 //2 Išrūšiuokite 1 uždavinio masyvą pagal abecėlę.
 
 const arri = Array.from({length: 200}, () => {
@@ -46,21 +47,23 @@ for (let i = 0; i < array1.length; i++) {
   combinedArray.push(sum);
 }
 console.log(combinedArray);
-
+//chatgpt v
 const uniqueValues = new Set(combinedArray);
-const uniqueValuesCount = uniqueValues.size;
+console.log(`Reikšmių: ${uniqueValues.size}`);
 
-const uniqueCombinations = new Set(combinedArray);
-//combinedArray.forEach(value => {
-//uniqueCombinations.add(value);
-//});
-const uniqueCombinationsCount = uniqueCombinations.size;
-//abu vienodi ?
+const uniqueCombinations = new Set();
+for (let i = 0; i < combinedArray.length; i++) {
+  for (let j = i + 1; j < combinedArray.length; j++) {
+    uniqueCombinations.add(`${combinedArray[i]}, ${combinedArray[j]}`);
+  }
+}
+console.log(`Kombinacijų: ${uniqueCombinations.size}`);
+/*abu vienodi ?
 console.log(uniqueValues);
 console.log(uniqueCombinations);
 console.log(`Unikalių reikšmių skaičius: ${uniqueValuesCount}`);
 console.log(`Unikalių kombinacijų skaičius: ${uniqueCombinationsCount}`);
-
+*/
 
 //4 Sugeneruokite du masyvus, kurių reikšmės yra atsitiktiniai skaičiai nuo 100 iki 999. Masyvų ilgiai 100. Masyvų reikšmės turi būti unikalios savo masyve (t.y. neturi kartotis).
 const generateArrayOfRandomNumbers = (min = 10, max, length = 10) => {

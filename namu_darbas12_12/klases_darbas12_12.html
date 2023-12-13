@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        table {
+            width: 100%;
+            margin-bottom: 2rem;
+        }
+        td {
+            text-align: center;
+        }
+        .space-right{
+            margin-right: 1rem  ;
+        }
+         form div {
+            width: 50%;
+         }
+         div label{
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+         }
+         .row{
+            display: flex;
+            align-content: center;
+         }
+         .col{
+            width: 40%;
+         }
+         input{
+            background-origin: padding-box;
+            border-radius: 3px;
+         }
+         button {
+            height: 22px;
+            background-color: cornflowerblue;
+            color: white;
+            border: none;
+            border-radius: 3px;
+         }
+         
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Age</th>
+                <th>Nationality</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>1</th>
+                <th>John</th>
+                <th>Doe</th>
+                <th>36</th>
+                <th>British</th>
+            </tr>
+        </tbody>
+    </table>
+    <div class="row">
+        <div class="col">
+            <form>
+                <h2>Add person</h2>
+                <div>
+                    <label>
+                        <span class="space-right">First Name</span>
+                        <input type="text" placeholder="First Name"
+                        id="firstNameInput"/>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <span class="space-right">Last Name</span>
+                        <input type="text" placeholder="Last Name" id="lastNameInput"/>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <span class="space-right">Age</span>
+                        <input type="text" placeholder="Age" id="ageInput"/>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <span class="space-right">Nationality</span>
+                        <input type="text" placeholder="Nationality" id="nationalityInput"/>
+                    </label>
+                </div>
+            </form>
+            <div>
+                <button id="add-button">Add</button>
+                <p id="terror"></p>
+            </div>
+        </div>
+        <div class="col">
+            <h2>Remove person</h2>
+            <span class="space-right">Person Number</span>
+            <input type="number" placeholder="Person number" id="numberInput"/>
+            <button id="remove-button">Remove</button>
+            <p id="error"></p>
+        </div>
+    </div>
+    <!--<script src="klases_darbas12_12.js"></script>-->
+    <!--<script src="namu_darbas.js"></script>-->
+    <script src="bandymas2.js"></script>
+</body>
+</html>

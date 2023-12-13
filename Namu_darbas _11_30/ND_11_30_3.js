@@ -1,7 +1,7 @@
 function rand(min, max) {
 	return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-//3 su rand()?
+//2 Automobiliai (? su rand?)
 let s0 = [rand(0, 260)];
 let v1 = [rand(0, 260)];
 let v2 = [rand(0, 260)];
@@ -25,7 +25,7 @@ if (v2 > v1) {
   console.log(`Niekada nepavys`);
 }
 
-//4
+//3 temperaturos
 let temp = [rand(-10, 10), rand(-10, 10), rand(-10, 10)];
 console.log(temp);
 //console.log(temp[1]);

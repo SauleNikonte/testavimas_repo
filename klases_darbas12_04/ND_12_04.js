@@ -54,7 +54,7 @@ let text = [
 
     for (let i = 0; i < text.length; i++) {
         let tekstas = text[i].replace(/[aeiouy]/gi, "");
-        document.write(tekstas);
+        console.log(tekstas);
     }
 
 //4 Sugeneruokite 300 atsitiktinių skaičių nuo 0 iki 300, atspausdinkite juos atskirtus tarpais ir suskaičiuokite kiek tarp jų yra didesnių už 150.  Skaičiai didesni nei 275 turi būti raudonos spalvos.
@@ -76,14 +76,33 @@ console.log(`Didesniu sk nei 150 yra: ${biggerThan150}`);
 
  //5 Vienoje eilutėje atspausdinkite visus skaičius nuo 1 iki 3000, kurie dalijasi iš 77 be liekanos. Skaičius atskirkite kableliais. Po paskutinio skaičiaus kablelio neturi būti. Jeigu reikia, panaudokite css, kad visi rezultatai matytųsi ekrane.
 //nesigauna! ir prisitaiko  stilius / spalva.
-let rezultatas = "";
-for (let i = 0; i <= 3000; i++){
+/*let rezultatas = "";
+for (let i = 0; i < 3000; i++){
     if ((i + 1) % 77 === 0){
         rezultatas += i;
         
-        document.write(rezultatas);
+        document.write(`${rezultatas} ,`);
     }
 }
+*/
+/*
+for (let i = 1; i <= 3000; i++) {
+    if (i % 77 === 0) {
+      console.log(i);
+    }
+document.write(i);
+
+  }
+*/
+
+let result = "";
+for (let i = 1; i <= 3000; i++) {
+  if (i % 77 === 0) {
+    result += i + ",";
+  }
+}
+document.write(result.slice(0, -1));
+
 
  //6 Duotas vardų masyvas, kuriame visi vardai prasideda mažąja raide. Reikia sukurti algoritmą, kuris visus vardus konvertuoja į iš didžiosios raidės prasidedančius vardus:
 let namesArray = [
