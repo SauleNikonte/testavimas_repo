@@ -30,7 +30,7 @@ if(bmi > 18.5 && bmi < 25) {
     showResult(`Normal: <span>${bmi}</span>`, "green")
 }
 if(bmi > 25 && bmi < 30) {
-    showResult(`Owerweihgt: <span>${bmi}</span>`, "yellow")
+    showResult(`Owerweihgt: <span>${bmi}</span>`, "blue")
 }
 if(bmi > 30) {
     showResult(`Obese: <span>${bmi}</span>`, "red")
@@ -40,4 +40,15 @@ if(bmi > 30) {
 function showResult(value, color) {
     result.style.backgroundColor = color
     return result.innerHTML = value
+
 }
+reset.addEventListener("click", (resetAll));
+
+function resetAll(){
+    height.value = "";
+    weight.value = "";
+    result.innerHTML = "";
+    result.style.backgroundColor = none ;
+
+}
+

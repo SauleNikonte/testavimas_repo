@@ -365,14 +365,56 @@ const products = {
       }
     ]
 }
+// padubliavau su Aušros rodytu pvz.
+/*
+lygiavimas
+nuotraukos dydis
+title - font, size ir color+
+star rating
+description - font ir alignment
+price - paprasta / discounted raudona + maža pilna.
+button
+*/
+const productsContainer = document.getElementById('products-container');
 
+function createProductElement(product) {
+  const productDiv = document.createElement('div');
+  productDiv.classList.add('product');
+
+  productDiv.innerHTML = `
+  <div style="display:flex; justify-content: space-between; align-items: center;">
+    <img src="${product.thumbnail}" alt="${product.title}" style="height: 150px; width: 200px;">
+    <div style="align-items: center;">
+      <h2 style="color: #3787DF;">${product.title}</h2>
+      <p>Rating: ${product.rating}</p>
+      <p>Description: ${product.description}</p>
+    </div>
+    <div>
+      <p>Price: $${product.price}</p>
+      <p>Discount: ${product.discountPercentage}%</p>
+      <button style="background-color: #FCB80F; color: black; border: none; height:40px; width:180px; border-radius:3px;">Add to Cart</button>
+    </div>
+    </div>
+    <hr>
+  `;
+
+  return productDiv;
+}
+
+// Loop through products and append to container
+products.products.forEach(product => {
+  const productElement = createProductElement(product);
+  productsContainer.appendChild(productElement);
+});
+
+/*
 const productsContainer = document.getElementById('products-container');
 
     products.products.forEach(product => {
       const productDiv = document.createElement('div');
       productDiv.classList.add('product');
-      //productDiv.style.display = 'flex';
-      //productDiv.style.justifyContent = 'space-between';
+      productDiv.style.display = 'flex',justifyContent = 'space-between';
+      
       // Section 1: Image, 
       const leftSection = document.createElement('div');
       leftSection.innerHTML = `
@@ -383,7 +425,7 @@ const productsContainer = document.getElementById('products-container');
       const productDetails = document.createElement('div');
       productDetails.classList.add('product-details');
       productDetails.innerHTML = `
-        <h2>${product.title}</h2>
+        <h2 style="color: #3787DF;">${product.title}</h2>
         <p>Rating: ${product.rating}</p>
         <p>Description: ${product.description}</p>
       `;
@@ -394,10 +436,20 @@ const productsContainer = document.getElementById('products-container');
       rightSection.innerHTML = `
         <p>Price: $${product.price}</p>
         <p>Discount: ${product.discountPercentage}%</p>
-        <button>Add to Cart</button>
+        <button style="background-color: #FCB80F; color: black; border: none; ">Add to Cart</button>
         <hr>
       `;
       productDiv.appendChild(rightSection);
 
       productsContainer.appendChild(productDiv);
     });
+    */
+/*
+lygiavimas
+nuotraukos dydis
+title - font, size ir color+
+star rating
+description - font ir alignment
+price - paprasta / discounted raudona + maža pilna.
+button
+*/
