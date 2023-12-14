@@ -365,7 +365,7 @@ const products = {
       }
     ]
 }
-// padubliavau su Aušros rodytu pvz.
+// sudubliavau su Aušros rodytu pvz.
 /*
 lygiavimas
 nuotraukos dydis
@@ -382,15 +382,15 @@ function createProductElement(product) {
   productDiv.classList.add('product');
 
   productDiv.innerHTML = `
-  <div style="display:flex; justify-content: space-between; align-items: center;">
+  <div style="display:flex; justify-content: space-between; align-items: center; width: 100vh;">
     <img src="${product.thumbnail}" alt="${product.title}" style="height: 150px; width: 200px;">
-    <div style="align-items: center;">
+    <div style="align-items: center; width: 600px;">
       <h2 style="color: #3787DF;">${product.title}</h2>
       <p>Rating: ${product.rating}</p>
       <p>Description: ${product.description}</p>
     </div>
     <div>
-      <p>Price: $${product.price}</p>
+      <p>$${product.price}</p>
       <p>Discount: ${product.discountPercentage}%</p>
       <button style="background-color: #FCB80F; color: black; border: none; height:40px; width:180px; border-radius:3px;">Add to Cart</button>
     </div>
@@ -401,7 +401,7 @@ function createProductElement(product) {
   return productDiv;
 }
 
-// Loop through products and append to container
+//  forEach - peržiūri kiekvieną produktą masyve -> createProductElement() sukuria produkto elementą (aprasymą pagal funkciją),  ir įterpia į html products-container.
 products.products.forEach(product => {
   const productElement = createProductElement(product);
   productsContainer.appendChild(productElement);

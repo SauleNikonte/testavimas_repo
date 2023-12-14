@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="container">
+    <form action="">
+        <div class="row mb-5">
+            <div class="col-4 mt-2">
+                <label for="title">Pavadinimas</label>
+                <input type="text" id="title" class="form-control"/>
+            </div>
+            <div class="col-4 mt-2">
+                <label for="price">Kaina</label>
+                <input type="text" id="price" name="price" class="form-control"/>
+            </div>
+            <div class="col-4 mt-2">
+                <label for="stock">Kiekis</label>
+                <input type="text" id="stock" name="stock" class="form-control"/>
+            </div>
+            <div class="col-4 mt-2">
+                <label for="brand">Brand</label>
+                <input type="text" id="brand" name="brand" class="form-control"/>
+            </div>
+            <div class="col-4 mt-2">
+                <label for="category">Kategorija</label>
+                <select name="category" id="category" class="form-select">
+                    <option>smartphone</option>
+                    <option>laptop</option>
+                    <option>perfume</option>
+                    <option>skincare</option>
+                    <option>groceries</option>
+                    <option>home-decorations</option>
+                </select>
+            </div>
+            <div class="col-4 mt-2">
+                <button class="btn btn-primary mt-4" id="submit">submit</button>
+            </div>
+        </div>
+    </form>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Prekės pvadinimas</th>
+                <th>Kaina</th>
+                <th>Kiekis</th>
+                <th>Prekinis ženklas</th>
+                <th>Kategorija</th>
+                <th>Ištrynimas</th>
+                <th>Pridėjimas</th>
+            </tr>
+        </thead>
+        <tbody id="dynamic-data">
+            <!--<tr>
+                <td>1</td>
+                <td>Apple products</td>
+                <td>1.50</td>
+                <td>1</td>
+                <td>apple</td>
+                <td>maistas</td>
+            </tr>-->
+        </tbody>
+    </table>
+</div>
+
+<script src="products.js"></script>
+<script>
+
+    let editMode = false;
+
+
+const dynamicDataElement = document.getElementById("dynamic-data"),
+        titleInputElement = document.getElementById('title'),
+        priceInputElement = document.getElementById('price'),
+        stockInputElement = document.getElementById('stock'), 
+        brandInputElement = document.getElementById('brand'),
+        categoryInputElement = document.getElementById('category'),
+        submitButtonElement = document.getElementById('submit');
+ 
+const getTableContents = ()  => {
+    let dynamicHTML = ``;
+    for (const product of products){
+dynamicHTML +=`
+<tr>
+    <td>${product.id}</td>
+    <td>${product.title}</td>
+    <td>${product.price}</td>
+    <td>${product.stock}</td>
+    <td>${product.brand}</td>
+    <td>${product.category}</td>
+    <td><button class="btn btn-danger" onclick="deteleProduct(${product.id})">Ištrinti</button></td>
+    <td><button class="btn btn-success" onclick="setEdit(${product.id})">Atnaujinti</button></td>
+</tr>`;
+    }
+    dynamicDataElement.innerHTML += dynamicHTML;
+    //console.log([dynamicDataElement]);
+
+};
+getTableContents();
+
+const createNewRecord = (event) => {
+    event.preventDefault();
+   // console.log(event);
+const newProduct = {
+id: products[products.length - 1].id + 1,
+title: titleInputElement.value,
+price: priceInputElement.value,
+stock: stockInputElement.value,
+brand: brandInputElement.value,
+category: categoryInputElement.value,
+};
+products.push(newProduct);
+getTableContents();
+
+titleInputElement.value = product.title;
+    priceInputElement.value = product.price;
+    stockInputElement.value = product.stock;
+    brandInputElement.value = product.brand;
+    categoryInputElement.value = product.category;
+ 
+};
+submitButtonElement.onclick = createNewRecord;
+// elemento i6trynimas
+const deleteProduct = (id) => {
+    let elementIndex = products.findIndex((value) => value.id === id);
+    //console.log(elementIndex);
+    products.splice(elementIndex, 1);
+    getTableContents();
+};
+// elemento atnaujinimas
+const updateProduct = (id)=>{
+    event.preventDefault();
+
+    products[currentProduct].title = titleInputElement.value;
+    products[currentProduct].price = priceInputElement.value;
+    products[currentProduct].stock = stockInputElement.value;
+    products[currentProduct].brand = brandInputElement.value;
+    products[currentProduct].category = categoryInputElement.value;
+
+    currentProduct = undefined;
+    editMode = false;
+    submitButtonElement.onclick = createNewRecord;
+    submitButtonElement.innerText = "submit";
+    submitButtonElement.classList.remove("btn-primary");
+    submitButtonElement.onclick = updateProduct;
+};
+
+ const setEdit = (id) => {
+    let elementIndex = products.findIndex((value) => value.id === id);
+    const product = products[elementIndex];
+
+    titleInputElement.value = product.title;
+    priceInputElement.value = product.price;
+    stockInputElement.value = product.stock;
+    brandInputElement.value = product.brand;
+    categoryInputElement.value = product.category;
+ 
+    submitButtonElement.innerValue = "Update";
+    submitButtonElement.classList.add("btn-success");
+    submitButtonElement.classList.remove("btn-primary");
+    submitButtonElement.onclick = updateProduct;
+    currentProduct = elementIndex;
+    editMode = true;
+
+};
+</script>
+</body>
+</html>
