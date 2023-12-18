@@ -368,7 +368,6 @@ const products = {
 // sudubliavau su Aušros rodytu pvz.
 /*
 lygiavimas
-nuotraukos dydis
 title - font, size ir color+
 star rating
 description - font ir alignment
@@ -386,14 +385,14 @@ function createProductElement(product) {
 //bootstap starcodes:
   //tuscia \uF588
   // puse \uF587
-  // pilna \uF586
+  // pilna \uF588
+  
   const rating = Math.round(product.rating * 2) / 2;
 
-  const stars = '<i class="bi bi-star-fill" style="color: orange;">*</i>';
-  const halfStar = '<i class="bi bi-star-half" style="color: orange;">*</i>';
-  const emptyStar = '<i class="bi bi-star">*</i>'; 
+  const stars = '<i class="bi bi-star-fill" style="color: orange;"></i>';
+  const halfStar = '<i class="bi bi-star-half" style="color: orange;"></i>';
+  const emptyStar = '<i class="bi bi-star" style="color: orange;"></i>'; 
 
-  // Create the HTML for the stars
   let starHTML = '';
   for (let i = 1; i <= 5; i++) {
     if (i <= rating) {
@@ -424,17 +423,19 @@ console.log("Price after discount:", discountedPrice);
   productDiv.innerHTML = `
   <div style="display:flex; justify-content: space-between; align-items: center; width: 100vh;">
 <div class= "">
+    <div class="p-3 mb-2 bg-danger text-white text-wrap" >${product.discountPercentage.toFixed(0)}%</div>
     <img src="${product.thumbnail}" alt="${product.title}" style="height: 150px; width: 200px;">
-    <div class="p-3 mb-2 bg-danger text-white z-3 position-absolute top-0 end-0" >${product.discountPercentage.toFixed(0)}%</div>
 </div>
     <div style="align-items: center; width: 600px;">
-      <h4 style="color: #3787DF;">${product.title}</h4>
-      <div>${starHTML}${product.rating }</div>
+      <h5 style="color: #3787DF;">${product.title}</h5>
+      <div>${starHTML} (laikinai: ${product.rating })</div>
       <p>${product.description}</p>
     </div>
     <div>
-      <h4 class="text-danger $h2-font-size" >${product.price.toFixed(2)}</h4>
-      <h6 > ${discountedPrice.toFixed(2)}</h6>
+    <div class="d-flex inline">
+      <h4 class="text-danger" >${product.price.toFixed(2)}</h4>
+      <h6 class="text-decoration-line-through"> ${discountedPrice.toFixed(2)}</h6>
+      </div>
       <button style="background-color: #FCB80F; color: black; border: none; height:40px; width:180px; border-radius:3px;">Add to Cart</button>
     </div>
     </div>
