@@ -381,17 +381,60 @@ function createProductElement(product) {
   const productDiv = document.createElement('div');
   productDiv.classList.add('product');
 
+
+  //zvaigzdes
+//bootstap starcodes:
+  //tuscia \uF588
+  // puse \uF587
+  // pilna \uF586
+  const rating = Math.round(product.rating * 2) / 2;
+
+  const stars = '<i class="bi bi-star-fill" style="color: orange;">*</i>';
+  const halfStar = '<i class="bi bi-star-half" style="color: orange;">*</i>';
+  const emptyStar = '<i class="bi bi-star">*</i>'; 
+
+  // Create the HTML for the stars
+  let starHTML = '';
+  for (let i = 1; i <= 5; i++) {
+    if (i <= rating) {
+      starHTML += stars;
+    } else if (i - rating === 0.5) {
+      starHTML += halfStar;
+    } else {
+      starHTML += emptyStar;
+    }
+  }
+  //let discountPercentage = discountPercentage.toFixed(0);
+
+  //kaina 
+  const price = product.price;
+  const discount = product.discountPercentage;
+
+  const discountedPrice = calculateDiscountedPrice(price, discount);
+
+  function calculateDiscountedPrice(price, discount) {
+    const discountAmount = (discount / 100) * price; 
+    const discountedPrice = price - discountAmount;
+
+    return discountedPrice;
+}
+console.log("Price after discount:", discountedPrice);
+//
+
   productDiv.innerHTML = `
   <div style="display:flex; justify-content: space-between; align-items: center; width: 100vh;">
+<div class= "">
     <img src="${product.thumbnail}" alt="${product.title}" style="height: 150px; width: 200px;">
+    <div class="p-3 mb-2 bg-danger text-white z-3 position-absolute top-0 end-0" >${product.discountPercentage.toFixed(0)}%</div>
+</div>
     <div style="align-items: center; width: 600px;">
-      <h2 style="color: #3787DF;">${product.title}</h2>
-      <p>Rating: ${product.rating}</p>
-      <p>Description: ${product.description}</p>
+      <h4 style="color: #3787DF;">${product.title}</h4>
+      <div>${starHTML}${product.rating }</div>
+      <p>${product.description}</p>
     </div>
     <div>
-      <p>$${product.price}</p>
-      <p>Discount: ${product.discountPercentage}%</p>
+      <h4 class="text-danger $h2-font-size" >${product.price.toFixed(2)}</h4>
+      <h6 > ${discountedPrice.toFixed(2)}</h6>
       <button style="background-color: #FCB80F; color: black; border: none; height:40px; width:180px; border-radius:3px;">Add to Cart</button>
     </div>
     </div>
@@ -401,55 +444,12 @@ function createProductElement(product) {
   return productDiv;
 }
 
+
+
+
+
 //  forEach - peržiūri kiekvieną produktą masyve -> createProductElement() sukuria produkto elementą (aprasymą pagal funkciją),  ir įterpia į html products-container.
 products.products.forEach(product => {
   const productElement = createProductElement(product);
   productsContainer.appendChild(productElement);
 });
-
-/*
-const productsContainer = document.getElementById('products-container');
-
-    products.products.forEach(product => {
-      const productDiv = document.createElement('div');
-      productDiv.classList.add('product');
-      productDiv.style.display = 'flex',justifyContent = 'space-between';
-      
-      // Section 1: Image, 
-      const leftSection = document.createElement('div');
-      leftSection.innerHTML = `
-        <img src="${product.thumbnail}" alt="${product.title}">
-      `;
-      productDiv.appendChild(leftSection);
-// mid Title, Rating, Description
-      const productDetails = document.createElement('div');
-      productDetails.classList.add('product-details');
-      productDetails.innerHTML = `
-        <h2 style="color: #3787DF;">${product.title}</h2>
-        <p>Rating: ${product.rating}</p>
-        <p>Description: ${product.description}</p>
-      `;
-      productDiv.appendChild(productDetails);
-      //right price , discount, button
-      const rightSection = document.createElement('div');
-      rightSection.classList.add('product-actions');
-      rightSection.innerHTML = `
-        <p>Price: $${product.price}</p>
-        <p>Discount: ${product.discountPercentage}%</p>
-        <button style="background-color: #FCB80F; color: black; border: none; ">Add to Cart</button>
-        <hr>
-      `;
-      productDiv.appendChild(rightSection);
-
-      productsContainer.appendChild(productDiv);
-    });
-    */
-/*
-lygiavimas
-nuotraukos dydis
-title - font, size ir color+
-star rating
-description - font ir alignment
-price - paprasta / discounted raudona + maža pilna.
-button
-*/

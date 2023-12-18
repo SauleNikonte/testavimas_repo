@@ -23,6 +23,8 @@ else {
 
    let bmi = (weightValue/Math.pow(heightInMeters, 2)).toFixed(2)
 
+   reset.style.display = "block" ;
+
 if(bmi < 18.5) {
 showResult(`Underweight: <span>${bmi}</span>`, "orange")
 }
@@ -48,7 +50,8 @@ function resetAll(){
     height.value = "";
     weight.value = "";
     result.innerHTML = "";
-    result.style.backgroundColor = none ;
+    reset.style.display = "none" ;
 
 }
+reset.style.display = "none" ;
 
