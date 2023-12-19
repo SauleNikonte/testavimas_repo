@@ -1,9 +1,29 @@
+//neuploadina local storage lenteles uzkrovus naujai.
+// vel prisideda su tusciais langeliais 
+// tokio iraso nera nepranyksta
+// update table content
+
 const people = [];
 let currentNumeration = 1;
 
-const buttonElement = document.querySelector("#add-button");
+// Save people array to local storage
+//function saveToLocalStorage() {
+  //  localStorage.setItem('people', JSON.stringify(people));
+//}
 
-buttonElement.addEventListener("click", () => {
+// Load people array from local storage
+/*
+function loadFromLocalStorage(people) {
+    const storedPeople = localStorage.getItem('people');
+    if (storedPeople) {
+        people = JSON.parse(storedPeople);
+        generateTableContent(people);
+    }
+}
+*/
+const addButtonElement = document.querySelector("#add-button");
+
+addButtonElement.addEventListener("click", () => {
 const person = {};
 person.firstName = document.getElementById("firstNameInput").value;
 person.lastName = document.getElementById("lastNameInput").value;
@@ -18,6 +38,7 @@ console.log(person);
 
 people.push(person);
 generateTableContent(people);
+//saveToLocalStorage();
 });
 
 function generateTableContent(people) {
@@ -48,6 +69,7 @@ removeButton.addEventListener("click", () => {
     const personNumberToRemove = +numberInput.value;
 
     removePerson(personNumberToRemove);
+    ////saveToLocalStorage();
 });
 
 function removePerson(personNumber) {
@@ -59,11 +81,12 @@ function removePerson(personNumber) {
         document.getElementById('numberInput').value = '';
     } else {
         document.getElementById('numberInput').value = '';
-        document.getElementById('error').innerHTML = `Tokio įrašo nėra`;
+        document.getElementById('error').innerHTML = `No such number`;
         
     }
-}
-/*buttonElement.addEventListener("click", () => {
+   
+};
+addButtonElement.addEventListener("click", () => {
     const firstName = document.getElementById("firstNameInput").value;
     const lastName = document.getElementById("lastNameInput").value;
     const age = document.getElementById("ageInput").value;
@@ -81,13 +104,19 @@ function removePerson(personNumber) {
 
         people.push(person);
         generateTableContent(people);
+        //saveToLocalStorage();
 
         document.getElementById('firstNameInput').value = '';
         document.getElementById('lastNameInput').value = '';
         document.getElementById('ageInput').value = '';
         document.getElementById('nationalityInput').value = '';
     } else {
-        alert('Please fill in all fields before adding a person.');
+        document.getElementById('terror').innerHTML = `Please fill all the fields`;
     }
 });
-*/
+
+//window.addEventListener('load', () => {
+   // loadFromLocalStorage();
+//});
+
+// Pirma paima iš input -> saugo storage -> paima iš storage -> įkelia į lentelę.

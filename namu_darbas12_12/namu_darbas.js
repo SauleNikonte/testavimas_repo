@@ -63,7 +63,7 @@ function removePerson(personNumber) {
         
     }
 }
-/*buttonElement.addEventListener("click", () => {
+buttonElement.addEventListener("click", () => {
     const firstName = document.getElementById("firstNameInput").value;
     const lastName = document.getElementById("lastNameInput").value;
     const age = document.getElementById("ageInput").value;
@@ -87,7 +87,6 @@ function removePerson(personNumber) {
         document.getElementById('ageInput').value = '';
         document.getElementById('nationalityInput').value = '';
     } else {
-        alert('Please fill in all fields before adding a person.');
+        document.getElementById('terror').innerHTML = `Tokio įrašo nėra`;
     }
 });
-*/
