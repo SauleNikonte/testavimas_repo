@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <input type="text" placeholder="iveskita varda arba jo fragmenta" id="name"/>
+
+<ol id="list">
+
+</ol>
+
+<script >
+
+//document.querySelector("p").onclick = () => {
+    //console.log("uuu don't touch me!")}
+const names = ["Justinas", "Asta", "Rasa", "Jonas", "Antanas"];
+const nameInputElement = document.querySelector("#name");
+
+
+function showValues(list) {
+let dynamicHTML = "";
+for (const name of list) {
+    dynamicHTML += `<li>${name}</li>`;
+}
+    document.querySelector("#list").innerHTML += dynamicHTML;
+}
+showValues(names);
+
+nameInputElement.addEventListener("keyup", (event) => {
+    //const inputValue = event.target.value;
+    const inputValue = nameInputElement.value;
+
+    const filteredArray = names.filter((value) => value.toLowerCase().includes(inputValue.toLowerCase())
+    );
+
+showValues(filteredArray);
+console.log(filteredArray);
+});
+/*nameInputElement.addEventListener("keyup", (event) => {
+const element = event.target;
+element.value = "Elementas modifikuotas";
+console.log(event);
+});
+*/
+//nameInputElement.addEventListener('keydown', (event) =>{
+//console.log(event);
+//});
+    </script>
+</body>
+</html>

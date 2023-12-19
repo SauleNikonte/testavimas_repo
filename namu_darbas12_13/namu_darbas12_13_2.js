@@ -365,7 +365,6 @@ const products = {
       }
     ]
 }
-// sudubliavau su Aušros rodytu pvz.
 /*
 lygiavimas
 title - font, size ir color+
@@ -402,8 +401,8 @@ function createProductElement(product) {
     } else {
       starHTML += emptyStar;
     }
+  
   }
-  //let discountPercentage = discountPercentage.toFixed(0);
 
   //kaina 
   const price = product.price;
@@ -417,24 +416,23 @@ function createProductElement(product) {
 
     return discountedPrice;
 }
-console.log("Price after discount:", discountedPrice);
-//
+//nuolaidos bannerį apsirašyti scc?
 
   productDiv.innerHTML = `
   <div style="display:flex; justify-content: space-between; align-items: center; width: 100vh;">
-<div class= "">
-    <div class="p-3 mb-2 bg-danger text-white text-wrap" >${product.discountPercentage.toFixed(0)}%</div>
-    <img src="${product.thumbnail}" alt="${product.title}" style="height: 150px; width: 200px;">
-</div>
+    <div>
+        <div class=" banner bg-danger text-white z-1">${Math.round(product.discountPercentage)}%</div>
+        <img src="${product.thumbnail}" alt="${product.title}" style="height: 150px; width: 200px;">
+    </div>
     <div style="align-items: center; width: 600px;">
-      <h5 style="color: #3787DF;">${product.title}</h5>
+      <h6 style="color: #3787DF;">${product.title}</h6>
       <div>${starHTML} (laikinai: ${product.rating })</div>
       <p>${product.description}</p>
     </div>
     <div>
     <div class="d-flex inline">
-      <h4 class="text-danger" >${product.price.toFixed(2)}</h4>
-      <h6 class="text-decoration-line-through"> ${discountedPrice.toFixed(2)}</h6>
+      <h5 class="text-danger" >$${product.price.toFixed(2)}</h5>
+      <h6 class=" text-secondary text-decoration-line-through ps-1"> $${discountedPrice.toFixed(2)}</h6>
       </div>
       <button style="background-color: #FCB80F; color: black; border: none; height:40px; width:180px; border-radius:3px;">Add to Cart</button>
     </div>
