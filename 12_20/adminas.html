@@ -183,9 +183,9 @@
                             veniam aliquid a id! Quasi porro voluptate quae numquam pariatur,
                             minima inventore nisi eaque ad!</span>
                     </div>
-                    <button class="modal-close">Close</button>
                 </div>
             </div>
+            <button class="modal-close">Close</button>
         </dialog>
 
 		<script>
@@ -217,7 +217,8 @@
 				descriptionElement = document.getElementById("description"),
                 modalCloseElement = document.getElementById("modal-close");
 
-
+      console.log(modalElement);
+      console.log(modalCloseElement);
 			//Sis budas - suveikia
 			// generateTableContent()
 			// function generateTableContent()
@@ -291,14 +292,12 @@
                                 >${product.description}</span
                             >
                         </div>
-                        <button class="modal-close">Close</button>
+                        <button id="modal-close">Close</button>
                     </div>
                 </div>`;
         
 			};
             showModal();
-
-            //modalCloseElement.onclick = modalElement.close();
 
 			const createNewRecord = (event) => {
 				//Prevencija nuo iprastinio elgesio.
@@ -384,8 +383,87 @@
 			};
 
             //modal
+            /*
+// Get the dialog element
+const productInfoDialog = document.getElementById('productInfo');
+
+// Get the close button inside the dialog
+const closeButton = productInfoDialog.querySelector('.modal-close');
+
+// Add click event listener to the button
+closeButton.addEventListener('click', () => {
+    // Close the dialog using the close() method
+    productInfoDialog.close();
+});
 
 
+            /*
+    document.addEventListener('DOMContentLoaded', function() {
+    // Get the button element
+    const modalCloseElement = document.querySelector('.modal-close');
+
+    // Get the dialog element
+    const productInfoDialog = document.getElementById('productInfo');
+
+    // Add click event listener to the button
+    modalCloseElement.addEventListener('click', () => {
+        // Close the dialog using the close() method
+        productInfoDialog.close();
+    });
+});
+  /*          
+// Get the button element
+const closeButton = document.querySelector('.modal-close');
+
+// Get the dialog element
+const productInfoDialog = document.getElementById('productInfo');
+
+// Add click event listener to the button
+closeButton.addEventListener('click', () => {
+    // Close the dialog using the close() method
+    productInfoDialog.close();
+});
+
+/*const closeButton = modalElement.querySelector('.modal-close');
+
+
+closeButton.addEventListener('click', () => {
+    modalElement.close();
+});
+
+
+const modal = document.getElementById("productInfo");
+const closeButton = document.querySelector("modal-close");
+function closeModal() {
+    modal.style.display = 'none';
+}
+closeButton.addEventListener('click', closeModal);
+
+window.addEventListener('click', function(event) {
+    if (event.target === modal) {
+        closeModal();
+    }
+});
+
+// Justino pvz:
+
+const modalBackground = document.querySelector(".modal-background");
+			const modal = document.querySelector(".modal");
+			function openModal() {
+				modalBackground.style.visibility = "visible";
+			}
+			function closeModal() {
+				modalBackground.style.visibility = "hidden";
+			}
+
+			modalBackground.onclick = (event) => {
+				console.log("clicked on modal background");
+			};
+			modal.onclick = (event) => {
+				console.log("clicked on modal, not closing it");
+				event.stopPropagation();
+			};
+*/
 		</script>
         <!--<script src="show-products.js"></script>-->
 	</body>
