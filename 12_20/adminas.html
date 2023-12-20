@@ -157,40 +157,36 @@
 				</tbody>
 			</table>
 		</div>
-        <div class="modal-background"></div>
-            <dialog
-                id="productInfo"
-                style="width: 70%"
-            >
-                <div style="max-width: 70%; margin: 0 auto">
-                    <img
-                        src="https://i.dummyjson.com/data/products/1/thumbnail.jpg"
-                        alt="product photo"
-                    />
-                    <div class="product-details">
-                        <div class="row">
-                            <span class="col-2 fw-bold">Nuolaida:</span>
-                            <span class="col-1">-10%</span>
-                        </div>
-                        <div class="row">
-                            <span class="col-2 fw-bold">Įvertinimas</span>
-                            <span class="col-1">4.23</span>
-                        </div>
-                        <div class="row">
-                            <span class="col-2 fw-bold">Aprašymas</span>
-                            <span class="col-6"
-                                >Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos
-                                ducimus libero veniam odio voluptatum expedita aspernatur aliquid
-                                amet. Explicabo delectus eligendi quibusdam excepturi quasi in
-                                veniam aliquid a id! Quasi porro voluptate quae numquam pariatur,
-                                minima inventore nisi eaque ad!</span
-                            >
-                        </div>
-                        <button class="modal-close">Close</button>
+        <dialog
+            id="productInfo"
+            style="width: 70%">
+            <div style="max-width: 70%; margin: 0 auto">
+                <img
+                    src="https://i.dummyjson.com/data/products/1/thumbnail.jpg"
+                    alt="product photo"
+                />
+                <div class="product-details">
+                    <div class="row">
+                        <span class="col-2 fw-bold">Nuolaida:</span>
+                        <span class="col-1">-10%</span>
                     </div>
+                    <div class="row">
+                        <span class="col-2 fw-bold">Įvertinimas</span>
+                        <span class="col-1">4.23</span>
+                    </div>
+                    <div class="row">
+                        <span class="col-2 fw-bold">Aprašymas</span>
+                        <span class="col-6"
+                            >Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos
+                            ducimus libero veniam odio voluptatum expedita aspernatur aliquid
+                            amet. Explicabo delectus eligendi quibusdam excepturi quasi in
+                            veniam aliquid a id! Quasi porro voluptate quae numquam pariatur,
+                            minima inventore nisi eaque ad!</span>
+                    </div>
+                    <button class="modal-close">Close</button>
                 </div>
-            </dialog>
-         </div>
+            </div>
+        </dialog>
 
 		<script>
 			//CRUD:
@@ -266,13 +262,42 @@
 				// dynamicDataElement
 			};
 			getTableContents();
-
-			const showModal = (id) => {
-				let elementIndex = products.findIndex((value) => value.id === id);
-				const product = products[elementIndex];
-				modalElement.showModal();
-
+                
+                const showModal = (id) => {
+                let elementIndex = products.findIndex((value) => value.id === id);
+                const product = products[elementIndex];
+                modalElement.showModal();
+            modalElement.innerHTML = 
+            `
+                <div style="max-width: 70%; margin: 0 auto">
+                    <img
+                        src="${product.thumbnail}"
+                        alt="product photo"
+                    />
+                    <div class="product-details">
+                        <div class="row">
+                            <span class="col-2 fw-bold">Nuolaida:</span>
+                            <span class="col-1">-${Math.round(
+									product.discountPercentage
+								)}%</span>
+                        </div>
+                        <div class="row">
+                            <span class="col-2 fw-bold">Įvertinimas</span>
+                            <span class="col-1">${product.discount}</span>
+                        </div>
+                        <div class="row">
+                            <span class="col-2 fw-bold">Aprašymas</span>
+                            <span class="col-6"
+                                >${product.description}</span
+                            >
+                        </div>
+                        <button class="modal-close">Close</button>
+                    </div>
+                </div>`;
+        
 			};
+            showModal();
+
             //modalCloseElement.onclick = modalElement.close();
 
 			const createNewRecord = (event) => {
@@ -360,24 +385,8 @@
 
             //modal
 
-            const modalBackground = document.querySelector(".modal-background");
-			const modal = document.querySelector(".modal");
-			function openModal() {
-				modalBackground.style.visibility = "visible";
-			}
-			function closeModal() {
-				modalBackground.style.visibility = "hidden";
-			}
 
-			modalBackground.onclick = (event) => {
-				console.log("clicked on modal background");
-			};
-			modal.onclick = (event) => {
-				console.log("clicked on modal, not closing it");
-				event.stopPropagation();
-			};
-			//2. modalinio lango valdymo variantas su <dialog>
-			const modalDialog = document.querySelector('dialog');
 		</script>
+        <!--<script src="show-products.js"></script>-->
 	</body>
 </html>
