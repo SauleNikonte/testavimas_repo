@@ -45,6 +45,17 @@
             border: none;
             border-radius: 3px;
          }
+         .space-right {
+				margin-right: 1rem;
+			}
+			form div {
+				width: 50%;
+			}
+			div label {
+				display: flex;
+				justify-content: space-between;
+				margin-bottom: 0.5rem;
+			}
          
     </style>
 </head>
@@ -60,63 +71,130 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th>1</th>
-                <th>John</th>
-                <th>Doe</th>
-                <th>36</th>
-                <th>British</th>
-            </tr>
         </tbody>
     </table>
-    <div class="row">
-        <div class="col">
-            <form>
-                <h2>Add person</h2>
-                <div>
-                    <label>
-                        <span class="space-right">First Name</span>
-                        <input type="text" placeholder="First Name"
-                        id="firstNameInput"/>
-                    </label>
-                </div>
-                <div>
-                    <label>
-                        <span class="space-right">Last Name</span>
-                        <input type="text" placeholder="Last Name" id="lastNameInput"/>
-                    </label>
-                </div>
-                <div>
-                    <label>
-                        <span class="space-right">Age</span>
-                        <input type="text" placeholder="Age" id="ageInput"/>
-                    </label>
-                </div>
-                <div>
-                    <label>
-                        <span class="space-right">Nationality</span>
-                        <input type="text" placeholder="Nationality" id="nationalityInput"/>
-                    </label>
-                </div>
-            </form>
-            <div>
-                <button id="add-button">Add</button>
-                <p id="terror"></p>
-            </div>
+    <form>
+        <div>
+            <h2>Add person</h2>
+            <label>
+                <span class="space-right">First Name</span>
+                <input
+                    type="text"
+                    placeholder="First Name"
+                    id="firstNameInput"
+                />
+            </label>
         </div>
-        <div class="col">
-            <h2>Remove person</h2>
-            <span class="space-right">Person Number</span>
-            <input type="number" placeholder="Person number" id="numberInput"/>
-            <button id="remove-button">Remove</button>
-            <p id="error"></p>
-            <h2>Update person</h2>
-            <span class="space-right">Person Number</span>
-            <input type="number" placeholder="Person number" id="numberInputUpdate"/>
-            <button id="update-button">Update</button>
-            <p id="herror"></p>
+        <div>
+            <label>
+                <span class="space-right">Last Name</span>
+                <input
+                    type="text"
+                    placeholder="Last Name"
+                    id="lastNameInput"
+                />
+            </label>
         </div>
+        <div>
+            <label>
+                <span class="space-right">Age</span>
+                <input
+                    type="text"
+                    placeholder="Age"
+                    id="ageInput"
+                />
+            </label>
+        </div>
+        <div>
+            <label>
+                <span class="space-right">Nationality</span>
+                <input
+                    type="text"
+                    placeholder="Nationality"
+                    id="nationalityInput"
+                />
+            </label>
+        </div>
+    </form>
+    <div>
+        <button id="add-button">Add</button>
+        <p id="error"></p>
     </div>
+    <div>
+    <h2>Remove person</h2>
+    <input
+        type="number"
+        placeholder="number"
+        id="numberRemove"
+    />
+    <button id="remove-button">Remove</button>
+    <p id="terror"></p>
+
+    <form>
+        <h2>Update</h2>
+        <div>
+            <label>
+                <span class="space-right">ID</span>
+                <input
+                    type="text"
+                    placeholder="ID number"
+                    id="idInputUpdate"
+                />
+            </label>
+            <label>
+                <span class="space-right">First Name</span>
+                <input
+                    type="text"
+                    placeholder="First Name"
+                    id="firstNameInputUpdate"
+                />
+            </label>
+        </div>
+        <div>
+            <label>
+                <span class="space-right">Last Name</span>
+                <input
+                    type="text"
+                    placeholder="Last Name"
+                    id="lastNameInputUpdate"
+                />
+            </label>
+        </div>
+        <div>
+            <label>
+                <span class="space-right">Age</span>
+                <input
+                    type="text"
+                    placeholder="Age"
+                    id="ageInputUpdate"
+                />
+            </label>
+        </div>
+        <div>
+            <label>
+                <span class="space-right">Nationality</span>
+                <input
+                    type="text"
+                    placeholder="Nationality"
+                    id="nationalityInputUpdate"
+                />
+            </label>
+        </div>
+        <input
+            type="submit"
+            value="Update"
+        />
+
+    </form>
+    <!--<h2>Update personal info</h2>
+    <input
+        type="number"
+        placeholder="number"
+        id="numberUpdate"
+    />
+    <button id="update-button">Update</button>
+    <p id="herror"></p>
+    </div>-->
    
     <script src="perkurta_lentele.js"></script>
 
