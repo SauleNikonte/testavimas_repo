@@ -185,7 +185,7 @@
                     </div>
                 </div>
             </div>
-            <button class="modal-close">Close</button>
+            <button id="modal-close" onclick="closeModal()">Close</button>
         </dialog>
 
 		<script>
@@ -292,12 +292,24 @@
                                 >${product.description}</span
                             >
                         </div>
-                        <button id="modal-close">Close</button>
+                        
                     </div>
-                </div>`;
-        
-			};
-            showModal();
+                </div>
+				<button id="modal-close" onclick="closeModal()">Close</button>`;
+        };
+
+showModal();
+
+function closeModal() {
+	modalElement.style.visibility = "hidden";
+	return;
+			}
+
+/*modalCloseElement.addEventListener('click', () => {
+	modalElement.style.display = 'none';
+closeModal();
+    });
+*/
 
 			const createNewRecord = (event) => {
 				//Prevencija nuo iprastinio elgesio.
