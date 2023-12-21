@@ -23,10 +23,15 @@
 	<body>
         <!-- mūsų inputo blokas -->
 		<div class="container">
+			<nav class="mb-3">
+				<a href="products.html" class="me-3 btn btn-primary">Produktai</a>
+				<a href="adminas.html" class="me-3 btn btn-primary">Admin panelė</a>
+			</nav>
 			<form>
 				<div class="row mb-5">
+				<h2>Produktų pridėjimas</h2>
+				<div class="row mb-2">
 					<!-- - 12 vienoje eiluteje, tie columnai kelsis i sekancia eilute -->
-
 					<div class="col-4">
 						<label for="title">Pavadinimas:</label>
 						<input
@@ -130,6 +135,74 @@
 				</div>
 			</form>
 <!-- lentelė -->
+<hr/>
+			<form action="">
+				<h2>Produktų filtracija</h2>
+				<div class="row mb-5">
+					<div class="col-4 mt-2">
+						<label for="filter-product-name">Pavadinimas:</label>
+						<input
+							type="text"
+							id="filter-product-name"
+							name="filter-product-name"
+							class="form-control"
+						/>
+					</div>
+					<div class="col-4 mt-2">
+						<label for="filter-product-priceFrom">Kaina nuo:</label>
+						<input
+							type="number"
+							id="filter-product-priceFrom"
+							min="0"
+							name="filter-product-priceFrom"
+							class="form-control"
+						/>
+					</div>
+					<div class="col-4 mt-2">
+						<label for="filter-product-priceTo">Kaina iki:</label>
+						<input
+							type="number"
+							id="filter-product-priceTo"
+							min="0"
+							name="filter-product-priceTo"
+							class="form-control"
+						/>
+					</div>
+					<div class="col-4 mt-2">
+						<label for="filter-product-brand">Prekinis ženklas:</label>
+						<input
+							type="text"
+							id="filter-product-brand"
+							name="filter-product-brand"
+							class="form-control"
+						/>
+					</div>
+					<div class="col-4 mt-2">
+						<label for="filter-product-category">Kategorija:</label>
+						<select
+							name="filter-product-category"
+							id="filter-product-category"
+							class="form-select"
+						>
+							<option>smartphones</option>
+							<option>laptops</option>
+							<option>fragrances</option>
+							<option>skincare</option>
+							<option>groceries</option>
+							<option>home-decoration</option>
+						</select>
+					</div>
+					<div class="col-4 mt-2">
+						<label for="filter-product-description">Aprašymas:</label>
+						<input
+							type="text"
+							id="filter-product-description"
+							name="filter-product-description"
+							class="form-control"
+						/>
+					</div>
+				</div>
+			</form>
 			<table class="table table-striped">
 				<thead>
 					<tr>
@@ -157,6 +230,7 @@
 				</tbody>
 			</table>
 		</div>
+		<div class="modal-background">
         <dialog
             id="productInfo"
             style="width: 70%">
@@ -187,6 +261,7 @@
             </div>
             <button id="modal-close" onclick="closeModal()">Close</button>
         </dialog>
+		</div>
 
 		<script>
 			//CRUD:
@@ -195,11 +270,17 @@
 			//UPDATE - Atnaujinti įrašą. Good
 			//DELETE - Ištrinti įrašą. Good
 			console.log(localStorage.getItem("products"));
+
 			if (!localStorage.getItem("products"))
 				localStorage.setItem("products", "[]");
 
 			const products = JSON.parse(localStorage.getItem("products"));
-			let currentId = 1;
+			if (!localStorage.getItem("currentId"))
+			{
+				localStorage.setItem("currentId", "1");
+			}
+
+			let currentId = +localStorage.getItem("currentId");
 			let editMode = false;
 			let currentProduct;
 
@@ -214,8 +295,8 @@
 				photoElement = document.getElementById("imageUrl"),
 				discountElement = document.getElementById("discount"),
 				ratingElement = document.getElementById("rating"),
-				descriptionElement = document.getElementById("description"),
-                modalCloseElement = document.getElementById("modal-close");
+				descriptionElement = document.getElementById("description");
+                
 
       console.log(modalElement);
       console.log(modalCloseElement);
@@ -262,55 +343,53 @@
 				dynamicDataElement.innerHTML = dynamicHTML;
 				// dynamicDataElement
 			};
+
 			getTableContents();
                 
                 const showModal = (id) => {
                 let elementIndex = products.findIndex((value) => value.id === id);
                 const product = products[elementIndex];
                 modalElement.showModal();
-            modalElement.innerHTML = 
-            `
-                <div style="max-width: 70%; margin: 0 auto">
+
+            let dynamicHTML = 
+            ` <div id="modalBody" style = "width: 100%; height: 100%">
+                <div style="max-width: 70%; margin: 0 auto; padding: .5rem">
                     <img
                         src="${product.thumbnail}"
                         alt="product photo"
                     />
                     <div class="product-details">
                         <div class="row">
-                            <span class="col-2 fw-bold">Nuolaida:</span>
-                            <span class="col-1">-${Math.round(
+                            <span class="col-lg-2 fw-bold">Nuolaida:</span>
+                            <span class="col-lg-1">-${Math.round(
 									product.discountPercentage
 								)}%</span>
                         </div>
                         <div class="row">
-                            <span class="col-2 fw-bold">Įvertinimas</span>
-                            <span class="col-1">${product.discount}</span>
+                            <span class="col-lg-2 fw-bold">Įvertinimas</span>
+                            <span class="col-lg-1">${product.rating}</span>
                         </div>
                         <div class="row">
-                            <span class="col-2 fw-bold">Aprašymas</span>
-                            <span class="col-6"
+                            <span class="col-lg-2 fw-bold">Aprašymas</span>
+                            <span class="col-10"
                                 >${product.description}</span
                             >
                         </div>
-                        
                     </div>
+					<button class="btn btn-danger mt-3" onclick="modalElement.close()">Close</button>
                 </div>
-				<button id="modal-close" onclick="closeModal()">Close</button>`;
+				</div>`;
+				
+modalElement.innerHTML = dynamicHTML;
+				modalElement.showModal();
+				document.querySelector( "#modalBody").onclick = (event) => {
+					event.stopPropagation();
+};
         };
-
-showModal();
-
-function closeModal() {
-	modalElement.style.visibility = "hidden";
-	return;
-			}
-
-/*modalCloseElement.addEventListener('click', () => {
-	modalElement.style.display = 'none';
-closeModal();
-    });
-*/
-
+		modalElement.onclick = () =>{
+modalElement.close();
+		};
+		
 			const createNewRecord = (event) => {
 				//Prevencija nuo iprastinio elgesio.
 				event.preventDefault();
@@ -329,6 +408,7 @@ closeModal();
 				currentId++;
 				products.push(newProduct);
 				localStorage.setItem("products", JSON.stringify(products));
+				localStorage.setItem("currentId", currentId);
 				getTableContents();
 			};
 
@@ -348,10 +428,14 @@ closeModal();
 				//Pagal currentProduct indeksą, gautą iš atnaujinimo režimo funkcijos,
 				//Pakeiciame reiksmes i naujas, gautas is inputu.
 				products[currentProduct].title = titleInputElement.value;
-				products[currentProduct].price = priceInputElement.value;
-				products[currentProduct].stock = stockInputElement.value;
+				products[currentProduct].price = +priceInputElement.value;
+				products[currentProduct].stock = +stockInputElement.value;
 				products[currentProduct].brand = brandInputElement.value;
 				products[currentProduct].category = categoryInputElement.value;
+				products[currentProduct].category = thumbnailElement.value;
+				products[currentProduct].category = +ratingElement.value;
+				products[currentProduct].category = +discountElement.value;
+				products[currentProduct].category = descriptionElement.value;
 
 				//Atnaujiname table su pakeistais duomenimis
 				getTableContents();
@@ -370,6 +454,11 @@ closeModal();
 				stockInputElement.value = "";
 				brandInputElement.value = "";
 				categoryInputElement.value = "";
+				thumbnailElement.value = "";
+				ratingElement.value = "";
+				ratingElement.value = "";
+				descriptionElement.value = "";
+
 				localStorage.setItem("products", JSON.stringify(products));
 			};
 
