@@ -1,3 +1,6 @@
+// kad rodytų 1 foto, o ne milijoną tos veislės
+// foto lygiavimas
+
 const container = document.querySelector(".container");
 
 const imageElement = document.querySelector(".image img");
@@ -31,13 +34,16 @@ function selectBreed(breeds) {
 		// console.log(list); //sarašas
 	}
 }
-
 const fetchButton = document.querySelector(".btn");
 fetchButton.addEventListener("click", () => {
-    const selectedBreed = document.querySelector(".dog-breed").value;
-    if (selectedBreed !== '') {
-        fetchDogImage(selectedBreed);
-    }
+    // const selectedBreed = document.querySelector(".dog-breed").value;
+    // if (selectedBreed !== '') {
+    //     fetchDogImage(selectedBreed);
+    // }
+	const selectedBreed = select.value;
+	if (selectedBreed !== "") {
+		fetchSpecificDog(selectedBreed);
+	}
 });
 
 function fetchSpecificDog(breed) {
@@ -51,10 +57,9 @@ function fetchSpecificDog(breed) {
 		.then((thumbnail) => {
 			showDogs(thumbnail);
 			//document.write(`<img src="${thumbnail.message}"/>`);
-			console.log(thumbnail.message); // vienos foto linkas (viršutine)
+			console.log(thumbnail.message);
 		});
 }
-
 //     let dynamicHTML = "";
 
 function showDogs(thumbnail) {
@@ -65,14 +70,15 @@ function showDogs(thumbnail) {
        <img src="${imageUrl}" /> `;
 	}
 	document.querySelector(".image").innerHTML = dynamicHTML;
-}
+};
+
 // showDogs();
-select.addEventListener("change", () => {
-	console.log("veikiu");
-	const selectedBreed = select.value;
-	if (selectedBreed !== "") {
-		fetchSpecificDog(selectedBreed);
-	}
-	// document.write(`<img src="${selectedBreed}"/>`);
-});
+// select.addEventListener("change", () => {
+// 	console.log("veikiu");
+// 	const selectedBreed = select.value;
+// 	if (selectedBreed !== "") {
+// 		fetchSpecificDog(selectedBreed);
+// 	}
+// 	// document.write(`<img src="${selectedBreed}"/>`);
+// });
 
