@@ -56,6 +56,7 @@ function getUniqueValue(array) {
  return [...new Set(array)]
 
 
+ 
 }
 
 console.log(getUniqueValue([1,1,5,25,5,5,2,3,9,7]))

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgb(208, 210, 210);
+}
+.container {
+    width: 30rem;
+    height: 30rem;
+    background-color: white;
+    justify-content: top;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 20px;
+    border-radius: 10px;
+    box-shadow: 10px 10px 5px 0px rgba(54, 54, 54, 0.25);
+}
+.code {
+    font-size: 20px;
+}
+
+.btn {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    color: rgb(251, 248, 248);
+    background-color: rgb(137, 135, 137);
+
+}
+image {
+    width: 20rem;
+}
+
+    </style>
+</head>
+<body>
+   <div class="container">
+        <h3>BREED LIST</h3>
+        <div class="main">
+            <div class="pick">
+                <span class="code">Choose dog breed
+                    <select class="dog-breed">
+                        <option  class="options" value=""></option>
+                    </select>
+                    picture
+                </span>
+                <button class="btn">Fetch!</button>
+            </div>
+            <div class="image"><img src=""/></div>
+        </div>
+    </div>
+
+    <script src="Suniukai.js"></script>
+</body>
+</html>
