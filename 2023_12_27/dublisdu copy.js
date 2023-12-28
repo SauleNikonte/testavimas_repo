@@ -2,15 +2,14 @@
 // foto lygiavimas
 
 const container = document.querySelector(".container");
-
-const imageElement = document.querySelector(".image img");
+const imageElement = document.querySelector(".image");
 
 fetch("https://dog.ceo/api/breeds/list/all")
 	.then((atsakymas) => atsakymas.json())
 	.then((atsakymas) => {
 		const breeds = atsakymas.message;
 		selectBreed(breeds);
-		console.log(breeds); //array
+		//console.log(breeds); //array
 	});
 const select = document.querySelector(".dog-breed");
 function selectBreed(breeds) {
@@ -23,23 +22,17 @@ function selectBreed(breeds) {
 		} 
 		else {
 			for (let subBreed of breeds[arrayName]) {
-				console.log("Ieinu");
 				const option2 = document.createElement("option");
 				option2.value = `${subBreed} ${arrayName}`;
 				option2.textContent = `${subBreed} ${arrayName}`;
 				select.appendChild(option2);
 			}
 		}
-
-		// console.log(list); //sarašas
 	}
 }
 const fetchButton = document.querySelector(".btn");
 fetchButton.addEventListener("click", () => {
-    // const selectedBreed = document.querySelector(".dog-breed").value;
-    // if (selectedBreed !== '') {
-    //     fetchDogImage(selectedBreed);
-    // }
+   
 	const selectedBreed = select.value;
 	if (selectedBreed !== "") {
 		fetchSpecificDog(selectedBreed);
@@ -51,34 +44,31 @@ function fetchSpecificDog(breed) {
 		.split(" ")
 		.reverse()
 		.join("/")}/images`;
-	console.log(dynamicUrl);
+	//console.log(dynamicUrl);//linkas i breed img
 	fetch(dynamicUrl)
 		.then((thumbnail) => thumbnail.json())
 		.then((thumbnail) => {
-			showDogs(thumbnail);
-			//document.write(`<img src="${thumbnail.message}"/>`);
-			console.log(thumbnail.message);
+			showDog(thumbnail);
 		});
 }
-//     let dynamicHTML = "";
 
-function showDogs(thumbnail) {
-	console.log(thumbnail);
+function showDog(thumbnail) {
+	// console.log(thumbnail); breed nuotrauku linku array
+
 	let dynamicHTML = "";
-	for (const imageUrl of thumbnail.message) {
+	if (thumbnail.message.length > 0) {
+        const imageUrl = thumbnail.message[0]; {
 		dynamicHTML += `
        <img src="${imageUrl}" /> `;
 	}
 	document.querySelector(".image").innerHTML = dynamicHTML;
+}
 };
 
-// showDogs();
-// select.addEventListener("change", () => {
-// 	console.log("veikiu");
-// 	const selectedBreed = select.value;
-// 	if (selectedBreed !== "") {
-// 		fetchSpecificDog(selectedBreed);
-// 	}
-// 	// document.write(`<img src="${selectedBreed}"/>`);
-// });
-
+// if (thumbnail.message.length > 0) {
+// 	const imageUrl = thumbnail.message[0]; // Selecting the first image URL
+// 	const imageElement = document.createElement("img");
+// 	imageElement.src = imageUrl;
+// 	document.querySelector(".image").innerHTML = ""; // Clear previous images
+// 	document.querySelector(".image").appendChild(imageElement);
+// }
