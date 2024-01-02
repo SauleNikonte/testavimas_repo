@@ -1,4 +1,5 @@
 // kad rodytų 1 foto, o ne milijoną tos veislės
+// rodo tik vieną, bet pačią pirmą iš source
 // foto lygiavimas
 
 const container = document.querySelector(".container");
@@ -65,10 +66,9 @@ function showDog(thumbnail) {
 }
 };
 
-// if (thumbnail.message.length > 0) {
-// 	const imageUrl = thumbnail.message[0]; // Selecting the first image URL
-// 	const imageElement = document.createElement("img");
-// 	imageElement.src = imageUrl;
-// 	document.querySelector(".image").innerHTML = ""; // Clear previous images
-// 	document.querySelector(".image").appendChild(imageElement);
-// }
+// for (var i = 0; i < options.length; i++) {
+//     var option = document.createElement("option");
+//     option.value = options[i].value;
+//     option.text = options[i].text;
+//     select.appendChild(option);
+//   }
