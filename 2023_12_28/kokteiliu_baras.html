@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coctails</title>
+    <title>Cocktails</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Homemade+Apple&family=Poppins:wght@400;600&family=Roboto:wght@400;500&family=Shadows+Into+Light+Two&display=swap" rel="stylesheet">
@@ -11,32 +11,26 @@
 
 </head>
 <body>
+    <div class="modal-background">
+        <div class="modal">
+            <!-- <div class="buttons">
+            </div> -->
+        </div>
+    </div>
     <nav>
     <div class="container nav-container">
-        <input type="text" id="coctail-name-filter" placeholder="Name of the drink">
-        <select id="category-select"></select>
-        <select id="glass-type-select">Glass type</select>
-        <select id="ingredient-select">Ingredient</select>
+        <input type="text" id="cocktail-name-filter" placeholder="Name of the drink">
+        <select id="category-select"> <option>Choose Category</option></select>
+        <select id="glass-type-select"><option>Choose Glass Type</option></select>
+        <select id="ingredient-select"><option>Choose Ingredient</option></select>
         <button id="search">Search</button>
-        <button id="im-lucky">I'm lucky!</button>
+        <button id="im-lucky">I'm feeling lucky!</button>
    </div>
 </nav>
-<div class="modal-background">
-    <div class="modal">
-        <!-- <div class="buttons">
-            <img src="https://www.thecocktaildb.com/images/media/drink/sxtxrp1454514223.jpg" alt=""/>
-            <h3>Very interesting article</h3>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Consectetur quae neque praesentium quidem non repellat aliquid,
-                nostrum vitae dolor repellendus in voluptates voluptatum architecto
-            </p>
-            <hr />
-            <button onclick="closeModal()">x</button>
-        </div> -->
+<div class="random-background">
+    <div class="random-drinks">
     </div>
 </div>
-
 <div class="container drinks">
     <!--
         <div class="drink" onclick="openModal()">
