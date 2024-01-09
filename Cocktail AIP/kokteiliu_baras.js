@@ -20,54 +20,39 @@ dynamicModalBackgroundElement = document.querySelector(".modal-background"),
 dynamicModalElement = document.querySelector(".modal1"),
 randomDrinkElement = document.querySelector(".random-drink"),
 randomBackground = document.querySelector(".random-background"),
-letterSelectElement = document.querySelector("#abc-select"),
-body = document.querySelector('body');
+// letterSelectElement = document.querySelector("#abc-select"),
 
+abcElement = document.querySelector("#abc-letters");
+
+
+body = document.querySelector('body');
+//---selectai---//
 const selectValues = {}, drinksArray = [];
 async function fillSelectElements(){
 //const startTime = new Date();
+
 	const allURLS = [
 	"https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list",
 	"https://www.thecocktaildb.com/api/json/v1/1/list.php?g=list",
 	"https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list",
-	//"https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a",
+	"https://www.thecocktaildb.com/api/json/v1/1/list.php?a=list",
 	];
 
 	const allPromises = allURLS.map((url) => fetch(url).then((response) => response.json()));
 	const allValues = await Promise.all(allPromises);
 
-const [allCategories, allGlasses, allIngredients, allLetters] = allValues;
+const [allCategories, allGlasses, allIngredients, allAlcoholics] = allValues;
 selectValues.categories = allCategories.drinks.map((categoryObj) => categoryObj.strCategory);
 selectValues.glasses = allGlasses.drinks.map(glass => glass.strGlass);
 selectValues.ingredients = allIngredients.drinks.map(ingredient => ingredient.strIngredient1);
-//selectValues.letters = allLetters.drinks.map(letter => letter.strDrink);
+selectValues.alcoholics = allAlcoholics.drinks.map(alcoholic => alcoholic.strAlcoholic);
 
-console.log(selectValues); //objektas su Arrays su stringais categories, glasses, ingredients
+
+console.log(selectValues); //objektas su Arrays su stringais categories, glasses, ingredients, acoholics
 fillCategorySelect(allCategories.drinks, categorySelectElement, "strCategory");
 fillCategorySelect(allGlasses.drinks, glassSelectElement, "strGlass");
 fillCategorySelect(allIngredients.drinks, ingredientSelectElement, "strIngredient1");
-// ABC selecta užpildyti lotyniškomis raidėmis, tada pagal raide išmest rezultatus
-//fillCategorySelect(allLetters.drinks, letterSelectElement, "strDrink");
 }
-// await fetch("https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list")
-// .then((response) => response.json())
-// .then((response) => { fillCategorySelect(response.drinks, categorySelectElement, "strCategory");
-// categoriesArray.push(...response.drinks.map((value) => value.strCategory)
-// );
-// })
-// .catch((error) => console.log(error));
-
-// // glasses 32
-// await fetch("https://www.thecocktaildb.com/api/json/v1/1/list.php?g=list")
-// .then((response) => response.json())
-// .then((response) => fillCategorySelect(response.drinks, glassSelectElement, "strGlass"));
-
-// // ingredients 100
-// await fetch("https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list")
-// .then((response) => response.json())
-// .then((response) => fillCategorySelect(response.drinks, ingredientSelectElement, "strIngredient1"));
-
-
 
 //---request time---//
 // const endDate = new Date();
@@ -94,7 +79,7 @@ async function getAllDrinks() {
 const allPromises = categoriesDrinksUrl.map((url)=> fetch(url).then(response => response.json()));
 const allValues = await Promise.all(allPromises);
 allValues.forEach((value)=> drinksArray.push(...value.drinks));
-//console.log(allValues); // visų gėrimų strDrink, strDrikThumb, idDrink
+//console.log(allValues); // visų gėrimų strDrink, strDrinkThumb, idDrink - gerimu kortelems
 }
 function generateDrinksHTML(allValues){
 	let dynamicHTML = "";
@@ -107,8 +92,10 @@ function generateDrinksHTML(allValues){
 	}
 	dynamicDrinksElement.innerHTML = dynamicHTML;
 }
+//---Error message--//
 
 //-------------MODAL------------//
+//---ingerdiens--//
 function getIngredientsArray(drink) {
     const ingredientArray = [];
     for ( let currentIngredient = 1; currentIngredient < 16; currentIngredient++){
@@ -117,6 +104,7 @@ if (drink[`strIngredient${currentIngredient}`])
     }
     return ingredientArray;
 }
+//---measures--//
 function getMeasureArray(drink) {
     const measureArray = [];
     for ( let currentMeasure = 1; currentMeasure < 16; currentMeasure++){
@@ -126,6 +114,7 @@ if (drink[`strIngredient${currentMeasure}`])
     }
     return measureArray;   
 }
+//--- drink on click id ---//
 async function openModal(id) {
 	dynamicModalBackgroundElement.style.visibility = "visible";
 	body.style.overflow = 'hidden';
@@ -138,7 +127,15 @@ async function openModal(id) {
 	});
     console.log(id); // violetinis skaitmuo
 }
-//
+//---esc----//
+function closeModal() {
+	dynamicModalBackgroundElement.style.display = 'none';
+  }
+  window.addEventListener('keydown', function(event) {
+	if (event.key === 'Escape' || event.keyCode === 27) {
+	  closeModal();
+	}
+  });
 
 function closeModal() {
 	dynamicModalBackgroundElement.style.visibility = "hidden";
@@ -159,7 +156,7 @@ function closeModal() {
 				</div>
 				<div class="row">
 					<div class="b">Alcohol:</div>
-					<div class="p">${drink.strAlcoholic}</div>
+					<div class="link"><p class="modal-alcohol">${drink.strAlcoholic}</p></div>
 				</div>
 				<div class="row">
 					<div class="b">Glass:</div>
@@ -192,7 +189,59 @@ function closeModal() {
 		</div>`
         }
         document.querySelector(".modal1").innerHTML = dynamicHTML;
+		console.log(modalAlcohol);
+		const modalAlcohol = document.querySelector(".modal-alcohol");
+		modalAlcohol.addEventListener("click", () => {
+			closeModal();
+				});
     };
+//-----------ABC----------//
+// for (let i = 65; i <= 90; i++) {
+// 	const option = document.createElement('option');
+// 	option.value = String.fromCharCode(i);
+// 	option.textContent = String.fromCharCode(i);
+// 	letterSelectElement.appendChild(option);
+//   }
+//   searchButtontElement.addEventListener('click', () => {
+
+// 	displayABCDrinks(drinks);
+// });
+
+// async function displayAbcDrinks(i) {
+// const response = await fetch(
+// 	`https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${i.toUpperCase()}`);
+// const value = await response.json();
+// const drinks = value.drinks;
+// console.log(drinks);
+// if (drinks === option.textContent) {
+// 	generateDrinksHTML(drinks);
+// }
+// }
+
+function generateAbcLetters() {
+	
+	for (let i = 65; i <= 90; i++) {
+		const letter = String.fromCharCode(i);
+		const letterButton = document.createElement('button');
+		letterButton.textContent = letter;
+		letterButton.addEventListener('click', () => {
+			displayAbcDrinks(letter);
+		});
+		abcElement.appendChild(letterButton);
+	}
+}
+	generateAbcLetters();
+
+async function displayAbcDrinks(i) {
+	const response = await fetch(
+		`https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${i}`);
+	const value = await response.json();
+	const drinks = value.drinks;
+	if (drinks !== null) {
+		generateDrinksHTML(drinks);
+	} 
+	console.log("abc", drinks);
+};
 
 //------------------filtracija------------//
 async function filter(){
@@ -203,8 +252,7 @@ async function filter(){
 	let filteredArray = [...drinksArray];
 
 if(searchValue){
-		filteredArray = filteredArray.filter((drinkObj) => drinkObj.strDrink.toLowerCase().includes(searchValue.toLowerCase())
-		);
+		filteredArray = filteredArray.filter((drinkObj) => drinkObj.strDrink.toLowerCase().includes(searchValue.toLowerCase()));
 	}
 if (category !== "Choose Category"){
 	const promise = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${category.replaceAll(" ", "_")}`);
@@ -223,9 +271,30 @@ if (ingredient !== "Choose Ingredient"){
 	filteredArray = filteredArray.filter((drink) => 
 	drinksOfIngredient.drinks.some((drinkOfIngredient) => drink.idDrink === drinkOfIngredient.idDrink));
 	}
-generateDrinksHTML(filteredArray);
-cocktailNameFilterElement.value = "";
-};
+	generateDrinksHTML(filteredArray);
+	localStorage.setItem('filteredArray', JSON.stringify(filteredArray));
+	filteredArray = JSON.parse(localstorage.getItem('filteredArray'));
+	//cocktailNameFilterElement.value = "";
+	};
+
+//---Alcoholic---//
+
+// Filter by alcoholic
+// www.thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic
+// www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic
+
+// async function filterAlcoholic(){
+// const alcoholic = modalAlcohol.value;
+// let filteredArray = [...drinksArray];
+
+// if (alcoholic === drink.strAlcoholic.value){
+// 	const promise = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=${alcoholic.replaceAll(" ", "_")}`);
+// 	const drinksOfAlcoholic = await promise.json();
+// 	filteredArray = filteredArray.filter((drink) => 
+// 	drinksOfAlcoholic.drinks.some((drinkOfAlcoholic) => drink.strAlcoholic === drinkOfAlcoholic.strAlcoholic));
+// 	}
+
+
 
 async function initialization(){
 	await fillSelectElements();
@@ -234,10 +303,10 @@ async function initialization(){
 	searchButtontElement.addEventListener('click', filter);
 	//console.log(drinksArray); //visi atvaizduojami gerimai  TIK strDrink, strDrinkThumb, idDrink
 	}
-	
-	
-	
+
 //-------------------RANDOM-Done---------------------//
+
+//----ingredient ir measure----///
 function getIngredientsArray(drink) {
     const ingredientArray = [];
     for ( let currentIngredient = 1; currentIngredient < 16; currentIngredient++){
@@ -255,6 +324,8 @@ if (drink[`strIngredient${currentMeasure}`])
     }
     return measureArray;
 }
+
+//---- open ir close random---//
 function openRandomModal() {
     randomBackground.style.visibility = "visible";
     body.style.overflow = 'hidden';
@@ -339,4 +410,5 @@ fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
 		}
 	document.querySelector('.random-drinks').innerHTML = dynamicHTML;
 	};
+	
 	initialization();

@@ -8,26 +8,61 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Homemade+Apple&family=Poppins:wght@400;600&family=Roboto:wght@400;500&family=Shadows+Into+Light+Two&display=swap" rel="stylesheet">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="bar.ico" type="image/x-icon">
+
    <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
     <div class="modal-background">
         <div class="modal1">
             <!-- <div class="buttons">
+                <img src="${drink.strDrinkThumb}" alt="${drink.strDrink}"/>
+                <h3>${drink.strDrink}</h3>
+                    <div class="row">
+                        <div class="b">Category:</div>
+                        <div class="p">${drink.strCategory}</div>
+                    </div>
+                    <div class="row">
+                        <div class="b">Alcohol:</div>
+                        <div class="link"><a href="#" id="modal-alcohol">${drink.strAlcoholic}</a></div>
+                    </div>
+                    <div class="row">
+                        <div class="b">Glass:</div>
+                        <div class="p">${drink.strGlass}</div>
+                    </div>
+                    <div class="row">
+                        <div class="b">Ingredients:</div>
+                        <div class="p"></div>
+                    </div>
+                    <div class="row1">
+                        <div class="row">
+                            <div class= "col1">${ingredientArray[index]}</div>
+                            <div class= "col">${measureArray[index]}</div>
+                        </div>
+                     </div>
+                <div class="row">
+                        <div class="b">Recipe:</div>
+                        <div class="p1">${drink.strInstructions}</div>
+                    </div>
+                <hr/>
+                <button onclick="closeModal()">x</button>
             </div> -->
         </div>
     </div>
     <nav>
     <div class="container nav-container">
         <input type="text" id="cocktail-name-filter" placeholder="Name of the drink">
-        <select id="abc-select"><option>ABC</option></select>
+        <!-- <select id="abc-select"><option>ABC</option></select> -->
         <select id="category-select"> <option>Choose Category</option></select>
         <select id="glass-type-select"><option>Choose Glass Type</option></select>
         <select id="ingredient-select"><option>Choose Ingredient</option></select>
         <button id="search">Search</button>
         <button id="im-lucky">I'm feeling lucky!</button>
    </div>
-   <div><p>sorry</p></div>
+   <div class="container nav-container">
+        <div id="abc-letters"></div>
+   </div>
 </nav>
 <div class="random-background">
     <div class="random-drinks">
@@ -41,8 +76,6 @@
     </div>
 -->
 </div>
-    <!--<script src="kokteiliu_baras.js"></script>
-    -->
-    <script src="js_du.js"></script>
+    <script src="kokteiliu_baras.js"></script>
 </body>
 </html>
