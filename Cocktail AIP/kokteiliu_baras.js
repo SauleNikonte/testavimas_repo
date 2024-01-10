@@ -189,13 +189,14 @@ function closeModal() {
 		</div>`
         }
         document.querySelector(".modal1").innerHTML = dynamicHTML;
-		console.log(modalAlcohol);
 		const modalAlcohol = document.querySelector(".modal-alcohol");
 		modalAlcohol.addEventListener("click", () => {
+			alcoNonAlco()
 			closeModal();
 				});
     };
 //-----------ABC----------//
+//----buvo pradžia su selectu--//
 // for (let i = 65; i <= 90; i++) {
 // 	const option = document.createElement('option');
 // 	option.value = String.fromCharCode(i);
@@ -203,10 +204,8 @@ function closeModal() {
 // 	letterSelectElement.appendChild(option);
 //   }
 //   searchButtontElement.addEventListener('click', () => {
-
 // 	displayABCDrinks(drinks);
 // });
-
 // async function displayAbcDrinks(i) {
 // const response = await fetch(
 // 	`https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${i.toUpperCase()}`);
@@ -217,9 +216,7 @@ function closeModal() {
 // 	generateDrinksHTML(drinks);
 // }
 // }
-
 function generateAbcLetters() {
-	
 	for (let i = 65; i <= 90; i++) {
 		const letter = String.fromCharCode(i);
 		const letterButton = document.createElement('button');
@@ -230,7 +227,7 @@ function generateAbcLetters() {
 		abcElement.appendChild(letterButton);
 	}
 }
-	generateAbcLetters();
+generateAbcLetters();
 
 async function displayAbcDrinks(i) {
 	const response = await fetch(
@@ -240,7 +237,6 @@ async function displayAbcDrinks(i) {
 	if (drinks !== null) {
 		generateDrinksHTML(drinks);
 	} 
-	console.log("abc", drinks);
 };
 
 //------------------filtracija------------//
@@ -272,40 +268,69 @@ if (ingredient !== "Choose Ingredient"){
 	drinksOfIngredient.drinks.some((drinkOfIngredient) => drink.idDrink === drinkOfIngredient.idDrink));
 	}
 	generateDrinksHTML(filteredArray);
-	localStorage.setItem('filteredArray', JSON.stringify(filteredArray));
-	filteredArray = JSON.parse(localstorage.getItem('filteredArray'));
-	//cocktailNameFilterElement.value = "";
-	};
+
+//------ save to local storage-----/// išsaugo dar tik kategoriju values, bet ne dynamicHTML 
+function saveSelectValuesToLocalStorage() {
+	localStorage.setItem("Choose Category", category);
+	localStorage.setItem("Choose Glass Type", glass);
+	localStorage.setItem("Choose Ingredient", ingredient);
+}
+saveSelectValuesToLocalStorage();
+};
+
+//load from local storage - NEVEIKIA ir dabar nusinulina values po refresh 
+// function loadFiltersFromLocalStorage() {
+// 	const 
+// 	category = categorySelectElement.value,
+// 	glass = glassSelectElement.value,
+// 	ingredient = ingredientSelectElement.value;
+
+// 	const savedCategory = localStorage.getItem("Choose Category");
+// 	const savedGlassType = localStorage.getItem("Choose Glass Type");
+// 	const savedIngredient = localStorage.getItem("Choose Ingredient");
+
+// 	if (savedCategory) {
+// 		category.value = savedCategory;
+// 	}
+// 	if (savedGlassType) {
+// 		glass.value = savedGlassType;
+// 	}
+// 	if (savedIngredient) {
+// 		ingredient.value = savedIngredient;
+// 	}
+// 	filter();
+
+// 	const anyFilterApplied = savedCategory || savedGlassType || savedIngredient;
+
+//     if (anyFilterApplied) {
+//         filter();
+//     } else {
+        
+//         generateDrinksHTML(allValues);
+//     }
+// }
 
 //---Alcoholic---//
+async function alcoNonAlco() {
+	const modalAlcohol = document.querySelector(".modal-alcohol");
+	const link =  modalAlcohol.innerText;
+	const response = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=${link.replaceAll(" ","_")}`);
+	const object = await response.json();
+	const drinks = object.drinks;
+	generateDrinksHTML(drinks);
+}
 
-// Filter by alcoholic
-// www.thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic
-// www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic
-
-// async function filterAlcoholic(){
-// const alcoholic = modalAlcohol.value;
-// let filteredArray = [...drinksArray];
-
-// if (alcoholic === drink.strAlcoholic.value){
-// 	const promise = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=${alcoholic.replaceAll(" ", "_")}`);
-// 	const drinksOfAlcoholic = await promise.json();
-// 	filteredArray = filteredArray.filter((drink) => 
-// 	drinksOfAlcoholic.drinks.some((drinkOfAlcoholic) => drink.strAlcoholic === drinkOfAlcoholic.strAlcoholic));
-// 	}
-
-
-
+//-------initialization-----//
 async function initialization(){
 	await fillSelectElements();
 	await getAllDrinks();
 	generateDrinksHTML(drinksArray);
 	searchButtontElement.addEventListener('click', filter);
+	loadFiltersFromLocalStorage()
 	//console.log(drinksArray); //visi atvaizduojami gerimai  TIK strDrink, strDrinkThumb, idDrink
-	}
+}
 
 //-------------------RANDOM-Done---------------------//
-
 //----ingredient ir measure----///
 function getIngredientsArray(drink) {
     const ingredientArray = [];
@@ -324,7 +349,6 @@ if (drink[`strIngredient${currentMeasure}`])
     }
     return measureArray;
 }
-
 //---- open ir close random---//
 function openRandomModal() {
     randomBackground.style.visibility = "visible";
@@ -340,7 +364,6 @@ fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
 	.then((array) => {
 		const randomDrink = array.drinks;
         //console.log(randomDrink); //vieno gėrimo visos savybės
-        //console.log(array.drinks); //vieno gėrimo visos savybės (randomDrink)
 		generateRandomDrinkHTML(randomDrink);
 		openRandomModal();
 	})
@@ -410,5 +433,5 @@ fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
 		}
 	document.querySelector('.random-drinks').innerHTML = dynamicHTML;
 	};
-	
+
 	initialization();

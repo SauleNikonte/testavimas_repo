@@ -141,13 +141,14 @@ font-size: 26px;
     font-size: smaller;
     margin-left: 0.5rem;
 }
-a {
+.link {
     font-family: "Poppins";
     font-size: 14px;
     margin-left: 0.5rem;
     font-weight: bold;
     text-decoration: none;
     color:rgb(220, 165, 30);
+    cursor: pointer;
 }
 .p1 {
     font-family: "Poppins";
