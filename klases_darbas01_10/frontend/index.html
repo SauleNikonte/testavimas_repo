@@ -47,24 +47,28 @@
         </div>
         <h2 class="mt-4">Login</h2>
         <hr />
+        <form action="http://localhost:3000/prisijungimas" method="post">
         <input
             type="text"
             class="form-control mb-2"
             placeholder="Username"
             id="login-username"
+            name="username"
         />
         <input
             type="password"
             class="form-control mb-2"
             placeholder="Password"
             id="login-password"
+            name="password"
         />
-        <div
+        <!-- <div
             class="btn btn-primary"
             id="login-button"
         >
             Login
-        </div>
+        </div> -->
+        <input type="submit" value="Login" class="btn btn-primary"/>
     </div>
 
     <script src="script.js"></script>

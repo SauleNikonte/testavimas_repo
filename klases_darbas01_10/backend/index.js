@@ -7,7 +7,7 @@ server.use(cors());
 server.use(express.json());
 
 const users = [];
-// const todos = [];
+const todos = [];
 
 server.get("/user/:id", (req, res) => {
 	console.log("Method: " + req.method);
@@ -16,10 +16,10 @@ server.get("/user/:id", (req, res) => {
 	console.log("Parameters " + req.params.id);
 	console.log("Query " + JSON.stringify(req.query));
 	console.log("Buvo kreiptasi i serveri");
-	res.send("Labas pasauli!");
+	//res.send("Labas pasauli!");
 });
 
-server.get('/register')
+//server.get('/register')
 
 server.post("/register", (req, res) => {
 	//console.log(req.body);
