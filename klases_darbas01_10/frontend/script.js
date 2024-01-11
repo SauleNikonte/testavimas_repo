@@ -24,6 +24,7 @@ registerButton.onclick = register;
 const loginUsernameElement = document.querySelector("#login-username"),
 	loginPasswordElement = document.querySelector("#login-password"),
 	loginButton = document.querySelector("#login-button");
+	
 async function login() {
 	fetch("http://localhost:3000/prisijungimas", {
 		method: "POST",
@@ -39,6 +40,6 @@ async function login() {
 		.then((response) => (window.location.href = response.url))
 		.catch((err) => console.log(err));
 
-	// window.location.href = "http://127.0.0.1:5500/front-end/todos.html";
+	//window.location.href = "http://127.0.0.1:5500/frontend/todos.html";
 }
 loginButton.onclick = login;
