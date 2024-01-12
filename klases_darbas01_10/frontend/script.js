@@ -21,6 +21,8 @@ async function register() {
 }
 registerButton.onclick = register;
 
+// -- login --//
+
 const loginUsernameElement = document.querySelector("#login-username"),
 	loginPasswordElement = document.querySelector("#login-password"),
 	loginButton = document.querySelector("#login-button");
