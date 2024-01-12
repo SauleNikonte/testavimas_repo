@@ -37,7 +37,7 @@ input{
     border-bottom: 1px solid #a0d7ff;
     margin-bottom: 10px;
     text-align: right;
-    width: 150px;
+    width: 180px;
 }
 
 input:focus{
@@ -90,7 +90,7 @@ button{
     background: transparent;
     border-bottom: 1px solid #a0d7ff;
     margin-bottom: 10px;
-    width: 150px;
+    width: 180px;
 }
 
 button:hover{
