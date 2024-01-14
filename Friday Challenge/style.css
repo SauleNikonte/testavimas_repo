@@ -9,6 +9,7 @@ display: flex;
 justify-content: center;
 align-items: center;
 height: 100vh;
+overflow: hidden;
 }
 .section{
     display: flex;
@@ -36,8 +37,8 @@ input{
     background: transparent;
     border-bottom: 1px solid #a0d7ff;
     margin-bottom: 10px;
-    text-align: right;
-    width: 180px;
+    text-align: center;
+    width: 200px;
 }
 
 input:focus{
@@ -90,7 +91,7 @@ button{
     background: transparent;
     border-bottom: 1px solid #a0d7ff;
     margin-bottom: 10px;
-    width: 180px;
+    width: 200px;
 }
 
 button:hover{
@@ -117,7 +118,7 @@ button:hover{
     padding: .2rem 1rem;
     margin-top: .5rem;
     border-radius: 4px;
-    color: rgb(46, 46, 46);
+    color: black;
     font-weight: bold;
     text-align: center;
 }
