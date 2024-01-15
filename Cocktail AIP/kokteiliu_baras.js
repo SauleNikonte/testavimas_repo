@@ -279,36 +279,36 @@ saveSelectValuesToLocalStorage();
 };
 
 //load from local storage - NEVEIKIA ir dabar nusinulina values po refresh 
-// function loadFiltersFromLocalStorage() {
-// 	const 
-// 	category = categorySelectElement.value,
-// 	glass = glassSelectElement.value,
-// 	ingredient = ingredientSelectElement.value;
+function loadFiltersFromLocalStorage() {
 
-// 	const savedCategory = localStorage.getItem("Choose Category");
-// 	const savedGlassType = localStorage.getItem("Choose Glass Type");
-// 	const savedIngredient = localStorage.getItem("Choose Ingredient");
 
-// 	if (savedCategory) {
-// 		category.value = savedCategory;
-// 	}
-// 	if (savedGlassType) {
-// 		glass.value = savedGlassType;
-// 	}
-// 	if (savedIngredient) {
-// 		ingredient.value = savedIngredient;
-// 	}
-// 	filter();
+	const savedCategory = localStorage.getItem("Choose Category");
+	const savedGlassType = localStorage.getItem("Choose Glass Type");
+	const savedIngredient = localStorage.getItem("Choose Ingredient");
 
-// 	const anyFilterApplied = savedCategory || savedGlassType || savedIngredient;
+	if (savedCategory) {
+		categorySelectElement.value = savedCategory;
+		
+	}
+	if (savedGlassType) {
+		glassSelectElement.value = savedGlassType;
+	}
+	if (savedIngredient) {
+		ingredientSelectElement.value = savedIngredient;
+	}
+	filter();
 
-//     if (anyFilterApplied) {
-//         filter();
-//     } else {
-        
-//         generateDrinksHTML(allValues);
-//     }
-// }
+	const anyFilterApplied = savedCategory || savedGlassType || savedIngredient;
+
+    if (anyFilterApplied) {
+		
+        filter();
+    } else {
+        console.log("veikiusu filtru")
+        generateDrinksHTML(allValues);
+    }
+	console.log("veikiusu filtru")
+}
 
 //---Alcoholic---//
 async function alcoNonAlco() {
@@ -323,10 +323,12 @@ async function alcoNonAlco() {
 //-------initialization-----//
 async function initialization(){
 	await fillSelectElements();
-	await getAllDrinks();
+	await getAllDrinks()
+	if (localStorage.getItem("Choose Category") === "Choose Category" || localStorage.getItem("Choose Glass Type") === "Choose Glass Type" || localStorage.getItem("Choose Ingredient") === "Choose Ingredient" )loadFiltersFromLocalStorage()
 	generateDrinksHTML(drinksArray);
 	searchButtontElement.addEventListener('click', filter);
-	loadFiltersFromLocalStorage()
+	
+	
 	//console.log(drinksArray); //visi atvaizduojami gerimai  TIK strDrink, strDrinkThumb, idDrink
 }
 

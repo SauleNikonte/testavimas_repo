@@ -7,7 +7,7 @@ server.use(cors());
 server.use(express.json());
 
 const users = [];
-const todos = [];
+const todos = [{ id: 1, todo: "Nueiti i darba" }];
 
 server.get("/user/:id", (req, res) => {
 	console.log("Method: " + req.method);
@@ -16,13 +16,13 @@ server.get("/user/:id", (req, res) => {
 	console.log("Parameters " + req.params.id);
 	console.log("Query " + JSON.stringify(req.query));
 	console.log("Buvo kreiptasi i serveri");
-	//res.send("Labas pasauli!");
+	// res.send("Labas pasauli!");
 });
 
-//server.get('/register')
+// server.get('/register')
 
-server.post("/register", (req, res) => {
-	//console.log(req.body);
+server.post("/user/register", (req, res) => {
+	// console.log(req.body);
 	try {
 		const username = req.body.username;
 		const email = req.body.email;
@@ -40,7 +40,7 @@ server.post("/register", (req, res) => {
 });
 
 server.get("/users", (req, res) => {
-res.send(users);
+	res.send(users);
 });
 
 server.get("/users/:id", (req, res) => {
@@ -58,10 +58,10 @@ server.get("/users/:id", (req, res) => {
 	}
 });
 
-server.post("/prisijungimas", (req, res) => {
+server.post("/user/login", (req, res) => {
 	//1. Validuojame, ar req.body turi tokius laukus username, password
 	const username = req.body.username, //John
-		password = req.body.password; // asfd4a69sf4
+		password = req.body.password; // ledinukas -> a65f41as65f1as65f1as6f1as6f51as6f15as6f51a6sf1
 
 	if (!username)
 		return res
@@ -96,7 +96,7 @@ server.post("/todos", (req, res) => {
 	if (!todo) return res.status(400).json({ message: "Blogai ivestas todo" });
 	//validacija
 	const selectedUser = users.find(
-		(user) => user.username.toLowerCase() === username
+		(user) => user.username.toLowerCase() === username.toLowerCase()
 	);
 	if (!selectedUser)
 		return res.status(404).json({ message: "Vartotojas nerastas" });
@@ -113,7 +113,13 @@ server.get("/todos", (req, res) => {
 });
 
 server.get("/todos/:id", (req, res) => {
-	//
+	const id = +req.params.id;
+	if (isNaN(id))
+		return res.status(400).json({ message: "Įveskite tinkamą id" });
+	const existingTodo = todos.find((todo) => todo.id === id);
+	if (!existingTodo) res.status(404).json({ message: "Įrašas buvo nerastas" });
+	//404 - irasas nerastas
+	else res.status(200).json(existingTodo); //200 - sėkmingas atsakymas
 });
 
 server.put("/todos/:id", (req, res) => {
@@ -121,20 +127,33 @@ server.put("/todos/:id", (req, res) => {
 	if (isNaN(id))
 		return res.status(400).json({ message: "Įveskite tinkamą id" });
 	const { username, todo } = req.body;
+	console.log(username, todo);
 	const existingUser = users.find(
 		(user) => user.username.toLowerCase() === username.toLowerCase()
 	);
 	if (!existingUser)
 		return res.status(404).json({ message: "Toks vartotojas neegzistuoja" });
 
-	// {
-	// 	id: 1,
-	// 	username: "Petras",
-	// 	todo: "Nueiti pavalgyti",
-	// }
-
 	const existingTodo = todos.findIndex((currentTodo) => currentTodo.id === id);
 	todos[existingTodo] = { ...todos[existingTodo], todo, username };
+	if (!existingTodo)
+		res.status(404).json({ message: "Todo irašas buvo nerastas" });
+	else res.status(201).json(todos[existingTodo]);
+});
+
+server.delete("/todos/:id", (req, res) => {
+	const id = +req.params.id;
+	if (isNaN(id))
+		return res.status(400).json({ message: "Įveskite tinkamą id" });
+	const existingTodoIndex = todos.findIndex(
+		(currentTodo) => currentTodo.id === id
+	);
+	if (existingTodoIndex === -1) {
+		return res.status(404).json({ message: "Šalinamas įrašas nerastas" });
+	} else {
+		todos.splice(existingTodoIndex, 1);
+		return res.status(204).json({ message: "Įrašas sėkmingai ištrintas" });
+	}
 });
 
 server.listen(3000, () => {

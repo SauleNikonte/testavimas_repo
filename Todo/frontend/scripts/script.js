@@ -4,7 +4,7 @@ const usernameField = document.querySelector("#register-username"),
 	registerButton = document.querySelector("#send-registration");
 
 async function register() {
-	const promise = await fetch("http://localhost:3000/register", {
+	const promise = await fetch("http://localhost:3000/user/register", {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
@@ -21,13 +21,11 @@ async function register() {
 }
 registerButton.onclick = register;
 
-// -- login --// ir kreipimasis i serveri
-
 const loginUsernameElement = document.querySelector("#login-username"),
 	loginPasswordElement = document.querySelector("#login-password"),
 	loginButton = document.querySelector("#login-button");
 async function login() {
-	fetch("http://localhost:3000/prisijungimas", {
+	fetch("http://localhost:3000/user/login", {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
