@@ -61,16 +61,23 @@
 			}
 			.all-todos {
 				height: 100%;
+				overflow-y: scroll;
 			}
-			.actions i{
+			.done-list {
+				overflow-y: scroll;
+			}
+			.actions i {
 				cursor: pointer;
 				transition: all;
-				transition-duration: 0.2;
+				transition-duration: 0.2s;
 			}
 			.actions i:hover {
-                filter:brightness(80%);
+				filter: brightness(80%);
 				scale: 1.05;
-            }
+			}
+			.lists {
+				max-height: 80vh;
+			}
 		</style>
 	</head>
 	<body>
@@ -161,9 +168,9 @@
 				<div class="done-list dropzone"></div>
 			</div>
 		</div>
-		<script src="scripts/drag.js"></script>
-		<script src="scripts/todoDialogActions.js"></script>
-		<script src="scripts/add.js"></script>
-		<script src="scripts/buttonsActions.js"></script>
+		<script src="./scripts/api.js"></script>
+		<script src="./scripts/drag.js"></script>
+		<script src="./scripts/todoDialogActions.js"></script>
+		<script src="./scripts/buttonActions.js"></script>
 	</body>
-</html>
+	</html>
