@@ -1,7 +1,6 @@
 const express = require("express");
 const sessions = require("express-session");
 const cors = require("cors");
-
 const server = express();
 
 server.use(
@@ -98,7 +97,7 @@ server.post("/user/login", (req, res) => {
 	//"Sekmingai prisijungete prie sistemos"
 	if (selectedUser.password === password)
 		// res.send("Sekmingai prisijungete prie sistemos");
-		res.status(200).json({ url: "http://127.0.0.1:5500/front-end/todos.html" });
+		res.status(200).json({ url: "http://127.0.0.1:5500/frontend/todos.html" });
 });
 
 // CRUD operacijas TODOs'ams;

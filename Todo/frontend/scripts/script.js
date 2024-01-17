@@ -40,6 +40,6 @@ async function login() {
 		.then((response) => (window.location.href = response.url))
 		.catch((err) => console.log(err));
 
-	// window.location.href = "http://127.0.0.1:5500/front-end/todos.html";
+	window.location.href = "http://127.0.0.1:5500/frontend/todos.html";
 }
 loginButton.onclick = login;
