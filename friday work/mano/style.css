@@ -1,0 +1,77 @@
+*{
+    margin: 0 auto;
+    padding: 0 auto;
+    box-sizing: border-box;
+    font-family:'GT America Standard', sans-serif;
+}
+@font-face {
+    font-family: 'gt_americabold';
+    src: url('assets/gt_america_bold-webfont.woff2') format('woff2'),
+         url('assets/gt_america_bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'gt_americaregular';
+    src: url('assets/gt_america_regular-webfont.woff2') format('woff2'),
+         url('assets/gt_america_regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.help{
+    height: 100%;
+    background-color: #dadbf1;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 8rem;
+}
+.help-title {
+    font-size: 80px;
+    font-weight: 400;
+    padding-bottom: 3rem;
+}
+.input-group {
+    height: 30%;
+    width: 100%;
+    background-color: white;
+    border: 1px solid black ;
+    border-radius: 4px;
+}
+.input-group:hover {
+    border: 1px solid rgb(rgb(67, 84, 189)) ;
+}
+.form-control {
+    border: none;
+}
+.btn {
+    border: none;
+    color: white;
+}
+.bi {color: rgb(0, 0, 0);
+    border: none;
+    background-color: white;
+    font-size: 40px;
+    font-weight: 900;
+    content: "\F135";
+
+}
+/* .bi::before {
+    color: rgb(0, 0, 0);
+    border: none;
+    background-color: white;
+    font-size: 40px;
+    font-weight: 900;
+    content: "\F135";
+} */
+.bi:hover {
+    color: rgb(67, 84, 189);
+    background-color: white;
+    font-size: 40px;
+    font-weight: 900;
+    content: "\F135";
+   
+}
+

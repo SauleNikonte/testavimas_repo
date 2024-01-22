@@ -1,0 +1,30 @@
+*{
+    margin: 0 auto;
+    padding: 0 auto;
+    box-sizing: border-box;
+}
+
+a {
+    color: rgba(25, 26, 27, 1)
+}
+
+.abstract-logo {
+    background: black;
+    height: 60px;
+  }
+  .logo {
+    background: black;
+  }
+
+.navBar {
+    height: 100px;
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between
+}
+
+.helpCenter {
+    color: white;
+
+}
