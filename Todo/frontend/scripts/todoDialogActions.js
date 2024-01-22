@@ -4,25 +4,37 @@ const texts = {
 		done: "Move back",
 	},
 };
+
 const doneListElement = document.querySelector(".done-list"),
 	todoListElement = document.querySelector(".all-todos"),
 	todoInputElement = document.querySelector("#todo-input"),
 	todoSubmitBtn = document.querySelector("#todo-submit");
+
 function moveFromTodoToDone(event) {
 	console.log("Trys");
 	const targetId = event.target.attributes.todomove.value;
 	const moveTarget = document.querySelector(`[todo-id="${targetId}"]`);
 	doneListElement.appendChild(moveTarget);
+	moveFromTodoToDoneTextUpdate(event);
+	updateTodoApi({ id: targetId, done: true });
+}
+function moveFromTodoToDoneTextUpdate(event) {
 	event.target.innerText = texts.moveElementText.done;
 	event.target.onclick = moveFromDoneToTodo;
 }
+
 function moveFromDoneToTodo(event) {
 	const targetId = event.target.attributes.todomove.value;
 	const moveTarget = document.querySelector(`[todo-id="${targetId}"]`);
 	todoListElement.appendChild(moveTarget);
+	moveFromDoneToTodoTextUpdate(event);
+	updateTodoApi({ id: targetId, done: false });
+}
+function moveFromDoneToTodoTextUpdate(event) {
 	event.target.innerText = texts.moveElementText.todo;
 	event.target.onclick = moveFromTodoToDone;
 }
+
 function updateTodo(event) {
 	const targetId = event.target.attributes.todoupdate.value;
 	const updateTarget = document.querySelector(
@@ -32,8 +44,13 @@ function updateTodo(event) {
 		"Iveskite nauja todo reiksme:",
 		updateTarget.innerText
 	);
+	updateTodoApi({
+		id: targetId,
+		todo: updateTarget.innerText,
+	});
 	//Siusti uzklausa i serveri
 }
+
 function addClickListenersToTodoDialogButtons(a) {
 	const todoMoveButtonsInTodoList = document.querySelectorAll(
 			".all-todos .todo-move"
@@ -46,6 +63,7 @@ function addClickListenersToTodoDialogButtons(a) {
 	for (const updateTodoButton of todoUpdateButtons) {
 		updateTodoButton.onclick = updateTodo;
 	}
+
 	for (const todoMoveButton of todoMoveButtonsInTodoList) {
 		todoMoveButton.onclick = moveFromTodoToDone;
 		console.log("vienas");
@@ -54,10 +72,12 @@ function addClickListenersToTodoDialogButtons(a) {
 		todoMoveButton.onclick = moveFromDoneToTodo;
 		console.log("du");
 	}
+
 	for (const deleteButton of todoDeleteButtons) {
 		deleteButton.onclick = (event) => {
 			const targetId = event.target.attributes.tododelete.value;
 			const deleteTarget = document.querySelector(`[todo-id="${targetId}"]`);
+			deleteTodo(targetId);
 			deleteTarget.remove();
 		};
 	}
@@ -73,22 +93,20 @@ async function addNewTodo() {
 	});
 	const newTodoObject = response.newTodo;
 
-	
 	const newTodo = generateTodoHTML(newTodoObject);
 	todoListElement.innerHTML += newTodo;
 	addDragFunctionalityToAllElements();
 	addClickListenersToTodoDialogButtons();
 }
+
 function showAllTodos(todos) {
 	let innerHtml = "";
 
-	
 	for (const todo of todos) innerHtml += generateTodoHTML(todo);
 
 	todoListElement.innerHTML = innerHtml;
 	addDragFunctionalityToAllElements();
 	addClickListenersToTodoDialogButtons("show all todos");
-	todoListElement.innerHTML = innerHtml;
 }
 
 function showAllDones(todos) {
@@ -146,9 +164,8 @@ function generateTodoHTML(todo) {
 			</li>
 		</ul>
 	</div>
-</div>`
-};
-
+</div>`;
+}
 
 getAllTodos();
 todoSubmitBtn.onclick = addNewTodo;
