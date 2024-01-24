@@ -31,6 +31,9 @@ console.log("veikiu")
 // Statinį metodą, kuris sujungia dvi spalvas - gražina Color objektą
 
 class Color {
+  #red;
+  #green;
+  #blue;
     constructor(red, green, blue) {
       if (
         red < 0 || red > 255 ||
@@ -40,67 +43,16 @@ class Color {
         throw new Error('Blogos reikšmės');
       }
   
-      this.red = #red;
-      this.green = #green;
-      this.blue = #blue;
+      this.red = red;
+      this.green = green;
+      this.blue = blue;
     }
   
     get rgb() {
       return `rgb(${this.red}, ${this.green}, ${this.blue})`;
     }
   
-    get hsl() {
-      const r = this.red / 255;
-      const g = this.green / 255;
-      const b = this.blue / 255;
-  
-      const max = Math.max(r, g, b);
-      const min = Math.min(r, g, b);
-      const delta = max - min;
-  
-      let h = 0, s = 0, l = (max + min) / 2;
-  
-      if (delta !== 0) {
-        s = delta / (1 - Math.abs(2 * l - 1));
-  
-        switch (max) {
-          case r:
-            h = 60 * ((g - b) / delta % 6);
-            break;
-          case g:
-            h = 60 * ((b - r) / delta + 2);
-            break;
-          case b:
-            h = 60 * ((r - g) / delta + 4);
-            break;
-        }
-      }
-  
-      h = Math.round((h + 360) % 360);
-      s = Math.round(s * 100);
-      l = Math.round(l * 100);
-  
-      return `hsl(${h}, ${s}%, ${l}%)`;
-    }
-  
-    get hex() {
-      const toHex = (value) => {
-        const hex = value.toString(16);
-        return hex.length === 1 ? '0' + hex : hex;
-      };
-  
-      return `#${toHex(this.red)}${toHex(this.green)}${toHex(this.blue)}`;
-    }
-  
-    static combineColors(color1, color2) {
-      const combinedRed = Math.round((color1.red + color2.red) / 2);
-      const combinedGreen = Math.round((color1.green + color2.green) / 2);
-      const combinedBlue = Math.round((color1.blue + color2.blue) / 2);
-  
-      return new Color(combinedRed, combinedGreen, combinedBlue);
-    }
   }
-  
   class ColorPalette {
     static get WHITE() {
       return new Color(255, 255, 255);
