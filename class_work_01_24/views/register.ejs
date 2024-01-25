@@ -3,11 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registracija</title>
+    <title>Registration</title>
     <link rel="stylesheet" href="public/main.css">
 </head>
 <body>
-    <%- include('./components/nav-bar') %>
-    <div class="container"><h3>Sveiki atvykę į registraciją</h3></div>
+    <%- include('./components/nav-bar.ejs') %>
+	<section>
+    <div class="container-register">
+        <h2>Register</h2>
+			<form>
+				<fieldset>
+				  <legend>Are You over 14 years old?</legend>
+				  <div>
+					<input type="checkbox" id="age-validation" name="source" value="years">
+					<label for="years">I am over 14 years old</label>
+				  </div>
+			<input
+				type="text"
+				class="form-control mb-2"
+				placeholder="d.o.b."
+				id="register-age"
+			/>
+			<input
+				type="text"
+				class="form-control mb-2"
+				placeholder="Username"
+				id="register-username"
+			/>
+			<input
+				type="email"
+				class="form-control mb-2"
+				placeholder="Email"
+				id="register-email"
+			/>
+			<input
+				type="password"
+				class="form-control mb-2"
+				placeholder="Password"
+				id="register-password"
+			/>
+			<button class="button-35" id="login-button" role="button">Register</button>
+    </div>
+</section>
 </body>
 </html>
