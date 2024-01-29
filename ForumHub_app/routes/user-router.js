@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const UserModel = require("../models/user");
+const upload = require("../config/multer").upload;
+const security = require("../utils/security");
 
 router.post("/register", async (req, res) => {
 	const { username, email } = req.body;
