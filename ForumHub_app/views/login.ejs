@@ -6,7 +6,7 @@
 			name="viewport"
 			content="width=device-width, initial-scale=1.0"
 		/>
-		<title>Register</title>
+		<title>Login</title>
 		<link
 			rel="stylesheet"
 			href="public/grid.css"
@@ -21,28 +21,19 @@
 		></script>
 		<link
 			rel="stylesheet"
-			href="/public/register.css"
+			href="/public/login.css"
 		/>
 	</head>
 	<body>
 		<%- include('./components/header.ejs') %>
 		<form class="container">
-				<h2>Registration</h2>
+				<h2>Welcome back</h2>
 				<div>
 					<label>
 						<span>Username</span>
 						<input
 							type="text"
 							id="username"
-						/>
-					</label>
-				</div>
-				<div>
-					<label>
-						<span>D.O.B</span>
-						<input
-							type="date"
-							id="birth-date"
 						/>
 					</label>
 				</div>
@@ -55,26 +46,10 @@
 						/>
 					</label>
 				</div>
-				<div>
-					<label>
-						<span>Email</span>
-						<input
-							type="email"
-							id="email"
-						/>
-					</label>
-				</div>
-				<div>
-					<input
-						type="file"
-						id="profile-photo"
-						accept=".jpeg, .png, .gif, .bmp"
-					/>
-				</div>
-				<button class="register-button">Register</button>
-
+				
+				<button class="login-button">Login</button>
+			
 		</div>
-		<%- include("./components/footer.ejs") %>
-		<script src="/public/register.js"></script>
+		<script src="/public/login.js"></script>
 	</body>
 </html>

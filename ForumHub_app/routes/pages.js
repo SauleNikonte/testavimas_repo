@@ -16,6 +16,10 @@ router.get("/register", (req, res) => {
 	res.render("register");
 	//Register rout'as skirtas registracijai
 });
+router.get("/login", (req, res) => {
+	res.render("login");
+	//Register rout'as skirtas registracijai
+});
 router.get("/user-profile", (req, res) => {
 	res.render("user-profile");
 
