@@ -6,7 +6,7 @@
 			name="viewport"
 			content="width=device-width, initial-scale=1.0"
 		/>
-		<title>Login</title>
+		<title><%= title %></title>
 		<link
 			rel="stylesheet"
 			href="public/grid.css"
@@ -21,35 +21,44 @@
 		></script>
 		<link
 			rel="stylesheet"
-			href="/public/login.css"
+			href="/public/form.css"
 		/>
 	</head>
 	<body>
 		<%- include('./components/header.ejs') %>
-		<form class="container">
-				<h2>Welcome back</h2>
+		<div class="container gap-from-top">
+			<%- include('./components/errorMessage.ejs') %>
+			<form
+				action="/api/user/login"
+				method="post"
+			>
 				<div>
 					<label>
-						<span>Username</span>
+						<span>Prisijungimo vardas</span>
 						<input
 							type="text"
-							id="username"
+							name="loginName"
 						/>
 					</label>
 				</div>
 				<div>
 					<label>
-						<span>Password</span>
+						<span>Slaptažodis</span>
 						<input
 							type="password"
-							id="password"
+							name="password"
 						/>
 					</label>
 				</div>
-				
-				<button class="login-button">Login</button>
-			
+				<div>
+					<a
+						href="/register"
+						class="standart-link"
+						>Still don't have an account?</a
+					>
+				</div>
+				<button class="standart-button">Prisijungti</button>
+			</form>
 		</div>
-		<script src="/public/login.js"></script>
 	</body>
 </html>

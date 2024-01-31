@@ -1,5 +1,8 @@
-header {
+body {
   font-family: 'Poppins', sans-serif;
+}
+
+header {
 	background-color: #035553;
 	transition: background-color 0.3s;
 	padding: 1rem 2rem;
@@ -22,7 +25,7 @@ header nav .nav-item a {
 	position: relative;
 }
 header nav .nav-item {
-	width: 10%;
+	min-width: 10%;
 }
 header nav a:hover::after {
 	content: "";
@@ -45,7 +48,7 @@ header .logo {
 	height: 50px;
 	margin: auto 0;
 	display: block;
-  margin-left: 100px;
+  margin-left: 300px;
 }
 body {
 	margin: 0;
@@ -307,4 +310,62 @@ tbody tr {
     .footer__nav {
       flex: 2 0px;
     }
+  }
+  /*------Active Nav----*/
+  .active-nav-item {
+    color: white !important;
+  }
+  .active-nav-item::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 4px;
+    background: rgb(58, 218, 75);
+    background: linear-gradient(
+      63deg,
+      rgba(58, 218, 75, 1) 0%,
+      rgba(17, 113, 69, 1) 51%,
+      rgba(0, 68, 66, 1) 100%
+    );
+    position: absolute;
+  }
+  .standart-button {
+    background-color: #004442;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+  }
+  .standart-button:hover {
+    background-color: #035553;
+  }
+  .standart-link {
+    text-decoration: none;
+    color: blue;
+  }
+  .standart-link:hover {
+    text-decoration: underline;
+  }
+  
+  .heading {
+    font-size: 28px;
+    padding-right: 1rem;
+    border-bottom: 4px solid #004442;
+    width: fit-content;
+  }
+  
+  .gap-top {
+    margin-top: 2rem;
+  }
+  .thumbs-up {
+    color: #0b9968;
+    cursor: pointer;
+  }
+  .thumbs-down {
+    color: rgb(162, 39, 39);
+    cursor: pointer;
+  }
+  .bg-content {
+    background-color: rgb(245, 245, 245);
   }

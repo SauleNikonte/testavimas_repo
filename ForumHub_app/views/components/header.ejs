@@ -1,5 +1,5 @@
 <!-- HEADER -->
-<header class="header">
+<!-- <header class="header">
 	<img
 		class="logo"
 		src="/public/assets/robin.png"
@@ -15,4 +15,6 @@
 			<a href="/register">Register</a>
 		</div>
 	</nav>
-</header>
+</header> -->
+<% if (loggedIn) { %> <%- include('./loggedHeader.ejs') %> <% } else{ %> <%-
+	include('./notLoggedHeader.ejs') %> <% } %>
