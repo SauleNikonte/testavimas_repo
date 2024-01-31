@@ -3,6 +3,7 @@ const session = require("express-session");
 const MongoStore = require("connect-mongo");
 const pagesRouter = require("../routes/pages");
 const userRouter = require("../routes/user-router");
+const postRouter = require("../routes/posts-router");
 const bodyParser = require("body-parser");
 
 function config(app) {
@@ -16,7 +17,8 @@ function config(app) {
 	app.use(express.json());
 	app.use(bodyParser.urlencoded());
 	// Sesijų nustatymai
-	app.use(session({
+	app.use(
+		session({
 			secret: process.env.SESSIONS_SECRET,
 			resave: false,
 			saveUninitialized: false,
@@ -30,11 +32,13 @@ function config(app) {
 			},
 		})
 	);
-
 	//Tarpinio routo panaudojimas, pasiekiamas per http://localhost/public endpoint'ą
 	app.use("/public", publicRouter);
 	//Puslapių rout'ai
 	app.use(pagesRouter);
+
 	app.use("/api/user", userRouter);
+	app.use("/api/post", postRouter);
 }
+
 module.exports = { config };
