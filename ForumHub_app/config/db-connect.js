@@ -27,11 +27,11 @@ function config() {
 	//DB listeneriai, kurie nusako ar prie DB  buvo prisijungta sėkmingai ar ne
 	db.on("error", (error) => {
 		//ERROR listeneris
-		console.error("erroras: " + error);
+		console.error("error: " + error);
 	});
 	db.once("open", () => {
 		//PRISIJUNGIMO listeneris
-		console.info("Prie duomenų bazės buvo sėkmingai prisijungta");
+		console.info("Successfully connected to the database.");
 	});
 }
 

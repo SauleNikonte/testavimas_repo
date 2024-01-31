@@ -5,8 +5,8 @@ const UserModel = require("../models/user");
 router.get("/", (req, res) => {
 	//index.ejs failo atvaizdavimas iš views aplanko
 	const config = {
-		title: "Fortra - best forum in the world!",
-		username: "Justelio19",
+		title: "TRB - Made with ♥!",
+		username: "Mices",
 		list: ["Product1", "Product2", "Milk", "Choclate"],
 		activeTab: "Home",
 		loggedIn: !!req.session.user?.loggedIn,
@@ -22,7 +22,7 @@ router.get("/register", (req, res) => {
 	}
 	const config = {
 		activeTab: "Register",
-		title: "Fortra - Registration",
+		title: "TRB - Registration",
 		loggedIn: !!req.session.user?.loggedIn,
 		error: req.query.error,
 	};
@@ -35,7 +35,7 @@ router.get("/login", (req, res) => {
 	}
 	const config = {
 		activeTab: "Login",
-		title: "Fortra - Authentication",
+		title: "TRB - Authentication",
 		loggedIn: !!req.session.user?.loggedIn,
 		error: req.query.error,
 	};
@@ -45,7 +45,7 @@ router.get("/login", (req, res) => {
 router.get("/my-profile", async (req, res) => {
 	// Patikrinimas ar vartotojas yra prisijungęs
 	if (!req.session.user?.loggedIn) {
-		return res.redirect("/login?error=Jums reikia prisijungti prie paskyros");
+		return res.redirect("/login?error=Please, sign in");
 	}
 
 	const userData = await UserModel.findOne({ _id: req.session.user.id });

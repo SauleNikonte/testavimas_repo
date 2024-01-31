@@ -12,7 +12,7 @@ router.post("/register", upload.single("img"), async (req, res) => {
 		const fileName = require("../config/multer").lastFileName;
 
 		if (!username || !email || !password || !birthDate) {
-			return res.redirect("/register?error=Ne visi duomenys buvo užpildyti");
+			return res.redirect("/register?error=Not all information was filled.");
 		}
 		//Patikrinti ar vartotojo username bei email laukeliai yra unikalus
 		// await UserModel.find({_id: id}) gaunamas masyvas
@@ -41,15 +41,15 @@ router.post("/register", upload.single("img"), async (req, res) => {
 			id: newUser._id,
 			loggedIn: true,
 		};
-		res.redirect("/?message=registracija buvo sėkminga");
+		res.redirect("/?message=registration was successful");
 	} catch (err) {
-		res.redirect("/register?error=Registracija nepavyko dėl blogų duomenų");
+		res.redirect("/register?error=Registration failed due to incorrect data");
 	}
 });
 
 router.get("/users", async (req, res) => {
 	if (!req.session.user.admin)
-		return res.status(403).json({ message: "neturite tam teisiu" });
+		return res.status(403).json({ message: "Permissions needed" });
 	console.log(req.session.user);
 	const users = await UserModel.find({});
 	res.status(200).json(users);
@@ -82,11 +82,11 @@ router.get("/logout", async (req, res) => {
 	} else {
 		req.session.destroy((err) => {
 			if (err) {
-				console.log("klaida ištrinant sesiją");
+				console.log("error deleting session");
 				console.error(err);
 				return res.redirect("/");
 			} else {
-				console.log("sėkmingas atjungimo atvejis");
+				console.log("successful logoff");
 				res.clearCookie("connect.sid");
 				return res.redirect("/login");
 			}

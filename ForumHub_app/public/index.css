@@ -71,6 +71,7 @@ body {
 		align-items: center;
 		cursor: pointer;
 	}
+
 	header nav .nav-item:hover {
 		background-color: #0a5350;
 	}
@@ -83,7 +84,9 @@ body {
 		height: 0;
 	}
 }
+
 /* ----------------------------- */
+
 .container {
 	max-width: 1000px;
 	margin: 0 auto;
@@ -96,6 +99,7 @@ body {
 .content {
 	background-color: rgb(235, 235, 235);
 }
+
 .topic-headers {
 	background-color: #343a40;
 	color: white;
@@ -109,6 +113,7 @@ body {
 	display: flex;
 	background-color: rgb(250, 247, 247);
 }
+
 .row:nth-child(even) {
 	background-color: rgb(220, 220, 220);
 } */
@@ -119,6 +124,7 @@ table {
 	width: 100%;
 	border-collapse: collapse;
 }
+
 th {
 	text-align: left;
 }
@@ -147,6 +153,7 @@ tbody tr {
 	color: white;
 	padding: 0.25rem;
 }
+
 .post {
 	display: flex;
 	gap: 1rem;
@@ -169,6 +176,7 @@ tbody tr {
 .topic-details a:hover {
 	text-decoration: underline;
 }
+
 .author-outline {
 	text-decoration: none;
 	position: absolute;
@@ -180,10 +188,12 @@ tbody tr {
 	width: 100%;
 	background-color: rgb(197, 236, 236);
 }
+
 .last-post .date {
 	font-size: 12px;
 	margin-top: 0.5rem;
 }
+
 .active-nav-item {
 	color: white !important;
 }
@@ -219,12 +229,14 @@ tbody tr {
 .standart-link:hover {
 	text-decoration: underline;
 }
+
 .heading {
 	font-size: 28px;
 	padding-right: 1rem;
 	border-bottom: 4px solid #004442;
 	width: fit-content;
 }
+
 .gap-top {
 	margin-top: 2rem;
 }

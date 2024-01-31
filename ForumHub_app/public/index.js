@@ -1,4 +1,5 @@
 const header = document.querySelector(".header");
+
 window.addEventListener("scroll", function () {
 	console.log("a");
 	if (window.scrollY > 100) {
