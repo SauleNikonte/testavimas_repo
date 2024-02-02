@@ -1,110 +1,108 @@
-
+* {
+    margin : 0;
+    padding: 0;
+    font-family: Netflix Sans, Helvetica Neue, Segoe UI, Roboto, Ubuntu, sans-serif;
+    box-sizing: border-box;
+}
 body {
     background-color: black;
-    font-family: Netflix Sans, Helvetica Neue, Segoe UI, Roboto, Ubuntu, sans-serif
-}
-header{
-   background-image: url(https://assets.nflxext.com/ffe/siteui/vlv3/9134db96-10d6-4a64-a619-a21da22f8999/f6f81478-4bad-4f4a-a9ab-4fe3591ff92b/LT-en-20240115-trifectadaily-perspective_alpha_website_large.jpg), linear-gradient(to top, rgba(0, 0, 0, 0.8) 0, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.8) 100%); ;
-    height: 700px;
     color: white;
-    display: block;
-    align-items: center;
-    justify-content: center;
+}
+/* nepasidaro gradient */
+.header{
+    width: 100%;
+    height: 100vh;
+    background-image: url(https://assets.nflxext.com/ffe/siteui/vlv3/9134db96-10d6-4a64-a619-a21da22f8999/f6f81478-4bad-4f4a-a9ab-4fe3591ff92b/LT-en-20240115-trifectadaily-perspective_alpha_website_large.jpg) 
+    /* , linear-gradient(rgba(0,0,0,0.8), (0,0,0,0.8))*/;
+    background-size: cover;
+    background-position: center;
+    padding: 10px 8%;
+    position: relative;
 }
 nav {
-    max-width: 1000px;
     display: flex;
-    flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    padding: 10px 0;
 }
-.logo{
-    width: 9.25rem;
-    height: 2.5rem;
+.logo {
+    width: 150px;
+    cursor: pointer;
 }
-.material-symbols-outlined {
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 24
-}
-.select-btn {
-    justify-content: right;
-}
-#language {
+#language{
+    background: transparent;
+    color: white;
+    border-radius: 5px;
     height: 32px;
 }
-.sign-in-btn{
-    background-color: rgb(229, 9, 20);
-    display: inline-block;
-	color: #fff;
-	padding: 0.4rem 1.3rem;
-	font-size: 1rem;
-	text-align: center;
-	border: none;
-	cursor: pointer;
-	margin-right: 0.5rem;
-	transition: opacity 0.2s ease-in;
-	outline: none;
-	box-shadow: 0 1px 0 rgba(0, 0, 0, 0.45);
-	border-radius: 2px;
-}
-.sign-in-btn:hover {
-    opacity: 0.9;
-
-}
-
-
-h1, h2, h3, p {
-    color: white;
-    text-align: center;
-}
-
-/* accordion */
-
-.FAQ {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;    
-}
-h1{
-    font-size: 3.5rem;
-    text-align: center;
-    padding: 1rem;
+button {
+    height: 32px;
+    border:0;
+    outline: 0;
+    background: #db0001;
     color:white;
+    padding: 7px 20px;
+    font-size: 12px;
+    border-radius: 5px;
+    font-size: 14px;
 }
-.accordion {
-background-color: rgb(45, 45, 45);
-cursor: pointer;
-padding: 1rem;
-width: 70%;
-border-bottom: 1px solid rgb(8, 8, 8);
-transition: all .4s;
-display: flex;
-justify-content: space-between;
-align-items: center;
+button:hover {
+    opacity: 0.9;
 }
-.active, .accordion:hover{
-    background-color:  rgb(65, 65, 65);
-
-}
-.accordion::after {
-    font-family: "Helvetica";
-    font-weight: 900;
-    content: "\f067";
-}
-.active::after {
-    font-family: "Font Awesome 5 free";
-    font-weight: 900;
-    content: "\f068";
-}
-.desc {
-    max-height: 0;
-    width: 70%;
-    overflow: hidden;
-    padding: 1rem;
-    transition: max-height 0.5s ease;
-    background-color: rgb(45, 45, 45);
-}
+/**/
+.material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24
+  }
+  
+  
+  /* accordion */
+  
+  .FAQ {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;    
+  }
+  h1{
+      font-size: 3.5rem;
+      text-align: center;
+      padding: 1rem;
+      color:white;
+  }
+  .accordion {
+  background-color: rgb(45, 45, 45);
+  cursor: pointer;
+  padding: 1rem;
+  width: 70%;
+  border-bottom: 1px solid rgb(8, 8, 8);
+  transition: all .4s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  }
+  .active, .accordion:hover{
+      background-color:  rgb(65, 65, 65);
+  
+  }
+  .accordion::after {
+      font-family: "Helvetica";
+      font-weight: 900;
+      content: "\f067";
+  }
+  .active::after {
+      font-family: "Font Awesome 5 free";
+      font-weight: 900;
+      content: "\f068";
+  }
+  .desc {
+      max-height: 0;
+      width: 70%;
+      overflow: hidden;
+      padding: 1rem;
+      transition: max-height 0.5s ease;
+      background-color: rgb(45, 45, 45);
+  }
