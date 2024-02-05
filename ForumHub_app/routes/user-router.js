@@ -14,9 +14,30 @@ router.post("/register", upload.single("img"), async (req, res) => {
 		if (!username || !email || !password || !birthDate) {
 			return res.redirect("/register?error=Not all information was filled.");
 		}
+		const validationResult = validate(req.body);
+		if (validationResult !== "success") {
+			return res.redirect("/register?error=" + validationResult);
+		}
 		//Patikrinti ar vartotojo username bei email laukeliai yra unikalus
 		// await UserModel.find({_id: id}) gaunamas masyvas
 		// await UserModel.findOne({_id: id}) gaunamas vienas irasas
+
+		// vartotojo paieška pagal elektroninį paštą arba vartotojo vardą
+
+		// 2. budas
+		//$or
+		const existingUser = await UserModel.findOne({
+			$or: [{ email }, { username }],
+		});
+
+		if (existingUser) {
+			if (username === existingUser.username) {
+				return res.redirect("/register?error=Username already exists");
+			}
+			if (email === existingUser.email) {
+				return res.redirect("/register?error=Email already exists");
+			}
+		}
 
 		const salt = security.generateSalt();
 		const hashedPassword = security.hashPassword(password, salt);
@@ -29,10 +50,6 @@ router.post("/register", upload.single("img"), async (req, res) => {
 			birthDate,
 			profilePicture: `/public/images/${fileName}`,
 		};
-		const validationResult = validate(newUserObj);
-		if (validationResult !== "success") {
-			return res.redirect("/register?error=" + validationResult);
-		}
 
 		const newUser = new UserModel(newUserObj);
 		await newUser.save();

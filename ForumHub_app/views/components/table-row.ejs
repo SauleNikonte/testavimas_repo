@@ -6,17 +6,17 @@
 				<a
 					class="topic"
 					href=""
-					>How to create an expressJS server in nodeJS?</a
+					><%= post.title %></a
 				>
-				<p class="author">Author: <a href="">Justelio19</a></p>
+				<p class="author">Author: <a href=""><%= post.author %></a></p>
 			</div>
 		</div>
 	</td>
 	<td class="col-1">
-		<div class="single-number">106</div>
+		<div class="single-number"><%=post.commentsCount%></div>
 	</td>
 	<td class="col-1">
-		<div class="single-number">2200</div>
+		<div class="single-number"><%= post.viewsCount%></div>
 	</td>
 	<td class="col-4">
 		<div class="last-post">
@@ -26,7 +26,7 @@
 					<a
 						href=""
 						class="author-outline"
-						>Justelio19</a
+						><%= post.author %></a
 					>
 				</span>
 			</div>

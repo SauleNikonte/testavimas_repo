@@ -4,37 +4,63 @@
     font-family: Netflix Sans, Helvetica Neue, Segoe UI, Roboto, Ubuntu, sans-serif;
     box-sizing: border-box;
 }
+img { 
+    max-width: 100%;
+}
 body {
     background-color: black;
     color: white;
 }
-/* nepasidaro gradient */
-.header{
+header{
     width: 100%;
-    height: 100vh;
-    background-image: url(https://assets.nflxext.com/ffe/siteui/vlv3/9134db96-10d6-4a64-a619-a21da22f8999/f6f81478-4bad-4f4a-a9ab-4fe3591ff92b/LT-en-20240115-trifectadaily-perspective_alpha_website_large.jpg) 
-    /* , linear-gradient(rgba(0,0,0,0.8), (0,0,0,0.8))*/;
-    background-size: cover;
-    background-position: center;
-    padding: 10px 8%;
-    position: relative;
+    background-image: url(https://assets.nflxext.com/ffe/siteui/vlv3/9134db96-10d6-4a64-a619-a21da22f8999/f6f81478-4bad-4f4a-a9ab-4fe3591ff92b/LT-en-20240115-trifectadaily-perspective_alpha_website_large.jpg);
+    align-items:center;
+    justify-content: space-between; 
 }
 nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 0;
+    position: relative;
+    padding-top: 30px;
+    padding-left: 200px;
+    width: 80%;
 }
-.logo {
+header .logo svg {
+    fill: #e50914;
+    height: 40px;
     width: 150px;
     cursor: pointer;
 }
-#language{
+header a.button {
+    display: inline-block;
+    background-color: #e50914;
+    color: #fff;
+    text-decoration: none;
+    padding: 7px 17px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+header select {
     background: transparent;
     color: white;
-    border-radius: 5px;
-    height: 32px;
+    border-radius: 4px;
+    padding: 7px 17px;
 }
+
+.material-symbols-outlined {
+    font-size: 16px;
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24;
+  position:absolute;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+header select {
+    background: transparent;
+    color: white;
+}
+    
 button {
     height: 32px;
     border:0;
@@ -58,7 +84,6 @@ button:hover {
     transform: translate(-50%, -50%);
     text-align: center;
     margin-top: 100px;
-
 }
 .header-text h1{
     font-size: 60px;
@@ -102,6 +127,10 @@ button:hover {
 .email-signup button:hover {
     opacity: 0.9;
 }
+hr {
+    height: 10px;
+    color: rgba(35, 35, 35, 1);
+}
 .features {
     padding: 50px 12%;
     font-size: 22px;
@@ -131,16 +160,67 @@ button:hover {
     font-weight: 600;
     margin-bottom: 20px;
 }
+.features-img {
+    flex-basis: 50%;
+    margin-bottom: 20px;
+}
+.download {
+    border: 2px solid #666;
+    background-color: black;
+    border-radius: 15px;
+    padding: 8px 12px;
+    height: 104px;
+    width: 385px;
+    display: grid;
+    grid-template-columns: max-content 1fr max-content;
+    text-align: center;
+    align-items: center;
+    position: absolute;
+    margin-left: 120px;
+    margin-top: -150px;
+}
+.download img {
+    height: 80px;
+    width: auto;
+}
+.text-col{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding-left: 15px;
+}
+.text-col h3 {
+    font-size: 16px;
+    font-weight: 500;
+}
+.text-col span{
+    color: #0071eb;
+    font-size: 14px;
+    font-weight: 400;
+}
 
-/**/
+.download .gif {
+    height: 60px;
+}
+.media2 img {
+    width: 400px;
+    position: relative;
+}
+.media2 video {
+    width: 293px;
+    position:absolute;
+    top: 62px;
+    left: 52px;
+}
 
   /* accordion */
-/*   
+  
   .FAQ {
       height: 100vh;
       display: flex;
       justify-content: center;
-      align-items: center;    
+      align-items: center;
+      padding: 10px 12%;
   }
   h1{
       font-size: 3.5rem;
@@ -149,6 +229,7 @@ button:hover {
       color:white;
   }
   .accordion {
+
   background-color: rgb(45, 45, 45);
   cursor: pointer;
   padding: 1rem;
@@ -159,6 +240,14 @@ button:hover {
   justify-content: space-between;
   align-items: center;
   }
+  .container-faq {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 50px 0;
+}
+
   .active, .accordion:hover{
       background-color:  rgb(65, 65, 65);
   
@@ -180,4 +269,4 @@ button:hover {
       padding: 1rem;
       transition: max-height 0.5s ease;
       background-color: rgb(45, 45, 45);
-  } */
+  }

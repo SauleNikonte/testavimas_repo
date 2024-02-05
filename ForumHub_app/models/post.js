@@ -37,6 +37,10 @@ const schema = new mongoose.Schema({
 		default: 0,
 		required: true,
 	},
+	author: {
+		type: Object,
+		ref: "user",
+	},
 	dislikesCount: {
 		type: Number,
 		default: 0,
