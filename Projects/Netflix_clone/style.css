@@ -26,7 +26,7 @@ header{
     justify-content: space-between;
     align-items: center;
     padding: 10px 270px;
-    margin-top: 10px;
+    margin-top: 8px;
 }
 header .logo svg {
     fill: #e50914;
@@ -37,14 +37,14 @@ header .logo svg {
 header a.button {
     display: inline-block;
     background-color: #e50914;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 500;
     color: #fff;
     text-decoration: none;
-    padding: 7px 17px;
+    padding: 8px 17px;
     border-radius: 4px;
     cursor: pointer;
-    margin-left: 15px;
+    margin-left: 20px;
 }
 header a.button:hover {
     opacity: 0.9;
@@ -55,19 +55,20 @@ header select {
     font-size: 16px;
     font-weight: 400;
     border-radius: 4px;
-    padding: 6px 20px;
+    padding: 5px 0 5px 30px; 
 }
 
 .material-symbols-outlined {
-    font-size: 16px;
+    font-size: 14px;
   font-variation-settings:
   'FILL' 0,
   'wght' 400,
   'GRAD' 0,
   'opsz' 24;
   position:absolute;
-  margin-top: 8px;
-  margin-left: 5px;
+  margin-top: 9px;
+  margin-left: 7px;
+  padding-left: 4px;
 }
 .header-text {
     position: absolute;
@@ -103,7 +104,7 @@ header select {
 }
 .email-signup input{
     width: 370px;
-    background-color: rgba(250, 250, 250, 0.194);
+    background-color: rgba(26, 26, 26, 0.656);
     flex: 1;
     margin-right: 7px;
     min-height: 55px;
@@ -154,8 +155,17 @@ hr {
     font-size: 22px;
    
 }
+.features-text {
+    flex-basis: 60%;
+    margin-bottom: 20px;
+   
+}
 .features h1 {
-    font-size: 48px;
+    font-size: 54px;
+    margin-bottom: 20px;
+}
+.features p{
+    font-size: 24px;
 }
 .row {
     display: flex;
@@ -165,28 +175,22 @@ hr {
 }
 .features-tv {
     position: relative;
+    margin-top: 20px;
+    margin-left: 40px;
 }
-.features-text {
-    flex-basis: 50%;
-    margin-bottom: 20px;
-}
+
 .features-tv img{
-   width:100%;
+   width: 795px;
 }
 .features-tv video {
-    width:65%;
+    width:73%;
     position: absolute;
     top: 110px;
-    left: 100px;
+    left: 90px;
     z-index: -1;
 }
 .features-pc {
     position: relative;
-}
-.features-text {
-    flex-basis: 50%;
-    margin-bottom: 20px;
-
 }
 .features-pc img{
    width:100%;
@@ -198,11 +202,8 @@ hr {
     left: 100px;
     z-index: -1;
 }
-
-.features-video video {
-    display: block;
-    width: 90%;
-    margin: auto;
+.features-video {
+    width: 760px;
 }
 .features-text h2 {
     font-size: 50px;
@@ -251,40 +252,25 @@ hr {
 .download .gif {
     height: 60px;
 }
-.media2 img {
-    width: 400px;
-    position: relative;
-}
-.media2 video {
-    width: 293px;
-    position:absolute;
-    top: 62px;
-    left: 52px;
-}
+
   /* accordion */
-  
-  .FAQ {
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 10px 12%;
-  }
+
   .container-faq h1{
       font-size: 48px;
       font-weight: 900;
       text-align: center;
       padding: 1rem;
+      margin-bottom: 10px;
+      margin-top: 0;
       color:white;
   }
   .container-faq {
-    width: 80%;
-    min-height: 950px;
+    height: 100vh;
+    width: 100%;
     background-color: black;
-    margin-top: 8px; 
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
     text-align: left;
   }
@@ -297,33 +283,39 @@ hr {
     font-weight: 900;
   }
   .accordion {
+    position: relative;
     background-color: #2d2d2d;
     color: white;
     cursor: pointer;
-    width: 70%;
+    transition: all .4s;
+    width: 63%;
     font-size: 24px;
     font-weight: 400;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 30px 10px 20px;
-    border: 1px solid black;
+    padding: 6px 10px;
+    border-bottom: 4px solid black;
   }
-  .accordion:hover {
+  .active, .accordion:hover {
     background-color: #414141;
   }
   .accordion::after {
     font-family: "Font Awesome 5 free";
-    font-weight: 900;
+    font-size: 40px;
+    font-weight: 100;
     content: "\f067";
+    margin-right: 20px;
   }
-  .accordion.active::after {
+  .active::after {
     font-family: "Font Awesome 5 free";
-    font-weight: 900;
-    content: "\f00d";
+    font-size: 40px;
+    font-weight: 100;
+    content: "\f54c";
+    margin-right: 20px;
   }
   .container-faq .desc {
-    width: 70%;
+    width: 63%;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease;
@@ -331,8 +323,27 @@ hr {
     text-align: justify;
     background-color: #2d2d2d;
     font-size: 23px;
-    padding: 0 20px; 
-    box-sizing: border-box;
-    height: fit-content;
-    line-height: 30px;
+    /* padding: 10px 10px; */
+    border-bottom: 4px solid black;
   }
+  .get-started {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 70px;
+  }
+  .footer {
+    color:#ffffffb3
+
+  }
+  a {
+    color:#ffffffb3;
+    font-size: 14px;
+  }
+  .foot select {
+    background: transparent;
+    color: white;
+    font-size: 16px;
+    font-weight: 400;
+    border-radius: 4px;
+    padding: 6px 20px;
+}
