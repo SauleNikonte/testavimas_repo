@@ -65,7 +65,7 @@ router.post("/register", upload.single("img"), async (req, res) => {
 });
 
 router.get("/users", async (req, res) => {
-	if (!req.session.user.admin)
+	if (!req.session.user?.admin)
 		return res.status(403).json({ message: "Permissions needed" });
 	console.log(req.session.user);
 	const users = await UserModel.find({});
