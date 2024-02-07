@@ -2,13 +2,19 @@ const express = require("express");
 const router = express.Router();
 const UserModel = require("../models/user");
 const PostModel = require("../models/post");
+const CommentModel = require("../models/comment");
 
 router.get("/", async (req, res) => {
 	//index.ejs failo atvaizdavimas iš views aplanko
-	const posts = await PostModel.find({}).populate({
-		path: "author",
-		select: "username email",
-	});
+	const posts = await PostModel.find({})
+		.populate({
+			path: "author",
+			select: "username email",
+		})
+		.populate({
+			path: "lastCommentBy",
+			select: "username",
+		});
 	console.log(posts[0]);
 	
 	const config = {
@@ -59,7 +65,7 @@ router.get("/my-profile", async (req, res) => {
 	}
 
 	const userData = await UserModel.findOne({ _id: req.session.user.id });
-	console.log(userData);
+	// console.log(userData);
 	const config = {
 		activeTab: "Profile",
 		title: "TRB - My profile",
@@ -77,10 +83,10 @@ router.get("/my-profile", async (req, res) => {
 });
 router.get("/new-post", (req, res) => {
 	if (!req.session.user?.loggedIn) {
-		return res.redirect("/login?error=Jums reikia prisijungti prie paskyros");
+		return res.redirect("/login?error=Please login");
 	}
 	const config = {
-		title: "Fortra - best forum in the world!",
+		title: "TRB - powered by nature",
 		activeTab: "",
 		loggedIn: !!req.session.user?.loggedIn,
 	};
@@ -90,10 +96,10 @@ router.get("/new-post", (req, res) => {
 router.get("/profile/:id", async (req, res) => {
 	try {
 		const userData = await UserModel.findOne({ _id: req.session.user.id });
-		console.log(userData);
+		// console.log(userData);
 		const config = {
 			activeTab: "Profile",
-			title: "Fortra - My profile",
+			title: "TRB - My profile",
 			profilePhoto: userData.profilePicture,
 			loggedIn: !!req.session.user?.loggedIn,
 			username: userData.username,
@@ -112,16 +118,28 @@ router.get("/post/:id", async (req, res) => {
 			const post = await PostModel.findOne({ _id: req.params.id }).populate(
 				"author"
 			);
+			const comments = await CommentModel.find({ post: req.params.id });
+		post.viewsCount++;
+		post.save();
+		// PostModel.findByIdAndUpdate(
+		// 	{ _id: req.params.id },
+		// 	{
+		// 		$inc: { viewsCount: 1 },
+		// 	}
+		// ).exec();
 			const config = {
-				title: "Fortra - best forum in the world!",
+				title: "TRB - powered by nature",
 				activeTab: "",
 				loggedIn: !!req.session.user?.loggedIn,
 				post,
 				user: post.author,
+				error: req.query.error,
+			message: req.query.message,
+			comments,
 			};
 			res.render("post", config);
 		} catch (err) {
-			res.redirect("/?error=Nerastas irasas");
+			res.redirect("/?error=No such entry");
 		}
 });
 

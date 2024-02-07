@@ -161,17 +161,44 @@ hr {
     display: flex;
     width: 100%;
     align-items: center;
-    flex-wrap: wrap;
-    padding: 50px 0;
+   
+}
+.features-tv {
+    position: relative;
 }
 .features-text {
     flex-basis: 50%;
     margin-bottom: 20px;
 }
-.features-video {
+.features-tv img{
+   width:100%;
+}
+.features-tv video {
+    width:65%;
+    position: absolute;
+    top: 110px;
+    left: 100px;
+    z-index: -1;
+}
+.features-pc {
+    position: relative;
+}
+.features-text {
     flex-basis: 50%;
     margin-bottom: 20px;
+
 }
+.features-pc img{
+   width:100%;
+}
+.features-pc video {
+    width:65%;
+    position: absolute;
+    top:50px;
+    left: 100px;
+    z-index: -1;
+}
+
 .features-video video {
     display: block;
     width: 90%;

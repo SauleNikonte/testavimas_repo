@@ -58,7 +58,7 @@ router.post("/register", upload.single("img"), async (req, res) => {
 			id: newUser._id,
 			loggedIn: true,
 		};
-		res.redirect("/?message=registration was successful");
+		res.redirect("/?message=Registration was successful");
 	} catch (err) {
 		res.redirect("/register?error=Registration failed due to incorrect data");
 	}
@@ -99,11 +99,11 @@ router.get("/logout", async (req, res) => {
 	} else {
 		req.session.destroy((err) => {
 			if (err) {
-				console.log("error deleting session");
+				// console.log("error deleting session");
 				console.error(err);
 				return res.redirect("/");
 			} else {
-				console.log("successful logoff");
+				// console.log("successful logoff");
 				res.clearCookie("connect.sid");
 				return res.redirect("/login");
 			}
